@@ -1,4 +1,4 @@
-# EchohHive 
+# EchoHive 
 
 Where artist echos the world. Platform to upload and share sounds.
 
