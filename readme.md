@@ -91,23 +91,21 @@ Frontend:
 # Group Members and Work Breakdown
 
 + Day 1
-    + Auth Backend routes
-    + Auth Frontend Components
+    + User Register Auth - Vlad
+    + User Login Auth - Mac
+    + Feed - Leap
 + Day 2
-    + Finish Redux store
-    + Component Skeleton and Styling
-        + user profile
-        + track feed
-        + user profile track index
-        + track show page
+   + AWS setup - Vlad
+   + User Profile - Mac
+   + Track Show Page - Leap
 + Day 3
-    + Backend Audio Upload
-    + Frontend Audio Playback
+    + Audio Upload - Vlad
+    + Audio Playback - Mac
+    + Audio UI - Leap
 + Day 4
-    + integrate 
-    + Styling and UI/UX
+    + styling - Vlad/Mac/Leap
 + Day 5
-    + Produciton Readme
+    + Produciton Readme - Vlad/Mac/Leap
 
 ## Team 
 + Leap Soto
