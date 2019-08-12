@@ -107,8 +107,9 @@ Frontend:
     + integrate 
     + Styling and UI/UX
 + Day 5
+    + Produciton Readme
 
 ## Team 
 + Leap Soto
 + Mac Scheer
-+ 
++ Vlad Rez
