@@ -10,10 +10,13 @@ const TrackSchema = new Schema({
         type: String,
         required: true
     },
-    comment_ids: {
-        type: Array,
-        default: []
-    },
+    comments: [{
+        type: Schema.Types.ObjectId,
+        ref: 'comments'
+    }],
+        // type: Array,
+        // default: []
+
     src_url: {
         type: String,
         required: true
