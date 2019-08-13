@@ -1,6 +1,6 @@
 import { RECEIVE_TRACKS, RECEIVE_NEW_TRACK } from '../actions/track_actions';
 
-const TweetsReducer = (state = { all: {}, user: {}, new: undefined }, action) => {
+const TracksReducer = (state = { all: {}, user: {}, new: undefined }, action) => {
     Object.freeze(state);
     let newState = Object.assign({}, state);
     switch (action.type) {
@@ -10,7 +10,7 @@ const TweetsReducer = (state = { all: {}, user: {}, new: undefined }, action) =>
         // case RECEIVE_SINGLE_TRACK:
         //     newState.user = action.track.data;
         //     return newState;
-        case RECEIVE_NEW_TWEET:
+        case RECEIVE_NEW_TRACK:
             newState.new = action.track.data
             return newState;
         default:

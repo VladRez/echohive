@@ -1,4 +1,4 @@
-import { getTracks, getSingleTrack, postTrack } from '../util/track_api_util';
+import { getTracks, getSingleTrack, createTrack } from '../util/track_api_util';
 
 export const RECEIVE_TRACKS = "RECEIVE_TRACKS";
 // export const RECEIVE_SINGLE_TRACK = "RECEIVE_SINGLE_TRACK";
@@ -22,7 +22,11 @@ export const receiveNewTrack = track => ({
 export const fetchTracks = () => dispatch => (
     getTracks()
         .then(tracks => dispatch(receiveTracks(tracks)))
-        .catch(err => console.log(err))
+        .catch((err) => {
+            
+            console.log(err);
+            
+        })
 );
 
 // export const fetchSingleTrack = id => dispatch => (
@@ -32,7 +36,7 @@ export const fetchTracks = () => dispatch => (
 // );
 
 export const postTrack = data => dispatch => (
-    postTrack(data)
+    createTrack(data)
         .then(track => dispatch(receiveNewTrack(track)))
         .catch(err => console.log(err))
 );

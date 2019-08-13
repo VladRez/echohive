@@ -6,36 +6,46 @@ class Track extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            tracks: []
-        }
+        // this.state = {
+        //     tracks: []
+        // }
     }
 
-    componentWillMount() {
+    // componentWillMount() {
+    //     this.props.fetchTracks();
+    // }
+
+    // componentWillReceiveProps(newState) {
+    //     this.setState({ tracks: newState.tracks });
+    // }
+
+    componentDidMount() {
         this.props.fetchTracks();
     }
 
-    componentWillReceiveProps(newState) {
-        this.setState({ tracks: newState.tracks });
-    }
-
     render() {
-        if (this.state.tracks.length === 0) {
-            return (<div>There are no Tracks</div>)
-        } else {
+        // debugger;
+        // if (this.state.tracks.length === 0) {
+        //     return (
+        //         <div>No tracks</div>
+        //     );
+        // } 
+        
             return (
                 <div>
                     <h2>All Tracks</h2>
-                    {this.state.tracks.map(track => (
+                    {this.props.tracks.map(track => (
                         <TrackBox key={track._id}
                             trackname={track.trackname}
-                            url_source={track.url_source}
+                            src_url={track.src_url}
                         />
                     ))}
                 </div>
             );
-        }
+        
     }
 }
+
+
 
 export default withRouter(Track);

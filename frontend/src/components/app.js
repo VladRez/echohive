@@ -21,7 +21,7 @@ const App = () => (
 
             <Route exact path="/tracks" component={TracksContainer} />
             {/* <Route exact path="/userprofile/:trackId" component={TrackContainer} /> */}
-            <Route exact path="/new_track" component={TrackComposeContainer} />
+            <Route exact path="/tracks/newtrack" component={TrackComposeContainer} />
         </Switch>
     </div>
 );

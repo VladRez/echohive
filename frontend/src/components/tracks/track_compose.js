@@ -25,7 +25,7 @@ class TrackCompose extends React.Component {
             src_url: this.state.src_url
         };
 
-        this.props.composeTrack(track);
+        this.props.postTrack(track);
         this.setState({ trackname: '', src_url: '' })
     }
 
@@ -62,6 +62,7 @@ class TrackCompose extends React.Component {
                 </form>
                 <br />
                 <TrackBox trackname={this.state.newTrack} />
+                
             </div>
         )
     }
