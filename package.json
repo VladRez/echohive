@@ -19,13 +19,17 @@
   },
   "homepage": "https://github.com/VladRez/echohive#readme",
   "dependencies": {
+    "aws-sdk": "^2.509.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.6.9",
+    "multer": "^1.4.2",
+    "multer-s3": "^2.9.0",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
+    "uuid": "^3.3.2",
     "validator": "^11.1.0"
   },
   "devDependencies": {
