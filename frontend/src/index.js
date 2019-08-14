@@ -8,8 +8,8 @@ import configureStore from './store/store';
 import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
+import './index.css';
 // import * as serviceWorker from './serviceWorker';
-
 
 document.addEventListener('DOMContentLoaded', () => {
     window.axios = axios;
@@ -27,7 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (decodedUser.exp < currentTime) {
       store.dispatch(logout());
-      window.location.href = '/login';
+      //on successful logout redirect to
+      window.location.href = '/';
     }
   } else {
     store = configureStore({});

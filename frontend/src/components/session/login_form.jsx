@@ -16,11 +16,14 @@ class LoginForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // if (nextProps.currentUser === true) {
-    //   this.props.history.push('/feed');
-    // }
+    
+    if (nextProps.signedIn === true) {
+      
+      if (this.props.history.location.pathname !== "/feed")
+          this.props.history.push('/feed');
+    }
 
-    // this.setState({errors: nextProps.errors})
+    this.setState({errors: nextProps.errors})
   }
 
   update(field) {
@@ -37,7 +40,7 @@ class LoginForm extends React.Component {
       password: this.state.password
     };
 
-    this.props.login(user); 
+    this.props.login(user).then(this.props.closeModal); 
   }
 
   renderErrors() {
@@ -56,6 +59,7 @@ class LoginForm extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
+        <div onClick={this.props.closeModal} className="close-x">X</div>
           <div>
             <br/>
               <input type="text"
