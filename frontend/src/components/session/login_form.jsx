@@ -15,14 +15,15 @@ class LoginForm extends React.Component {
     this.renderErrors = this.renderErrors.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.signedIn === true) {
-      
-      if (this.props.history.location.pathname !== "/feed")
+  componentDidUpdate(updatedProps) {
+    if (updatedProps.signedIn === true) {
+      if (this.props.history.location.pathname !== "/feed") {
         this.props.history.push("/feed");
-    
+      }
     }
+  }
 
+  componentWillReceiveProps(nextProps) {
     this.setState({ errors: nextProps.errors });
   }
 
@@ -41,7 +42,7 @@ class LoginForm extends React.Component {
       password: this.state.password
     };
 
-    this.props.login(user).then(this.props.closeModal)
+    this.props.login(user);
   }
 
   renderErrors() {
