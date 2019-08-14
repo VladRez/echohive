@@ -2,3 +2,4 @@ config
 node_modules
 frontend/node_modules
 DevEchoHive.pem
+.DS_Store
