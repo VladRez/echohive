@@ -12,14 +12,18 @@ class TrackShow extends React.Component {
         this.props.fetchSingleTrack(this.props.match.params.trackId);
     }
 
+
     render() {
         // debugger;
-        // if (this.state.tracks.length === 0) {
+        if (!this.props.track) return null;
         //     return (
         //         <div>No tracks</div>
         //     );
         // } 
-        debugger;
+        // debugger;
+        // debugger;
+        // if (this.state === null) return null;
+
         return (
             <div>
                 {/* <h2>This Track</h2>
@@ -42,7 +46,7 @@ class TrackShow extends React.Component {
 
                 <h2>This Track</h2>
 
-                <div>{this.props.user}</div>
+                <h2>{this.props.track.trackname}</h2>
 
             </div>
         );

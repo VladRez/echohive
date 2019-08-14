@@ -5,7 +5,7 @@ import TrackShow from './track_show';
 const mapStateToProps = (state) => {
     return {
         tracks: Object.values(state.tracks.all),
-        track: state.user
+        track: state.tracks.track
     };
 };
 
