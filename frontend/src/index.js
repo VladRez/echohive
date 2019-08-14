@@ -1,6 +1,6 @@
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import './index.css';
 import axios from 'axios';
 
 import Root from './components/root';

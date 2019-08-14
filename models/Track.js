@@ -2,14 +2,21 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const TrackSchema = new Schema({
-    user: {
-        type: Schema.Types.ObjectId,
-        ref: 'users'
-    },
+    // user: {
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'users'
+    // },
     trackname: {
         type: String,
         required: true
     },
+    // comments: [{
+    //     type: Schema.Types.ObjectId,
+    //     ref: 'comments'
+    // }],
+        // type: Array,
+        // default: []
+
     comment_ids: [{
         type: Schema.Types.ObjectId,
         ref: 'comments'

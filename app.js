@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const users = require("./routes/api/users");
+const tracks = require("./routes/api/tracks");
 
 //   \/ NEW
 // const path = require("path");
@@ -25,6 +26,7 @@ app.use(bodyParser.json());
 
 app.get("/", (req, res) => res.send("Hello World!!"));
 app.use("/api/users", users);
+app.use("/api/tracks", tracks);
 
 ////  \/ \/
 app.use("/api/new-track/", trackRoutes);
