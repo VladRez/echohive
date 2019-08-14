@@ -55,6 +55,7 @@ class TrackCompose extends React.Component {
                         <input type="textarea"
                             value={this.state.src_url}
                             onChange={this.updateUrl()}
+                            placeholder="url goes here"
                         />
 
                         <input type="submit" value="Submit" />
