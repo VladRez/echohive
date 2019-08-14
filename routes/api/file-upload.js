@@ -7,6 +7,13 @@ const singleUpload = upload.single("track");
 
 router.post("/", (req, res) => {
   singleUpload(req, res, err => {
+    if (err) {
+      return res
+        .status(422)
+        .send({
+          errors: [{ title: "File Upload Error", detail: err.message }]
+        });
+    }
     return res.json({ src_url: req.file.location });
   });
 });

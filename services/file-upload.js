@@ -15,7 +15,20 @@ aws.config.update({
 });
 var s3 = new aws.S3();
 
+const fileFilter = (req, file, cb) => {
+  if (
+    file.mimetype === "audio/mp3" ||
+    file.mimetype === "audio/.wav" ||
+    file.mimetype === "audio/.flac"
+  ) {
+    cb(null, true);
+  } else {
+    cb(new Error("Invalid Mime Type, only MP3, WAV and FLAC allowed"), false);
+  }
+};
+
 var upload = multer({
+  fileFilter,
   storage: multerS3({
     s3,
     bucket: "echo-hive-dev",
