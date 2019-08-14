@@ -14,7 +14,7 @@
   color: #fff;
   position: relative;
   overflow: hidden;
-  border-top: 4px solid #f50;
+  border-top: 4px solid #629CFF;
   background-color: #666;
   height: 450px;
   -webkit-font-smoothing: antialiased;
@@ -37,7 +37,7 @@
   position: absolute;
   top: 13px;
   left: 19px;
-  background: url(https://a-v2.sndcdn.com/assets/images/header/cloud-e365a47.png)
+  background: url(../../ehlogo.png)
     no-repeat 12px 11px;
   background-size: 48px 22px;
   display: block;
@@ -45,6 +45,16 @@
   height: 46px;
   margin: 0;
   text-indent: -999em;
+}
+.hero-project-logo::after{
+    position: absolute;
+    left: 1px;
+    content: "wow";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    background: url(../../ehlogotext.png) no-repeat 60px 11px;
+    background-size: 115px 22px;
 }
 
 .hero-login-signin {
@@ -88,8 +98,8 @@
 
     transition: opacity .2s linear;
 
-    background-color: #f50;
-    border-color: #f50;
+    background-color: #629CFF;
+    border-color: #629CFF;
     color: #fff;
 
     display: inline-block;
@@ -111,7 +121,7 @@
   color: #fff;
   border-color: #ccc;
 
-  color: #333;
+  /* color: #333; */
 
   text-decoration: none;
   padding: 2px 0;
