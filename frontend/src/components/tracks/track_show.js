@@ -15,14 +15,9 @@ class TrackShow extends React.Component {
 
     render() {
         // debugger;
-        if (!this.props.track) return null;
-        //     return (
-        //         <div>No tracks</div>
-        //     );
-        // } 
-        // debugger;
-        // debugger;
-        // if (this.state === null) return null;
+        if (!this.props.track || !this.props.tracks || !this.props.track.src_url) return null;
+        // if (!this.props.tracks) return null;
+
 
         return (
             <div>
@@ -47,6 +42,13 @@ class TrackShow extends React.Component {
                 <h2>This Track</h2>
 
                 <h2>{this.props.track.trackname}</h2>
+
+                <figure>
+                    <figcaption>Listen some echoes:</figcaption>
+                    <audio controls>
+                        <source src={this.props.track.src_url} type="audio/mpeg"></source>
+                    </audio>
+                </figure>
 
             </div>
         );
