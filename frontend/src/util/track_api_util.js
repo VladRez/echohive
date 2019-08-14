@@ -5,7 +5,7 @@ export const getTracks = () => {
 };
 
 export const getSingleTrack = id => {
-    return axios.get(`/api/user/${id}`)
+    return axios.get(`/api/tracks/${id}`)
 };
 
 export const createTrack = data => {
