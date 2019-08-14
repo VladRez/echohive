@@ -1,73 +1,48 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import './index.css';
-// import App from './App';
-// import * as serviceWorker from './serviceWorker';
-
-// ReactDOM.render(<App />, document.getElementById('root'));
-
-// // If you want your app to work offline and load faster, you can change
-// // unregister() to register() below. Note this comes with some pitfalls.
-// // Learn more about service workers: https://bit.ly/CRA-PWA
-// serviceWorker.unregister();
-
-
-
-
-
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-// We will create this component shortly
-import Root from './components/root';
-
-// We set this up in the last section
-import configureStore from './store/store';
-
-// We will use this to parse the user's session token
-import jwt_decode from 'jwt-decode';
-
-// The session utility we just created
-// import { setAuthToken } from './util/session_api_util';
-
-// We have not created this action yet, but will do so in the next step
-// import { logout } from './actions/session_actions';
-
 import axios from 'axios';
 
+import Root from './components/root';
+import configureStore from './store/store';
+import jwt_decode from 'jwt-decode';
+import { setAuthToken } from './util/session_api_util';
+import { logout } from './actions/session_actions';
+import './index.css';
+// import * as serviceWorker from './serviceWorker';
+
 document.addEventListener('DOMContentLoaded', () => {
+    window.axios = axios;
     let store;
 
-    // If a returning user has a session token stored in localStorage
-    if (localStorage.jwtToken) {
-        console.log('x');
-        // Set the token as a common header for all axios requests
-        // setAuthToken(localStorage.jwtToken);
+  if (localStorage.jwtToken) {
+    setAuthToken(localStorage.jwtToken);
 
-        // Decode the token to obtain the user's information
-        // const decodedUser = jwt_decode(localStorage.jwtToken);
+    const decodedUser = jwt_decode(localStorage.jwtToken);
+    const preloadedState = { session: { isAuthenticated: true, user: decodedUser } };
+    
+    store = configureStore(preloadedState);
 
-        // // Create a preconfigured state we can immediately add to our store
-        // const preloadedState = { session: { isAuthenticated: true, user: decodedUser } };
+    const currentTime = Date.now() / 1000;
 
-        // store = configureStore(preloadedState);
-
-        // const currentTime = Date.now() / 1000;
-
-        // // If the user's token has expired
-        // if (decodedUser.exp < currentTime) {
-        //     // Logout the user and redirect to the login page
-        //     // store.dispatch(logout());
-        //     window.location.href = '/login';
-        // }
-    } else {
-        // If this is a first time user, start with an empty store
-        store = configureStore({});
+    if (decodedUser.exp < currentTime) {
+      store.dispatch(logout());
+      //on successful logout redirect to
+      window.location.href = '/';
     }
-    // Render our root component and pass in the store as a prop
-    const root = document.getElementById('root');
+  } else {
+    store = configureStore({});
+  }
+  window.store = store;
+  const root = document.getElementById('root');
 
-    ReactDOM.render(<Root store={store} />, root);
-    window.axios = axios;
+  ReactDOM.render(<Root store={store} />, root);
+
 });
+
+// ReactDOM.render(<App />, document.getElementById('root'));
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+// serviceWorker.unregister();

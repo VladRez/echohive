@@ -1,0 +1,222 @@
+.hero-container {
+  padding-top: 0;
+  padding: 0 30px;
+  width: 1180px;
+  margin: 0 auto;
+}
+
+.hero-container .hero-inner {
+  margin-left: -30px;
+  margin-right: -30px;
+}
+
+.hero-front {
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  border-top: 4px solid #629cff;
+  background-color: #666;
+  height: 450px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.hero-front-container {
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+
+.hero-project-logo {
+  position: absolute;
+  top: 13px;
+  left: 19px;
+  background: url(../../ehlogo.png) no-repeat 12px 11px;
+  background-size: 48px 22px;
+  display: block;
+  width: 184px;
+  height: 46px;
+  margin: 0;
+  text-indent: -999em;
+}
+.hero-project-logo::after {
+  position: absolute;
+  left: 1px;
+  content: "wow";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  background: url(../../ehlogotext.png) no-repeat 60px 11px;
+  background-size: 115px 22px;
+}
+
+.hero-login-signin {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+
+.hero-login-button {
+  padding: 2px 15px;
+  height: 30px;
+  line-height: 24px;
+  margin: 0 0 0 6px;
+
+  transition: opacity 0.2s linear;
+
+  background: 0 0;
+  color: #fff;
+  border-color: #ccc;
+
+  display: inline-block;
+  position: relative;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  white-space: nowrap;
+  font-family: "Interstate", "Lucida Grande", "Lucida Sans Unicode",
+    "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
+  font-weight: 100;
+  text-align: center;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+.hero-signup-button {
+  padding: 2px 16px;
+
+  height: 30px;
+  line-height: 24px;
+  margin: 0 0 0 6px;
+
+  transition: opacity 0.2s linear;
+
+  background-color: #629cff;
+  border-color: #629cff;
+  color: #fff;
+
+  display: inline-block;
+  position: relative;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  white-space: nowrap;
+  font-family: "Interstate", "Lucida Grande", "Lucida Sans Unicode",
+    "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
+  font-weight: 100;
+  text-align: center;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
+
+.hero-demo {
+  background: 0 0;
+  color: #fff;
+  border-color: #ccc;
+
+  /* color: #333; */
+
+  text-decoration: none;
+  padding: 2px 0;
+  border: 0;
+
+  height: 30px;
+  line-height: 24px;
+  margin: 0 0 0 6px;
+
+  display: inline-block;
+  position: relative;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+
+  white-space: nowrap;
+  font-family: "Interstate", "Lucida Grande", "Lucida Sans Unicode",
+    "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
+  font-weight: 100;
+  text-align: center;
+  vertical-align: baseline;
+
+  box-sizing: border-box;
+}
+
+/*Form styling*/
+
+.form-modal {
+    margin: 76px 0 30px;
+    /* position: absolute; */
+    top: 0;
+    padding: 25px;
+    background: #fff;
+    
+    box-sizing: border-box;
+}
+
+.form-modal .form-modal-content {
+    position: relative;
+    height: 100%;
+}
+
+
+.signin-form {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
+
+.signin-form .signin-form-contents {
+    flex: 0 0 100%;
+}
+
+.form-text-input {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+
+    font-size: 18px;
+    line-height: 24px;
+    padding: 7px 8px;
+    border-radius: 5px;
+
+    display: inline-block;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 2px 7px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    transition: border-color .1s;
+  }
+
+  .form-signin-button {
+    width: 100%;
+    background-color: #629cff;
+    border-color: #629cff;
+    color: #fff;
+
+    font-size: 16px;
+    line-height: 18px;
+    padding: 10px 15px;
+    height: 40px;
+
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    cursor: pointer;
+    white-space: nowrap;
+    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    font-weight: 100;
+    text-align: center;
+    vertical-align: baseline;
+    box-sizing: border-box;
+  }
