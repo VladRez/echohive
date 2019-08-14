@@ -1,13 +1,13 @@
-import React from 'react';
-import { withRouter } from 'react-router-dom';
+import React from "react";
+import { withRouter } from "react-router-dom";
 
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-    username: '',
-      password: '',
+      username: "",
+      password: "",
       errors: {}
     };
 
@@ -16,20 +16,21 @@ class LoginForm extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    
     if (nextProps.signedIn === true) {
       
       if (this.props.history.location.pathname !== "/feed")
-          this.props.history.push('/feed');
+        this.props.history.push("/feed");
+    
     }
 
-    this.setState({errors: nextProps.errors})
+    this.setState({ errors: nextProps.errors });
   }
 
   update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
+    return e =>
+      this.setState({
+        [field]: e.currentTarget.value
+      });
   }
 
   handleSubmit(e) {
@@ -40,16 +41,14 @@ class LoginForm extends React.Component {
       password: this.state.password
     };
 
-    this.props.login(user).then(this.props.closeModal); 
+    this.props.login(user).then(this.props.closeModal)
   }
 
   renderErrors() {
-    return(
+    return (
       <ul>
         {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>
-            {this.state.errors[error]}
-          </li>
+          <li key={`error-${i}`}>{this.state.errors[error]}</li>
         ))}
       </ul>
     );
@@ -57,24 +56,34 @@ class LoginForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="form-modal">
         <form onSubmit={this.handleSubmit}>
-        <div onClick={this.props.closeModal} className="close-x">X</div>
+          <div onClick={this.props.closeModal} className="close-x">
+            X
+          </div>
           <div>
-            <br/>
-              <input type="text"
-                value={this.state.username}
-                onChange={this.update('username')}
-                placeholder="username"
-              />
-            <br/>
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                placeholder="Password"
-              />
-            <br/>
-            <input type="submit" value="Submit" />
+            <br />
+            <input
+              className="form-text-input"
+              type="text"
+              value={this.state.username}
+              onChange={this.update("username")}
+              placeholder="username"
+            />
+            <br />
+            <input
+              className="form-text-input"
+              type="password"
+              value={this.state.password}
+              onChange={this.update("password")}
+              placeholder="Password"
+            />
+            <br />
+            <input
+              className="form-signin-button"
+              type="submit"
+              value="Submit"
+            />
             {this.renderErrors()}
           </div>
         </form>
