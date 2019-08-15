@@ -8,7 +8,7 @@ import TrackComposeContainer from "./tracks/track_compose_container";
 import TrackShowContainer from "./tracks/track_show_container";
 import TracksContainer from "./tracks/tracks_container";
 import SessionPage from "./session/session_container";
-import NavBarContainer from "./nav/NavBarContainer";
+import NavBarContainer from "./nav/navbar_container";
 import SessionModal from "./modal/session_form_modal";
 
 const App = () => (
