@@ -10,7 +10,7 @@ const trackRoutes = require("./routes/api/file-upload");
 const comments = require("./routes/api/comments")
 
 // ^^^ NEW ROUTE^^^
-const x = 'x';
+
 app.use(passport.initialize());
 require("./config/passport")(passport);
 
