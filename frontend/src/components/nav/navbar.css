@@ -7,7 +7,7 @@
     height: 46px;
     transition: height .2s ease-in-out;
 
-    position: fixed;
+    /* position: fixed; */
 
     z-index: 1000;
 
@@ -43,7 +43,8 @@
 }
 
 .nav-header-left .header-nav-logo {
-    background: linear-gradient(rgb(0, 255, 213),rgb(0, 110, 255));
+    /* background: linear-gradient(rgb(0, 119, 255),rgb(0, 89, 255)); */
+    background: transparent;
     float: left;
 }
 

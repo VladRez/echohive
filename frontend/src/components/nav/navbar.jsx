@@ -26,23 +26,30 @@ class NavBar extends React.Component {
       }
   }
 
-  render() {
-      return (
-        <header className="site-nav-header">
-              <div className="site-nav-contents">
-                <div className="nav-header-left">
-                  <div className="header-nav-logo">
-                    <a href="/feed">EchoHive</a>
-                  </div>
-                </div>
-                <div className="nav-header-middle"></div>
-                <div className="nav-header-right">
-
+  headerNavBar() {
+    return (
+      <header className="site-nav-header">
+            <div className="site-nav-contents">
+              <div className="nav-header-left">
+                <div className="header-nav-logo">
+                  <a href="/"></a>
                 </div>
               </div>
-      
-            {/* {this.getLinks()} */}
-        </header>
+              <div className="nav-header-middle"></div>
+              <div className="nav-header-right">
+
+              </div>
+            </div>
+    
+          {/* {this.getLinks()} */}
+      </header>
+    );
+    
+  }
+
+  render() {
+      return (
+        this.props.loggedIn ? this.headerNavBar() : ''
       );
   }
 }
