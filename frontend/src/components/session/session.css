@@ -176,6 +176,8 @@
 }
 
 .form-text-input {
+    margin: 10px 0;
+
     width: 100%;
     position: relative;
     z-index: 1;
@@ -209,7 +211,7 @@
 
     display: inline-block;
     position: relative;
-    margin: 0;
+    margin: 10px 0;
     border: 1px solid #e5e5e5;
     border-radius: 3px;
     cursor: pointer;

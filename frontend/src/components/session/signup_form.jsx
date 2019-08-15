@@ -49,9 +49,9 @@ class SignupForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul>
+      <ul style={{listStyleType: 'none', paddingLeft: '20px'}}>
         {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>{this.state.errors[error]}</li>
+          <li style={{fontSize: '12px'}} key={`error-${i}`}>{this.state.errors[error]}</li>
         ))}
       </ul>
     );
