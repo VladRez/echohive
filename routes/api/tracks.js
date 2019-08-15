@@ -31,6 +31,15 @@ router.get('/:id', (req, res) => {
 });
 
 
+// router.get('/:id', (req, res) => {
+//     Track.findById(req.params.id)
+//         .then(track => res.json(track))
+//         .catch(err =>
+//             res.status(404).json({ notrackfound: 'No track found with that ID' })
+//         );
+// });
+
+
 
 router.post('/',
     (req, res) => {
