@@ -47,9 +47,9 @@ class LoginForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul>
+      <ul style={{listStyleType: 'none', paddingLeft: '20px'}}>
         {Object.keys(this.state.errors).map((error, i) => (
-          <li key={`error-${i}`}>{this.state.errors[error]}</li>
+          <li style={{fontSize: '12px'}} key={`error-${i}`}>{this.state.errors[error]}</li>
         ))}
       </ul>
     );
@@ -58,10 +58,8 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="form-modal">
-        <form onSubmit={this.handleSubmit}>
-          <div onClick={this.props.closeModal} className="close-x">
-            X
-          </div>
+        <form className="signin-form" onSubmit={this.handleSubmit}>
+          <div onClick={this.props.closeModal} className=""></div>
           <div>
             <br />
             <input
@@ -69,7 +67,7 @@ class LoginForm extends React.Component {
               type="text"
               value={this.state.username}
               onChange={this.update("username")}
-              placeholder="username"
+              placeholder="Username"
             />
             <br />
             <input
@@ -87,6 +85,7 @@ class LoginForm extends React.Component {
             />
             {this.renderErrors()}
           </div>
+          
         </form>
       </div>
     );

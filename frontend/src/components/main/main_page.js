@@ -5,7 +5,7 @@ class MainPage extends React.Component {
   render() {
     return (
       <div>
-        <NavBarContainer/>
+        
         <h1>EchoHive</h1>
       </div>
     );

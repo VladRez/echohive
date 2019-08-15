@@ -15,6 +15,7 @@ import SessionModal from "./modal/session_form_modal";
 const App = () => (
   <div>
     <SessionModal />
+        <NavBarContainer/>
     <Switch>
       <AuthRoute exact path="/" component={SessionPage} />
       {/* <AuthRoute exact path="/login" component={LoginFormContainer} />
