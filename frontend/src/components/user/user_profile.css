@@ -1,0 +1,70 @@
+.profileContainer {
+    padding-top: 46px;
+    padding: 0 30px;
+    width: 1180px;
+    margin: 0 auto;
+}
+
+.profileContainer .profileHeader {
+    position: relative;
+    margin-left: -30px;
+    margin-right: -30px;
+    padding: 30px;
+    box-sizing: border-box;
+    overflow: hidden;
+    height: 260px;
+}
+
+.profileContainer .profileHeader .profileHeaderContents {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.profileContainer .profileHeader .profileHeaderContents .profileUsername {
+    margin-top: 0;
+
+    color: #fff;
+    font-weight: 100;
+
+    font-size: 24px;
+    line-height: 37px;
+    padding: 4px 7px;
+
+    display: inline-block;
+
+    position: relative;
+    background-color: rgba(0,0,0,.8);
+}
+
+.profileHeaderBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #e5e5e5;
+}
+
+.profileHeaderBackground .fillBackground {
+    height: 100%;
+}
+
+.profileHeaderBackground .fillBackground .backgroundGradient {
+    position: relative;
+    height: 100%;
+    z-index: 0;
+
+}
+
+.profileHeaderBackground .fillBackground .backgroundGradient .fillColor {
+    background: linear-gradient(315deg, rgb(230, 132, 110) 0%, rgb(112, 146, 156) 100%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    opacity: 1;
+    transition: opacity .3s;
+}
