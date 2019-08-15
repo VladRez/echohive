@@ -25,6 +25,7 @@ const App = () => (
         <Route exact path="/tracks/newtrack" component={TrackComposeContainer} />
         <Route exact path="/tracks/:trackId" component={TrackShowContainer} />
         <Route exact path="/feed" component={TracksContainer} />
+        
     </div>
   );
   

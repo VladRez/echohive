@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export const getTracks = () => {
-    return axios.get('/api/tracks/')
+export const getTracks = (id) => {
+    return axios.get('/api/tracks/', id)
 };
 
 export const getSingleTrack = id => {
