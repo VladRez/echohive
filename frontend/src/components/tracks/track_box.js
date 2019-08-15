@@ -8,7 +8,7 @@ class TrackBox extends React.Component {
                 
                 <h3><Link to={`/tracks/${this.props.id}`}>{this.props.trackname}</Link></h3>
                 <h3>{this.props.src_url}</h3>
-
+                
 
             </div>
         );

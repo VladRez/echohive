@@ -32,3 +32,12 @@ const App = () => (
 );
 
 export default App;
+        </Switch>
+        <Route exact path="/tracks/newtrack" component={TrackComposeContainer} />
+        <Route exact path="/tracks/:trackId" component={TrackShowContainer} />
+        <Route exact path="/feed" component={TracksContainer} />
+        
+    </div>
+  );
+  
+  export default App;
