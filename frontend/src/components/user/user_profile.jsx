@@ -14,7 +14,23 @@ class UserProfile extends React.Component {
     }
 
     render() {
-        return (<div>{this.props.user ? this.props.user.username : ''}</div>)
+        let username = this.props.user ? this.props.user.username : '';
+        return (<div className="profileContainer">
+            <div className="profileHeader">
+                <div className="profileHeaderContents">
+                    <div className="profileUsername">{username}</div>
+                    <div className="profileHeaderBackground">
+                        <div className="fillBackground">
+                            <div className="backgroundGradient">
+                                <div className="fillColor">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>)
     }
 }
 
