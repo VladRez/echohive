@@ -1,4 +1,4 @@
-import { getTracks, getSingleTrack, createTrack, getUserTracks } from '../util/track_api_util';
+import { getTracks, getSingleTrack, createTrack, getUserTracks, postTrack } from '../util/track_api_util';
 
 export const RECEIVE_TRACKS = "RECEIVE_TRACKS";
 export const RECEIVE_SINGLE_TRACK = "RECEIVE_SINGLE_TRACK";

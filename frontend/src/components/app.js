@@ -9,13 +9,8 @@ import TrackShowContainer from "./tracks/track_show_container";
 import TracksContainer from "./tracks/tracks_container";
 import UserProfileContainer from './user/user_profile_container';
 import SessionPage from "./session/session_container";
-import NavBarContainer from "./nav/NavBarContainer";
+import NavBarContainer from "./nav/navbar_container";
 import SessionModal from "./modal/session_form_modal";
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import { Switch, Route } from 'react-router-dom';
-import React from 'react';
-
-
 
 const App = () => (
   <div>
