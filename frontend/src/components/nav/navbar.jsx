@@ -25,7 +25,7 @@ class NavBar extends React.Component {
           <div className="nav-header-middle" />
           <div className="nav-header-right">
             <div className="header-nav-button">
-              <a href="#/upload">Upload</a>
+              <a href="#/tracks/upload">Upload</a>
             </div>
             <div className="header-nav-button">
               <a href="/" onClick={this.logoutUser}>
