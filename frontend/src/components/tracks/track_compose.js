@@ -45,16 +45,6 @@ class TrackCompose extends React.Component {
 
         this.props.postTrack(formData, this.state.trackname, this.props.currentUser.id);
         
-        // $.ajax({
-        //     url: '/api/tracks',
-        //     method: 'POST',
-        //     data: formData,
-        //     contentType: false,
-        //     processData: false
-        // }).then(() => {
-        //     //need to finish \/
-        //     this.props.history.push(`/tracks/${this.props.track.id}`)
-        // });
     }
 
     // ^^

@@ -1,4 +1,4 @@
-import { getTracks, getSingleTrack, createTrack } from '../util/track_api_util';
+import { getTracks, getSingleTrack, createTrack, postTrack } from '../util/track_api_util';
 
 export const RECEIVE_TRACKS = "RECEIVE_TRACKS";
 export const RECEIVE_SINGLE_TRACK = "RECEIVE_SINGLE_TRACK";
@@ -37,13 +37,19 @@ export const fetchSingleTrack = id => dispatch => (
 
 //needs 2 func args
 
-export const postTrack = (data, trackname, user) => dispatch => (
+export const postTrackFile = (data, trackname, user) => dispatch => (
     createTrack(data)
         .then(res => {
-            res.trackname = trackname;
-            res.user = user;
-            postTrack(res)
-            dispatch(receiveNewTrack(res))
+            // debugger;
+            let track = {};
+            track.trackname = trackname;
+            track.id = user;
+            track.src_url = res.data.src_url;
+            
+            postTrack(track).then(mres => {
+            dispatch(receiveNewTrack(mres)) //jSON obj 
+
+            })
             
         })
         .catch(err => console.log(err))

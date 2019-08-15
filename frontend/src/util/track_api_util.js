@@ -13,5 +13,5 @@ export const createTrack = data => {
 }
 
 export const postTrack = data => {
-    return axios.post('/api/tracks', data)
+    return axios.post('/api/tracks/', data)
 }

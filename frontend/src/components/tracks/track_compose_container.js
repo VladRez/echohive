@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { postTrack } from '../../actions/track_actions';
+import { postTrackFile } from '../../actions/track_actions';
 import TrackCompose from './track_compose';
 
 const mapStateToProps = (state) => {
@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        postTrack: (data, trackname, user) => dispatch(postTrack(data, trackname, user))
+        postTrack: (data, trackname, user) => dispatch(postTrackFile(data, trackname, user))
     };
 };
 
