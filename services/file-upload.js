@@ -1,7 +1,3 @@
-// const router = express.Router();
-// const Track = require("../../models/Track");
-// const app = express();
-
 const aws = require("aws-sdk");
 const multer = require("multer");
 const multerS3 = require("multer-S3");

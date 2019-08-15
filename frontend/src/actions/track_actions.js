@@ -22,10 +22,8 @@ export const receiveNewTrack = track => ({
 export const fetchTracks = () => dispatch => (
     getTracks()
         .then(tracks => dispatch(receiveTracks(tracks)))
-        .catch((err) => {
-            
+        .catch((err) => { 
             console.log(err);
-            
         })
 );
 
@@ -35,22 +33,17 @@ export const fetchSingleTrack = id => dispatch => (
         .catch(err => console.log(err))
 );
 
-//needs 2 func args
 
 export const postTrackFile = (data, trackname, user) => dispatch => (
     createTrack(data)
         .then(res => {
-            // debugger;
             let track = {};
             track.trackname = trackname;
             track.id = user;
             track.src_url = res.data.src_url;
-            
             postTrack(track).then(mres => {
-            dispatch(receiveNewTrack(mres)) //jSON obj 
-
-            })
-            
+            dispatch(receiveNewTrack(mres)) 
+            })         
         })
         .catch(err => console.log(err))
 );
