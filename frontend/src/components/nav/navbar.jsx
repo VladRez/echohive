@@ -6,7 +6,6 @@ class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.logoutUser = this.logoutUser.bind(this);
-    this.getLinks = this.getLinks.bind(this);
   }
 
   logoutUser(e) {
@@ -14,19 +13,7 @@ class NavBar extends React.Component {
     this.props.logout();
   }
 
-  // Selectively render links dependent on whether the user is logged in
-  getLinks() {
-    if (this.props.loggedIn) {
-      return (
-        <div>
-          <button onClick={this.logoutUser}>Logout</button>
-        </div>
-      );
-    }
-  }
-
   headerNavBar() {
-    
     return (
       <header className="site-nav-header">
         <div className="site-nav-contents">
@@ -36,20 +23,22 @@ class NavBar extends React.Component {
             </div>
           </div>
           <div className="nav-header-middle" />
-          <div className="nav-header-right" >
-          <div className="header-nav-button">
-              <a href="#/upload" >Upload</a>
+          <div className="nav-header-right">
+            <div className="header-nav-button">
+              <a href="#/upload">Upload</a>
             </div>
             <div className="header-nav-button">
-              <a href="/" onClick={this.logoutUser}>Logout</a>
+              <a href="/" onClick={this.logoutUser}>
+                Logout
+              </a>
             </div>
             <div className="header-nav-button">
-              <a href={`#/user/${this.props.currentUser.id}`} >{this.props.currentUser.username}</a>
+              <a href={`#/user/${this.props.currentUser.id}`}>
+                {this.props.currentUser.username}
+              </a>
             </div>
           </div>
         </div>
-
-        {/* {this.getLinks()} */}
       </header>
     );
   }
