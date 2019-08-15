@@ -22,7 +22,8 @@ class TrackCompose extends React.Component {
         e.preventDefault();
         let track = {
             trackname: this.state.trackname,
-            src_url: this.state.src_url
+            src_url: this.state.src_url,
+            user: this.props.currentUser.id
         };
 
         this.props.postTrack(track);

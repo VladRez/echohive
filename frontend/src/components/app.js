@@ -8,6 +8,7 @@ import SignupFormContainer from './session/signup_form_container';
 import TrackComposeContainer from './tracks/track_compose_container';
 import TrackShowContainer from './tracks/track_show_container';
 import TracksContainer from './tracks/tracks_container';
+import UserProfileContainer from './user/user_profile_container';
 import SessionPage from './session/session_container'
 
 import SessionModal from './modal/session_form_modal'
@@ -20,11 +21,12 @@ const App = () => (
           {/* <AuthRoute exact path="/login" component={LoginFormContainer} />
           <AuthRoute exact path="/signup" component={SignupFormContainer} /> */}
             <ProtectedRoute path="/feed" component={MainPage} />
-
+            <Route exact path="/tracks/newtrack" component={TrackComposeContainer} />
+            <Route exact path="/tracks/:trackId" component={TrackShowContainer} />
         </Switch>
-        <Route exact path="/tracks/newtrack" component={TrackComposeContainer} />
-        <Route exact path="/tracks/:trackId" component={TrackShowContainer} />
+        
         <Route exact path="/feed" component={TracksContainer} />
+        <Route exact path="/users/:userId" component={UserProfileContainer} />
         
     </div>
   );
