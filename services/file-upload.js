@@ -23,7 +23,7 @@ const fileFilter = (req, file, cb) => {
   ) {
     cb(null, true);
   } else {
-    cb(new Error("Invalid Mime Type, only MP3, WAV and FLAC allowed"), false);
+    cb(new Error("Invalid Mime Type, only MP3, WAV and FLAC allowed" + file.mimetype), false);
   }
 };
 

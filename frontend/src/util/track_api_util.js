@@ -9,5 +9,9 @@ export const getSingleTrack = id => {
 };
 
 export const createTrack = data => {
-    return axios.post('/api/tracks/', data)
+    return axios.post('/api/newtrack/', data)
+}
+
+export const postTrack = data => {
+    return axios.post('/api/tracks', data)
 }

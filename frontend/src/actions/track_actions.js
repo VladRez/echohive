@@ -35,8 +35,16 @@ export const fetchSingleTrack = id => dispatch => (
         .catch(err => console.log(err))
 );
 
-export const postTrack = data => dispatch => (
+//needs 2 func args
+
+export const postTrack = (data, trackname, user) => dispatch => (
     createTrack(data)
-        .then(track => dispatch(receiveNewTrack(track)))
+        .then(res => {
+            res.trackname = trackname;
+            res.user = user;
+            postTrack(res)
+            dispatch(receiveNewTrack(res))
+            
+        })
         .catch(err => console.log(err))
 );

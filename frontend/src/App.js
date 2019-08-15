@@ -1,9 +1,5 @@
 import React from 'react';
-<<<<<<< HEAD
 // import logo from './logo.svg';
-=======
-import logo from './logo.svg';
->>>>>>> master
 import './App.css';
 
 function App() {

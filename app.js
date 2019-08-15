@@ -9,7 +9,6 @@ const tracks = require("./routes/api/tracks");
 
 //   \/ NEW
 // const path = require("path");
-
 const trackRoutes = require("./routes/api/file-upload");
 // ^^^ NEW ROUTE^^^
 
@@ -29,15 +28,8 @@ app.use("/api/users", users);
 app.use("/api/tracks", tracks);
 
 ////  \/ \/
-app.use("/api/new-track/", trackRoutes);
-// if (process.env.NODE_ENV === "production") {
-//   const appPath = path.join(__dirname, "..", "dist");
-//   app.user(express.static(appPath));
+app.use("/api/newtrack/", trackRoutes);
 
-//   app.get("*", (req, res) => {
-//     res.sendFile(path.resolve(appPath, "index.html"));
-//   });
-// }
 
 // ^^ NEW ^^
 

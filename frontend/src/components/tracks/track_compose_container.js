@@ -4,14 +4,14 @@ import TrackCompose from './track_compose';
 
 const mapStateToProps = (state) => {
     return {
-        // currentUser: state.session.user,
+        currentUser: state.session.user,
         newTrack: state.tracks.new
     };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        postTrack: data => dispatch(postTrack(data))
+        postTrack: (data, trackname, user) => dispatch(postTrack(data, trackname, user))
     };
 };
 
