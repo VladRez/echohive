@@ -16,6 +16,8 @@ router.get('/:id', (req, res) => {
         );
 });
 
+
+
 router.get(
   "/current",
   passport.authenticate("jwt", { session: false }),

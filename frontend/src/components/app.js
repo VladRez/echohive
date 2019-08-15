@@ -1,13 +1,15 @@
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import { Switch, Route } from "react-router-dom";
 import React from "react";
-import MainPage from "./main/main_page";
+
+/* Project Components */
 import TrackComposeContainer from "./tracks/track_compose_container";
 import TrackShowContainer from "./tracks/track_show_container";
 import TracksContainer from "./tracks/tracks_container";
 import SessionPage from "./session/session_container";
 import NavBarContainer from "./nav/navbar_container";
 import SessionModal from "./modal/session_form_modal";
+import UserProfileContainer from "./user/user_profile_container"
 
 const App = () => (
   <div>
@@ -25,6 +27,12 @@ const App = () => (
         exact
         path="/tracks/:trackId"
         component={TrackShowContainer}
+      />
+
+      <ProtectedRoute
+        exact
+        path="/user/:userId"
+        component={UserProfileContainer}
       />
     </Switch>
   </div>
