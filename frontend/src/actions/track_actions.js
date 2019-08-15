@@ -19,8 +19,8 @@ export const receiveNewTrack = track => ({
     track
 })
 
-export const fetchTracks = () => dispatch => (
-    getTracks()
+export const fetchTracks = (id) => dispatch => (
+    getTracks(id)
         .then(tracks => dispatch(receiveTracks(tracks)))
         .catch((err) => { 
             console.log(err);

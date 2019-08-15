@@ -28,7 +28,7 @@ class Track extends React.Component {
             "https://echo-hive-seeds.s3-us-west-1.amazonaws.com/3402+Euclid+Ave+5.mp3",
             "https://echo-hive-seeds.s3-us-west-1.amazonaws.com/3402+Euclid+Ave+6.mp3"
         ];
-        
+        debugger;
             return (
                 <div>
                     <h2>All Tracks</h2>
