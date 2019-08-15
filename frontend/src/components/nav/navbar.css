@@ -1,0 +1,75 @@
+.site-nav-header {
+    width: 100%;
+    font: 100 14px/1.5 "Interstate","Lucida Grande",Arial,sans-serif;
+
+    -webkit-font-smoothing: subpixel-antialiased;
+    background: #333;
+    height: 46px;
+    transition: height .2s ease-in-out;
+
+    position: fixed;
+
+    z-index: 1000;
+
+    color: #999;
+
+    user-select: none;
+    cursor: default;
+    outline: 0;
+
+    display: block;
+}
+
+.site-nav-header .site-nav-contents {
+    width: 1240px;
+    padding: 0;
+
+    display: flex;
+
+    margin: 0 auto;
+}
+
+.site-nav-header .site-nav-contents .nav-header-left {
+
+}
+
+.site-nav-header .site-nav-contents .nav-header-middle {
+    flex: 1;
+}
+
+.site-nav-header .site-nav-contents .nav-header-right {
+    display: block;
+    visibility: visible;
+}
+
+.nav-header-left .header-nav-logo {
+    background: linear-gradient(rgb(0, 255, 213),rgb(0, 110, 255));
+    float: left;
+}
+
+.nav-header-left .header-nav-logo a {
+    display: block;
+    color: #ccc;
+    text-decoration: none;
+
+    background: url(../../ehlogo.png) no-repeat 12px 11px;
+    background-size: 48px 22px;
+    height: 46px;
+    width: 69px;
+}
+
+.nav-header-right .header-nav-button {
+    float: left;
+
+    display: block;
+    padding: 12px 10px 12px;
+    float: left;
+}
+
+.nav-header-right .header-nav-button a{
+    color: #ccc;
+    text-decoration: none;
+
+    cursor: pointer;
+}
+

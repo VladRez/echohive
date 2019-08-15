@@ -1,9 +1,12 @@
 body {
   overflow-y: scroll;
-    background: #f2f2f2;
+  background: #f2f2f2 url(https://dummyimage.com/900x100/fff/fff.png) repeat-y 50% 0;
     margin: 0;
     padding: 0;
     padding-bottom: 75px;
+
+    font: 12px/1.4 "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
+    color: #333;
 }
 
 code {

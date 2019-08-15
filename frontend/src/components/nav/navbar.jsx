@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-// import './navbar.css'
+import './navbar.css'
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -28,11 +28,21 @@ class NavBar extends React.Component {
 
   render() {
       return (
-        <div>
-            <h1>Logout</h1>
+        <header className="site-nav-header">
+              <div className="site-nav-contents">
+                <div className="nav-header-left">
+                  <div className="header-nav-logo">
+                    <a href="/feed">EchoHive</a>
+                  </div>
+                </div>
+                <div className="nav-header-middle"></div>
+                <div className="nav-header-right">
+
+                </div>
+              </div>
       
-            {this.getLinks()}
-        </div>
+            {/* {this.getLinks()} */}
+        </header>
       );
   }
 }
