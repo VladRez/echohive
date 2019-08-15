@@ -29,7 +29,7 @@ app.use("/api/users", users);
 app.use("/api/tracks", tracks);
 
 ////  \/ \/
-app.use("/api/new-track/", trackRoutes);
+// app.use("/api/new-track/", trackRoutes);
 // if (process.env.NODE_ENV === "production") {
 //   const appPath = path.join(__dirname, "..", "dist");
 //   app.user(express.static(appPath));
