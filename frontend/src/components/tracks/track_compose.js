@@ -1,6 +1,6 @@
 import React from 'react';
 import TrackBox from './track_box';
-
+import "./track_compose.scss";
 
 class TrackCompose extends React.Component {
     constructor(props) {
@@ -53,22 +53,29 @@ class TrackCompose extends React.Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <input type="textarea"
-                            value={this.state.trackname}
-                            onChange={this.updateTrackname()}
-                            placeholder="Submit your track..."
-                        />
-                            <input className="track-input-field" id="file-selector" type="file" onChange={this.handleFile} />
-
-                        <input type="submit" value="Submit" />
-                    </div>
-                </form>
+            <div className="outerbox">
+                <div className="form-container">
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="upload-elements">
+                            <input className="title-text-area" type="textarea"
+                                value={this.state.trackname}
+                                onChange={this.updateTrackname()}
+                                placeholder="Title your echo..."
+                            />
+                            <input className="track-input-button" 
+                                id="file-selector" 
+                                type="file" 
+                                onChange={this.handleFile} 
+                            />
+                            <input className="submit-button" 
+                                type="submit" 
+                                value="Submit" 
+                            />
+                        </div>
+                    </form>
+                </div>
                 <br />
                 <TrackBox trackname={this.state.newTrack} />
-                
             </div>
         )
     }
