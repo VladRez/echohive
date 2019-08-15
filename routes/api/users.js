@@ -9,12 +9,12 @@ const passport = require("passport");
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 
-router.get('/:id', (req, res) => {
-  User.findById(req.params.id).then(user=> res.json(user))  
-        .catch(err =>
-            res.status(404).json({ error: 'No track found with that ID' })
-        );
-});
+// router.get('/:id', (req, res) => {
+//   User.findById(req.params.id).then(user=> res.json(user))  
+//         .catch(err =>
+//             res.status(404).json({ error: 'No track found with that ID' })
+//         );
+// });
 
 router.get(
   "/current",
