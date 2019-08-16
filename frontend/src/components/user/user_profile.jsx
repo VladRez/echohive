@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-
+import './user_profile.css'
 
 class UserProfile extends React.Component {
     constructor(props) {
