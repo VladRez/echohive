@@ -1,8 +1,12 @@
 const express = require("express");
 const router = express.Router();
 const Comment = require("../../models/Comment");
+// const passport = require('passport');
+
 
 router.post("/", (req, res) => {
+        // passport.authenticate('jwt', { session: false }),
+
   const newComment = new Comment({
     user: req.body.user_id,
     body: req.body.comment_body,

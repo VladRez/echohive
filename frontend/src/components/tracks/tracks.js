@@ -42,7 +42,7 @@ class Track extends React.Component {
                             />
 
                             <figure>
-                                <figcaption>Listen some echoes:</figcaption>
+                                <figcaption>Listen to some echoes:</figcaption>
                                 <audio controls>
                                     <source src={track.src_url} type="audio/mpeg"></source>
                                 </audio>

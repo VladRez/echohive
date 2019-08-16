@@ -17,7 +17,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     fetchSingleTrack: id => dispatch(fetchSingleTrack(id)),
-    fetchComments: id => dispatch(fetchComments(id)),
+    fetchComments: () => dispatch(fetchComments()),
     postComment: comment => dispatch(createComment(comment))
   };
 };

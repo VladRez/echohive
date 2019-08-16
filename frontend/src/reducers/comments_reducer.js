@@ -9,6 +9,7 @@ const CommentsReducer = (
 ) => {
   Object.freeze(state);
   let newState = Object.assign({}, state);
+  debugger
   switch (action.type) {
     case RECEIVE_TRACK_COMMENTS:
       newState.comments = action.comments.data;
