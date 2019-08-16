@@ -5,7 +5,8 @@ const Comment = require("../../models/Comment");
 router.post("/", (req, res) => {
   const newComment = new Comment({
     user: req.body.user_id,
-    body: req.body.comment_body
+    body: req.body.comment_body,
+    track: req.body.track
   });
 
   newComment
@@ -26,6 +27,12 @@ router.get("/:id", (req, res) => {
     .catch(err => {
       return res.status(422).json({ error: err });
     });
+});
+
+router.get("/", (req, res) => {
+  Comment.find().then(comments => {
+    res.json(comments);
+  });
 });
 
 module.exports = router;

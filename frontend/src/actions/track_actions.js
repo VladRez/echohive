@@ -3,13 +3,15 @@ import {
   getSingleTrack,
   createTrack,
   postTrack,
-  getComment
+  getComments,
+  postComment
 } from "../util/track_api_util";
 
 export const RECEIVE_TRACKS = "RECEIVE_TRACKS";
 export const RECEIVE_SINGLE_TRACK = "RECEIVE_SINGLE_TRACK";
 export const RECEIVE_NEW_TRACK = "RECEIVE_NEW_TRACK";
-export const RECEIVE_ALL_TRACK_COMMENTS = "RECEIVE_ALL_TRACK_COMMENTS";
+export const RECEIVE_TRACK_COMMENTS = "RECEIVE_TRACK_COMMENTS";
+export const RECEIVE_NEW_COMMENT = "RECEIVE_NEW_COMMENT";
 
 export const receiveTracks = tracks => ({
   type: RECEIVE_TRACKS,
@@ -26,6 +28,32 @@ export const receiveNewTrack = track => ({
   track
 });
 
+///////////
+
+export const receiveTrackComments = comments => ({
+  type: RECEIVE_TRACK_COMMENTS,
+  comments
+});
+
+export const receiveNewComment = comment => ({
+  type: RECEIVE_NEW_COMMENT,
+  comment
+});
+
+export const fetchComments = id => dispatch => {
+  return getComments().then(comments => {
+    let trackComments = comments.filter(com => com.track_id === id);
+    return dispatch(receiveTrackComments(trackComments));
+  });
+};
+
+export const createComment = data => dispatch => {
+  return postComment(data).then(comment =>
+    dispatch(receiveNewComment(comment))
+  );
+};
+///////////////////
+
 export const fetchTracks = () => dispatch =>
   getTracks()
     .then(tracks => dispatch(receiveTracks(tracks)))
@@ -36,7 +64,6 @@ export const fetchTracks = () => dispatch =>
 export const fetchSingleTrack = id => dispatch =>
   getSingleTrack(id)
     .then(track => {
-      const comment_arr = track.data.comment_ids.map(com => getComment(com));
       return dispatch(receiveSingleTrack(track));
     })
     .catch(err => console.log(err));

@@ -14,9 +14,7 @@ class TrackShow extends React.Component {
 
 
     render() {
-        // ;
         if (!this.props.track || !this.props.tracks || !this.props.track.src_url) return null;
-        // if (!this.props.tracks) return null;
 
 
         return (
@@ -24,12 +22,16 @@ class TrackShow extends React.Component {
                 <h2>{this.props.track.trackname}</h2>
 
                 <figure>
-                    <figcaption>Listen some echoes:</figcaption>
+                    <figcaption>echoe:</figcaption>
                     <audio controls>
                         <source src={this.props.track.src_url} type="audio/mpeg"></source>
                     </audio>
                 </figure>
 
+            </div>
+            <div>
+                <h2>comment:</h2>
+                
             </div>
         );
 

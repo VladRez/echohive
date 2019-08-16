@@ -16,6 +16,10 @@ export const postTrack = data => {
   return axios.post("/api/tracks/", data);
 };
 
-export const getComment = id => {
-    return axios.get(`/api/tracks/${id}`);
-}
+export const getComments = () => {
+  return axios.get(`/api/comments/`);
+};
+
+export const postComment = data => {
+  return axios.post("/api/comments/", data);
+};
