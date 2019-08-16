@@ -6,6 +6,7 @@ const mapStateToProps = (state) => {
     return {
         tracks: Object.values(state.tracks.all),
         track: state.tracks.track
+        // comments: 
     };
 };
 
