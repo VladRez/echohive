@@ -49,12 +49,12 @@ class Track extends React.Component {
                     track={track}
                 />
 
-                <figure>
+                {/* <figure>
                     <figcaption>Listen some echoes:</figcaption>
                     <audio controls>
                         <source src={track.src_url} type="audio/mpeg"></source>
                     </audio>
-                </figure>
+                </figure> */}
             </div>
             )}
     );

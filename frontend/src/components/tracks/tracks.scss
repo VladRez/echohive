@@ -6,11 +6,17 @@
     }
 
 
-    div.trackbox {
+    div.outer-trackbox {
         // float: right;
         width: 800px;
         border: 1px solid black;
         // margin-left: 150px;
+
+        .inner-trackbox {
+            width: 799px;
+            border: 1px solid black;
+            // float: right;
+        }
 
         .img_container {
             float: left;
@@ -23,22 +29,53 @@
 
         .artist > a {
             text-decoration: none;
-            color: blue;
+            color: rgb(161, 161, 161);
+        }
+
+        .artist > a:hover {
+            color: rgb(56, 56, 56);
         }
 
         .trackname > a {
             text-decoration: none;
-            color: blue;
+            color: rgb(61, 61, 61);
+        }
+
+        .trackname > a:hover {
+            color: black;
         }
 
         .artist {
             text-decoration: none;
-            font-size: 30px;
+            font-size: 12px;
+            // float: right;
+
+            .time-ago {
+                float: right;
+                color: rgb(207, 207, 207);
+                font-size: 11px;
+            }
+
         }
 
         .trackname {
             text-decoration: none;
-            font-size: 30px;
+            font-size: 16px;
+
+            .genre {
+                float: right;
+                font-size: 12px;
+                font-weight: lighter;
+                // position: absolute;
+                color: white;
+                background-color: rgb(150, 150, 150);
+                border-radius: 20px;
+            }
+
+            .genre:hover {
+                background-color: gray;
+                cursor: pointer;
+            }
         }
 
     }
