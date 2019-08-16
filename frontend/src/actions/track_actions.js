@@ -59,9 +59,3 @@ export const fetchUserTracks = id => dispatch => (
         .then(tracks => dispatch(receiveUserTracks(tracks)))
         .catch(err => console.log(err))
 );
-
-export const fetchUserTracks = id => dispatch => (
-    getUserTracks(id)
-        .then(tracks => dispatch(receiveUserTracks(tracks)))
-        .catch(err => console.log(err))
-);
