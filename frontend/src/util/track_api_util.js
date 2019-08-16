@@ -19,3 +19,7 @@ export const postTrack = data => {
 export const getComment = id => {
     return axios.get(`/api/tracks/${id}`);
 }
+
+export const getUserTracks = id => {
+    return axios.get(`/api/tracks/user/${id}`)
+};
