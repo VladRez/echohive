@@ -86,6 +86,10 @@ class TrackBox extends React.Component {
                         <button id="audioControl" onClick={this.handleClick}>play!</button>
 
                         
+                        {/* <div className="comment-box">
+                            
+                        </div> */}
+                        
                         <div>
                             <button onClick={() => document.getElementById('player').play()}>Play</button>
                             <button onClick={() => document.getElementById('player').pause()}>Pause</button>
