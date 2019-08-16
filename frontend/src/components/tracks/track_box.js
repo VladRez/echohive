@@ -6,8 +6,8 @@ class TrackBox extends React.Component {
         return (
             <div className="trackbox">
                 <div className="img_container"></div>
-                <h3><Link to={`/user/${this.props.track.user}`}>PUT ARTIST NAME HERE</Link></h3>
-                <h3><Link to={`/tracks/${this.props.id}`}>{this.props.trackname}</Link></h3>
+                <div className="artist"><Link to={`/user/${this.props.track.user}`}>PUT ARTIST NAME HERE</Link></div>
+                <div className="trackname"><Link to={`/tracks/${this.props.id}`}>{this.props.trackname}</Link></div>
                 <h3>{this.props.src_url}</h3>
                 
 

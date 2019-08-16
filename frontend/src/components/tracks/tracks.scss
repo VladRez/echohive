@@ -21,5 +21,24 @@
             margin-right: 22px;
         }
 
+        .artist > a {
+            text-decoration: none;
+            color: blue;
+        }
+
+        .trackname > a {
+            text-decoration: none;
+            color: blue;
+        }
+
+        .artist {
+            text-decoration: none;
+            font-size: 30px;
+        }
+
+        .trackname {
+            text-decoration: none;
+            font-size: 30px;
+        }
 
     }
