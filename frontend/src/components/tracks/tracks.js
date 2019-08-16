@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import TrackBox from './track_box';
+import './tracks.css';
 
 class Track extends React.Component {
     constructor(props) {
@@ -35,7 +36,7 @@ class Track extends React.Component {
         // debugger;
             return (
                 <div>
-                    <h2>All Tracks</h2>
+                    <h2 className="h">All Tracks</h2>
                     {this.props.tracks.map(track => (
 
                         <div key={`${track._id}`}>
