@@ -19,7 +19,7 @@ class NavBar extends React.Component {
         <div className="site-nav-contents">
           <div className="nav-header-left">
             <div className="header-nav-logo">
-              <a href="/feed" />
+              <a href="#/feed" />
             </div>
           </div>
           <div className="nav-header-middle" />
