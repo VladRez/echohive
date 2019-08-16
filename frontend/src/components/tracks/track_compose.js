@@ -1,6 +1,7 @@
 import React from 'react';
 import TrackBox from './track_box';
-import "./track_compose.scss";
+import "./track_compose.css";
+
 
 class TrackCompose extends React.Component {
     constructor(props) {
@@ -23,7 +24,7 @@ class TrackCompose extends React.Component {
         const reader = new FileReader();
         let file = e.currentTarget.files[0];
         reader.onloadend = () =>
-            this.setState({ src_url: reader.result, audioFile: file });
+            this.setState({ src_url: reader.result, audioFile:file });
 
         if (file) {
            reader.readAsDataURL(file);
@@ -36,18 +37,23 @@ class TrackCompose extends React.Component {
         const formData = new FormData();
         formData.append('trackname', this.state.trackname);
         if (this.state.audioFile) {
-
             formData.append('track', this.state.audioFile);
         }
-
         this.props.postTrack(formData, this.state.trackname, this.props.currentUser.id);
-        
     }
 
     updateTrackname() {
         return e => this.setState({
             trackname: e.currentTarget.value
         });
+    }
+
+    componentDidUpdate(ownProps) {
+        if (this.props.newTrack) {
+
+        this.props.history.push(`/tracks/${this.props.newTrack._id}`);
+        // this.setState({});
+        }
     }
 
 
@@ -62,11 +68,16 @@ class TrackCompose extends React.Component {
                                 onChange={this.updateTrackname()}
                                 placeholder="Title your echo..."
                             />
-                            <input className="track-input-button" 
+                           <label for="file">
+                            <input class="inputfile" 
                                 id="file-selector" 
                                 type="file" 
                                 onChange={this.handleFile} 
                             />
+                            {/* <img className="logo" src="https://echo-hive-dev.s3-us-west-1.amazonaws.com/logo.svg" /> */}
+                            </label>
+                            <br />
+                            
                             <input className="submit-button" 
                                 type="submit" 
                                 value="Submit" 
@@ -75,7 +86,6 @@ class TrackCompose extends React.Component {
                     </form>
                 </div>
                 <br />
-                <TrackBox trackname={this.state.newTrack} />
             </div>
         )
     }

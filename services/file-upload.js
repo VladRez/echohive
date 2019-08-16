@@ -14,8 +14,8 @@ var s3 = new aws.S3();
 const fileFilter = (req, file, cb) => {
   if (
     file.mimetype === "audio/mp3" ||
-    file.mimetype === "audio/.wav" ||
-    file.mimetype === "audio/.flac"
+    file.mimetype === "audio/wav" ||
+    file.mimetype === "audio/flac"
   ) {
     cb(null, true);
   } else {

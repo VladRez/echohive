@@ -13,7 +13,6 @@ class Track extends React.Component {
     }
 
     render() {
-        // debugger;
         // if (this.state.tracks.length === 0) {
         //     return (
         //         <div>No tracks</div>

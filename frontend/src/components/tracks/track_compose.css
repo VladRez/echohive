@@ -1,0 +1,61 @@
+
+           .outerbox {
+                /* position: relative; */
+           }
+           
+            .form-container form{
+                display: flex;
+                justify-content: space-evenly;
+                height: 800px;
+                text-align: center;
+                background: url(../../ehlogo.png) no-repeat 120px 110px;
+            }
+            .logo {
+            }
+            .upload-elements {
+                margin-top: 300px;
+                flex-direction: column;
+                display: flex;
+            }
+            .title-text-area {
+                border-color: #8A8A8A;
+                border-width: 1px;
+                font-weight: 200px;
+                font-size: 26px;
+                flex-direction: column;
+                width: 180px;
+            }
+            .inputfile {
+                overflow: hidden;
+                /* position: absolute; */
+                z-index: 1;
+            }
+                    
+            .inputfile + label {
+                font-weight: 200;
+
+                background-color: black;
+                 display: inline-block; 
+             } 
+
+            .inputfile:focus + label,
+            .inputfile + label:hover {
+                background-color: #629cff;
+            }
+        .inputfile:focus + label {
+                outline: 1px dotted #000;
+                outline: -webkit-focus-ring-color auto 5px;
+            } 
+            .submit-button {
+                position: center;
+                background-color: #629cff;
+                border-color: #8A8A8A;
+                border-radius: 25px;
+                font-size: 16px;
+                line-height: 18px;
+                /* padding: 10px 15px; */
+                height: 30px;
+                width: 100px;
+
+            }
+        
