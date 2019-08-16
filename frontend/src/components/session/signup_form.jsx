@@ -63,7 +63,7 @@ class SignupForm extends React.Component {
     return (
       <div className="form-modal">
         <form className="signin-form" onSubmit={this.handleSubmit}>
-          <div >
+          <div>
             <br />
             <input
               className="form-text-input"
@@ -97,9 +97,11 @@ class SignupForm extends React.Component {
               placeholder="Confirm Password"
             />
             <br />
-            <input 
-            className="form-signin-button"
-            type="submit" value="Submit" />
+            <input
+              className="form-signin-button"
+              type="submit"
+              value="Submit"
+            />
             {this.renderErrors()}
           </div>
         </form>

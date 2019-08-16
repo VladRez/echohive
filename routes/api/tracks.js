@@ -28,8 +28,16 @@ router.post("/", (req, res) => {
     // comment_ids: [{1: 'haha'}] //req.comments.id // 'comments' returns array containing object
   }); // containing all comments; so only 1 id needed?
 
+  router.patch("/:id", (req, res) => {
+    track = Track.findById(req.params.id);
+    if (req.body.comment_id) {
+      track
+        .update({ $push: { comment_ids: req.body.comment_id } })
+        .then(updatedTrack => res.json(updatedTrack));
+    }
+  });
+
   newTrack.save().then(track => res.json(track));
 });
-
 
 module.exports = router;
