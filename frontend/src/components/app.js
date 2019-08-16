@@ -10,7 +10,7 @@ import UserProfileContainer from './user/user_profile_container';
 import SessionPage from "./session/session_container";
 import NavBarContainer from "./nav/navbar_container";
 import SessionModal from "./modal/session_form_modal";
-import UserProfileContainer from "./user/user_profile_container";
+
 
 const App = () => (
   <div>

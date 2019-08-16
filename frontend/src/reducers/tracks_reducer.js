@@ -1,6 +1,6 @@
 import { RECEIVE_TRACKS, RECEIVE_SINGLE_TRACK, RECEIVE_NEW_TRACK, RECEIVE_USER_TRACKS } from '../actions/track_actions';
 
-const TracksReducer = (state = { all: {}, user: {}, new: undefined, track: {} }, action) => {
+const TracksReducer = (state = { all: {}, user: [], new: undefined, track: {} }, action) => {
     Object.freeze(state);
     let newState = Object.assign({}, state);
     switch (action.type) {
@@ -15,6 +15,7 @@ const TracksReducer = (state = { all: {}, user: {}, new: undefined, track: {} },
             newState.new = action.track.data
             return newState;
         case RECEIVE_USER_TRACKS:
+            // debugger;
             newState.user = action.tracks.data
             return newState;
         default:

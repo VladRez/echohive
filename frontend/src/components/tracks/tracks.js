@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import TrackBox from './track_box';
-import './tracks.css';
+import './tracks.scss';
 
 class Track extends React.Component {
     constructor(props) {
@@ -35,28 +35,38 @@ class Track extends React.Component {
         ];
         // debugger;
         // debugger;
+
+        let renderedTracks;
+
+        renderedTracks = this.props.tracks.map(track => {
+            // debugger;
+            return(
+            <div key={`${track._id}`}>
+                <TrackBox
+                    trackname={track.trackname}
+                    src_url={track.src_url}
+                    id={`${track._id}`}
+                    track={track}
+                />
+
+                <figure>
+                    <figcaption>Listen some echoes:</figcaption>
+                    <audio controls>
+                        <source src={track.src_url} type="audio/mpeg"></source>
+                    </audio>
+                </figure>
+            </div>
+            )}
+    );
+        
+
+
+
             return (
                 <div>
-                    <h2 className="h">All Tracks</h2>
-                    {this.props.tracks.map(track => (
-
-                        <div key={`${track._id}`}>
-                            <TrackBox 
-                                trackname={track.trackname}
-                                src_url={track.src_url}
-                                id={`${track._id}`}
-                                
-                            />
-
-                            <figure>
-                                <figcaption>Listen some echoes:</figcaption>
-                                <audio controls>
-                                    <source src={track.src_url} type="audio/mpeg"></source>
-                                </audio>
-                            </figure>
-                        </div>
-                    ))}
-
+                    <div className="header">All tracks</div>
+                    
+                    {renderedTracks}
 
                 </div>
             );

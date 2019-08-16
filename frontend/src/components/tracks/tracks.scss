@@ -1,0 +1,25 @@
+
+
+    div.header {
+        font-size: 13px;
+        color: rgb(139, 139, 139);
+    }
+
+
+    div.trackbox {
+        // float: right;
+        width: 800px;
+        border: 1px solid black;
+        // margin-left: 150px;
+
+        .img_container {
+            float: left;
+            border: 1px solid black;
+            width: 150px;
+            height: 150px;
+            // padding-right: 300px;
+            margin-right: 22px;
+        }
+
+
+    }

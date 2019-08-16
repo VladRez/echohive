@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom';
 class TrackBox extends React.Component {
     render() {
         return (
-            <div>
-                
+            <div className="trackbox">
+                <div className="img_container"></div>
+                <h3><Link to={`/user/${this.props.track.user}`}>PUT ARTIST NAME HERE</Link></h3>
                 <h3><Link to={`/tracks/${this.props.id}`}>{this.props.trackname}</Link></h3>
                 <h3>{this.props.src_url}</h3>
                 
