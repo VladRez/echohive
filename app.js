@@ -8,7 +8,14 @@ const users = require("./routes/api/users");
 const tracks = require("./routes/api/tracks");
 const trackRoutes = require("./routes/api/file-upload");
 const comments = require("./routes/api/comments")
+const path = require('path');
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('frontend/build'));
+  app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+  })
+}
 
 // ^^^ NEW ROUTE^^^
 const x = 'x';
