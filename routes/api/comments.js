@@ -9,10 +9,10 @@ router.post("/", (req, res) => {
 
   const newComment = new Comment({
     user: req.body.user_id,
-    body: req.body.comment_body,
+    body: req.body.body,
     track: req.body.track
   });
-
+console.log(newComment);
   newComment
     .save()
     .then(comment => {

@@ -4,18 +4,15 @@ import {
 } from "../actions/track_actions";
 
 const CommentsReducer = (
-  state = { all: {}, user: {}, new: undefined, track: {}, comments: {} },
-  action
-) => {
+  state = { comments: {} }, action) => {
   Object.freeze(state);
   let newState = Object.assign({}, state);
-  debugger
   switch (action.type) {
     case RECEIVE_TRACK_COMMENTS:
       newState.comments = action.comments.data;
       return newState;
     case RECEIVE_NEW_COMMENT:
-      newState.comments = action.comment.data;
+      newState.comments = action.comment.data.body;
       return newState;
     default:
       return state;

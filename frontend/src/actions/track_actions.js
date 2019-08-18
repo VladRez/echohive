@@ -9,7 +9,7 @@ import {
 
 export const RECEIVE_TRACKS = "RECEIVE_TRACKS";
 export const RECEIVE_SINGLE_TRACK = "RECEIVE_SINGLE_TRACK";
-export const RECEIVE_NEW_TRACK = "RECEIVE_NEW_TRACK";
+// export const RECEIVE_NEW_TRACK = "RECEIVE_NEW_TRACK";
 export const RECEIVE_TRACK_COMMENTS = "RECEIVE_TRACK_COMMENTS";
 export const RECEIVE_NEW_COMMENT = "RECEIVE_NEW_COMMENT";
 
@@ -23,10 +23,10 @@ export const receiveSingleTrack = track => ({
   track
 });
 
-export const receiveNewTrack = track => ({
-  type: RECEIVE_NEW_TRACK,
-  track
-});
+// export const receiveNewTrack = track => ({
+//   type: RECEIVE_NEW_TRACK,
+//   track
+// });
 
 ///////////
 
@@ -69,7 +69,7 @@ export const fetchSingleTrack = id => dispatch =>
     })
     .catch(err => console.log(err));
 
-export const postTrackFile = (data, trackname, user) => dispatch => {
+export const postTrackFile = (data, trackname, user, history) => dispatch => {
   return createTrack(data)
     .then(res => {
       let track = {};
@@ -77,7 +77,12 @@ export const postTrackFile = (data, trackname, user) => dispatch => {
       track.id = user;
       track.src_url = res.data.src_url;
       postTrack(track).then(mres => {
-        dispatch(receiveNewTrack(mres));
+        new Promise((resolve, reject) => {
+        dispatch(receiveSingleTrack(mres));
+        resolve()
+        }).then(() => {
+            history.push(`/tracks/${track.id}`)
+            });
       });
     })
     .catch(err => console.log(err));

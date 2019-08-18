@@ -42,7 +42,11 @@ class TrackCompose extends React.Component {
       formData,
       this.state.trackname,
       this.props.currentUser.id
-    );
+    )
+    // .then(
+    //   this.props.history.push(`/tracks/${this.props.newTrack._id}`)
+    // );
+    
   }
 
   updateTrackname() {
@@ -52,12 +56,13 @@ class TrackCompose extends React.Component {
       });
   }
 
-  componentDidUpdate(ownProps) {
-    if (this.props.newTrack) {
-      this.props.history.push(`/tracks/${this.props.newTrack._id}`);
-      // this.setState({});
-    }
-  }
+  // componentDidUpdate(ownProps) {
+  //   // debugger
+  // //   if (this.props.newTrack) {
+  // //     debugger
+  // //     // this.setState({trackname: ""});zx
+  // //   }
+  // }
 
   render() {
     return (
@@ -69,17 +74,16 @@ class TrackCompose extends React.Component {
                 className="title-text-area"
                 type="textarea"
                 value={this.state.trackname}
-                onChange={this.updateTrackname()}
+                onChange={this.updateTrackname()} 
                 placeholder="Title your echo..."
               />
-              <label for="file">
+              <label className="file">
                 <input
                   className="inputfile"
                   id="file-selector"
                   type="file"
                   onChange={this.handleFile}
                 />
-                {/* <img className="logo" src="https://echo-hive-dev.s3-us-west-1.amazonaws.com/logo.svg" /> */}
               </label>
               <br />
 

@@ -15,16 +15,12 @@ class TrackShow extends React.Component {
         this.props.fetchComments();        
     }
     handleSubmit(e) {
-        //postComment takes user:, body:, track:
-        // debugger
         let comment = {
             user: this.props.track.user,
             body: this.state.body,
             track: this.props.match.params.trackId
         }
-debugger
         this.props.postComment(comment);
-            this.setState({text: ''});
 
     }
     
@@ -37,9 +33,9 @@ debugger
     render() {
         if (!this.props.track || !this.props.tracks || !this.props.track.src_url) return null;
         if (this.props.comments) {
+            debugger
             const filteredComments = this.props.comments.filter(com => com._id === this.props.match.params.trackId)
         }
-        // debugger;
 
         return (
             <div>
@@ -51,6 +47,7 @@ debugger
                         <source src={this.props.track.src_url} type="audio/mpeg"></source>
                     </audio>
                 </figure>
+                <div><ul>{this.props.comments}</ul></div>
                 <div className="show-comment-container">
                     <h2>comment:</h2>
             
