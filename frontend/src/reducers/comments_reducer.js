@@ -1,6 +1,7 @@
 import {
   RECEIVE_TRACK_COMMENTS,
-  RECEIVE_NEW_COMMENT
+  RECEIVE_NEW_COMMENT,
+  RECEIVE_SINGLE_TRACK
 } from "../actions/track_actions";
 import merge from 'lodash/merge';
 
@@ -15,6 +16,8 @@ const CommentsReducer = (
     case RECEIVE_NEW_COMMENT:
       newState.comments.push(action.comment.data);
       return newState;
+    case RECEIVE_SINGLE_TRACK:
+        return {comments: []};
     default:
       return state;
   }

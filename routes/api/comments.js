@@ -6,9 +6,8 @@ const Comment = require("../../models/Comment");
 
 router.post("/", (req, res) => {
         // passport.authenticate('jwt', { session: false }),
-
   const newComment = new Comment({
-    user: req.body.user_id,
+    user: req.body.user,
     body: req.body.body,
     track: req.body.track
   });

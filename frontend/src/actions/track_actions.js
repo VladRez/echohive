@@ -52,7 +52,7 @@ export const receiveUserTracks = tracks => ({
 
 export const fetchComments = (trackId) => dispatch => {
   return getComments(trackId).then(comments => {
-    console.log(comments)
+    // console.log(comments)
     let trackComments = comments.data;
     return dispatch(receiveTrackComments(trackComments));
   });
@@ -91,7 +91,8 @@ export const postTrackFile = (data, trackname, user, history) => dispatch => {
     .then(res => {
       let track = {};
       track.trackname = trackname;
-      track.id = user;
+      track.user = user;
+    //   track.id = user;
       track.src_url = res.data.src_url;
       postTrack(track).then(mres => {
         new Promise((resolve, reject) => {

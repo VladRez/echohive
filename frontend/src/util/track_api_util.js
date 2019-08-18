@@ -4,6 +4,10 @@ export const getTracks = () => {
   return axios.get("/api/tracks/");
 };
 
+export const getUserTracks = id => {
+    return axios.get(`/api/tracks/users/${id}`);
+}
+
 export const getSingleTrack = id => {
   return axios.get(`/api/tracks/${id}`);
 };

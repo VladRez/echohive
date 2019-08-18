@@ -16,7 +16,7 @@ const CommentSchema = new Schema({
   },
   track: {
     type: Schema.Types.ObjectId,
-    required: true
+    ref: "tracks"
   }
 });
 
