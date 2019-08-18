@@ -9,10 +9,13 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        postTrack: (data, trackname, user) => dispatch(postTrackFile(data, trackname, user))
-    };
+        postTrack: (data, trackname, user) => 
+            dispatch(postTrackFile(data, trackname, user, ownProps.history))
+            };
+    
 };
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(TrackCompose);
