@@ -40,9 +40,9 @@ export const receiveNewComment = comment => ({
   comment
 });
 
-export const fetchComments = () => dispatch => {
-  return getComments().then(comments => {
-    //   debugger
+export const fetchComments = (trackId) => dispatch => {
+  return getComments(trackId).then(comments => {
+    console.log(comments)
     let trackComments = comments.data;
     return dispatch(receiveTrackComments(trackComments));
   });

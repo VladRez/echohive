@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import TrackBox from './track_box';
+import CommentBox from '../comments/comment_box';
 
 class TrackShow extends React.Component {
     constructor(props) {
@@ -11,8 +12,9 @@ class TrackShow extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchSingleTrack(this.props.match.params.trackId);
-        this.props.fetchComments();        
+        const trackId = this.props.match.params.trackId
+        this.props.fetchSingleTrack(trackId);
+        this.props.fetchComments(trackId);        
     }
     handleSubmit(e) {
         let comment = {
@@ -29,12 +31,20 @@ class TrackShow extends React.Component {
             this.setState({ [field]: e.target.value })
         }
     }
-
     render() {
         if (!this.props.track || !this.props.tracks || !this.props.track.src_url) return null;
+        let filteredComments = null;
         if (this.props.comments) {
-            debugger
-            const filteredComments = this.props.comments.filter(com => com._id === this.props.match.params.trackId)
+            filteredComments = this.props.comments.comments.filter(com => com.track === this.props.match.params.trackId)
+            
+           filteredComments = filteredComments.map((comment, i) => (
+                <CommentBox 
+                key={i}
+                body={comment.body}
+                user={comment.user}
+                track_id={comment.track}
+                />
+            ))
         }
 
         return (
@@ -47,7 +57,7 @@ class TrackShow extends React.Component {
                         <source src={this.props.track.src_url} type="audio/mpeg"></source>
                     </audio>
                 </figure>
-                <div><ul>{this.props.comments}</ul></div>
+                <div><ul>{filteredComments}</ul></div>
                 <div className="show-comment-container">
                     <h2>comment:</h2>
             

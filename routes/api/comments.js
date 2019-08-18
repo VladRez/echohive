@@ -12,7 +12,7 @@ router.post("/", (req, res) => {
     body: req.body.body,
     track: req.body.track
   });
-console.log(newComment);
+console.log(newComment); //for testing
   newComment
     .save()
     .then(comment => {
@@ -24,7 +24,7 @@ console.log(newComment);
 });
 
 router.get("/:id", (req, res) => {
-  Comment.findById(req.params.id)
+  Comment.find({track: req.params.id})
     .then(comment => {
       res.json(comment);
     })

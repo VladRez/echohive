@@ -11,13 +11,13 @@ const mapStateToProps = state => {
     tracks: Object.values(state.tracks.all),
     track: state.tracks.track,
     comments: state.comments
-  };
+     };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     fetchSingleTrack: id => dispatch(fetchSingleTrack(id)),
-    fetchComments: () => dispatch(fetchComments()),
+    fetchComments: (id) => dispatch(fetchComments(id)),
     postComment: comment => dispatch(createComment(comment))
   };
 };
