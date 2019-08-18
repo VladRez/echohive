@@ -42,11 +42,7 @@ class TrackCompose extends React.Component {
       formData,
       this.state.trackname,
       this.props.currentUser.id
-    )
-    // .then(
-    //   this.props.history.push(`/tracks/${this.props.newTrack._id}`)
-    // );
-    
+    )  
   }
 
   updateTrackname() {
@@ -55,14 +51,6 @@ class TrackCompose extends React.Component {
         trackname: e.currentTarget.value
       });
   }
-
-  // componentDidUpdate(ownProps) {
-  //   // debugger
-  // //   if (this.props.newTrack) {
-  // //     debugger
-  // //     // this.setState({trackname: ""});zx
-  // //   }
-  // }
 
   render() {
     return (
