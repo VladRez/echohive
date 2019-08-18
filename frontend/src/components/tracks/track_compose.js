@@ -7,7 +7,8 @@ class TrackCompose extends React.Component {
     super(props);
 
     this.state = {
-      trackname: "",
+        trackname: "",
+        user: this.props.currentUser.id,
       src_url: "",
       newTrack: ""
     };
@@ -41,7 +42,7 @@ class TrackCompose extends React.Component {
     this.props.postTrack(
       formData,
       this.state.trackname,
-      this.props.currentUser.id
+      this.state.user
     );
   }
 

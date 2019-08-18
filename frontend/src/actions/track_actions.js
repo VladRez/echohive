@@ -59,7 +59,7 @@ export const postTrackFile = (data, trackname, user) => dispatch => (
         .then(res => {
             let track = {};
             track.trackname = trackname;
-            track.id = user;
+            track.user = user;
             track.src_url = res.data.src_url;
             postTrack(track).then(mres => {
             dispatch(receiveNewTrack(mres)) 
