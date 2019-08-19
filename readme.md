@@ -21,7 +21,9 @@ Primarily built with the MERN stack, a combination of following four technologie
 + Profile pages
 
 **TBD** - Wave Forms
+
 **TBD** - Playlists
+
 **TBD** - Likes
 
 
@@ -33,8 +35,8 @@ Primarily built with the MERN stack, a combination of following four technologie
     + Register
     + Login
     + Logout
-+ Index
-    + Feed
++ Feed
+    + Track index
 + Show - Artist/User
     + Index - Artist/User Tracks
     + Show - Artist/User Track
@@ -48,7 +50,6 @@ Primarily built with the MERN stack, a combination of following four technologie
                 0: {
                     id: 0,
                     username: 'string',
-                    tracks: [1,2, 3], // track id's
                     profile_avatar_url: `path/to/image`
                 }
         },
@@ -80,34 +81,42 @@ Primarily built with the MERN stack, a combination of following four technologie
 ```
 
 Backend: 
+
 + Mongodb
 + Nodejs
 + Express
 
 Frontend:
+
 + React
 + React Native with Redux
 
 # Group Members and Work Breakdown
 
-+ Day 1
-    + User Register Auth - Vlad
-    + User Login Auth - Mac
-    + Feed - Leap
-+ Day 2
-   + AWS setup - Vlad
-   + User Profile - Mac
-   + Track Show Page - Leap
-+ Day 3
-    + Audio Upload - Vlad
-    + Audio Playback - Mac
-    + Audio UI - Leap
-+ Day 4
-    + styling - Vlad/Mac/Leap
-+ Day 5
-    + Produciton Readme - Vlad/Mac/Leap
-
 ## Team 
+
 + Leap Soto
 + Mac Scheer
 + Vlad Rez
+
++ Day 1
+    + Session Auth API Setup - Vlad
+    + AWS and Mongodb Setup - Mac
+    + Main User Feed API Setup - Leap
+
++ Day 2
+   + Session Signup/Login UI - Vlad
+   + Upload Track API and UI - Mac
+   + Track Show backend API and UI - Leap
+
++ Day 3
+    + User Profile- Vlad
+    + User Comments - Mac
+    + Track Audio Player Controller - Leap
+
++ Day 4
+    + Refactor and CSS - Vlad/Mac/Leap
+
++ Day 5
+    + Deploy to Heroku - Vlad/Mac/Leap
+    + Produciton Readme - Vlad/Mac/Leap
