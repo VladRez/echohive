@@ -1,0 +1,71 @@
+.player-controls {
+  position: fixed;
+  bottom: 0;
+  visibility: hidden;
+  width: 100%;
+  -webkit-perspective: 900;
+  perspective-origin: 80% 100%;
+  z-index: 999;
+}
+
+.player-controls-inner {
+  -webkit-transform: translateY(0);
+  background-color: #f2f2f2;
+  border-top: 1px solid #cecece;
+  height: 24px;
+  visibility: visible;
+  display: block;
+}
+
+.player-controls-wrapper {
+  width: 1240px;
+  padding: 0;
+
+  visibility: visible;
+  position: relative;
+  height: 100%;
+
+  margin: 0 auto;
+}
+
+.player-controls-wrapper .bg-controls {
+  background-color: #f2f2f2;
+  border-top: 1px solid #cecece;
+
+  position: absolute;
+  top: -1px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.player-controls-wrapper .control-elements {
+  display: flex;
+  position: relative;
+  height: 100%;
+}
+
+.control-elements .play-button {
+  background: url(https://www.pngarts.com/files/2/Play-Button-PNG-Free-Download.png)
+    no-repeat;
+  background-size: 10px 10px;
+  background-position: center;
+  padding: 0;
+  width: 24px;
+  height: 100%;
+  margin: 0 0 0 12px;
+  border: 0;
+  font: 0/0 a;
+  text-shadow: none;
+  color: transparent;
+  -webkit-writing-mode: horizontal-tb !important;
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  box-sizing: border-box;
+}

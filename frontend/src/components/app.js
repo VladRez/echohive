@@ -10,35 +10,34 @@ import UserProfileContainer from "./user/user_profile_container";
 import SessionPage from "./session/session_container";
 import NavBarContainer from "./nav/navbar_container";
 import SessionModal from "./modal/session_form_modal";
-
+import NavPlayer from "./nav_player/nav_player_container";
 const App = () => (
   <div>
     <SessionModal />
     <NavBarContainer />
     <div className="app-container app-content">
-     
       <Switch>
-      <AuthRoute exact path="/" component={SessionPage} />
-      <ProtectedRoute exact path="/feed" component={TracksContainer} />
-      <ProtectedRoute
-        exact
-        path="/tracks/upload"
-        component={TrackComposeContainer}
-      />
-      <ProtectedRoute
-        exact
-        path="/tracks/:trackId"
-        component={TrackShowContainer}
-      />
+        <AuthRoute exact path="/" component={SessionPage} />
+        <ProtectedRoute exact path="/feed" component={TracksContainer} />
+        <ProtectedRoute
+          exact
+          path="/tracks/upload"
+          component={TrackComposeContainer}
+        />
+        <ProtectedRoute
+          exact
+          path="/tracks/:trackId"
+          component={TrackShowContainer}
+        />
 
-      <ProtectedRoute
-        exact
-        path="/user/:userId"
-        component={UserProfileContainer}
-      />
-    </Switch>
-     
+        <ProtectedRoute
+          exact
+          path="/user/:userId"
+          component={UserProfileContainer}
+        />
+      </Switch>
     </div>
+    <NavPlayer />
   </div>
 );
 
