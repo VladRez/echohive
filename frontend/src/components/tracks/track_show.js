@@ -60,7 +60,7 @@ class TrackShow extends React.Component {
             <div>
                 <h2>{this.props.track.trackname}</h2>
 
-                <figure>
+                <figure className="audio-player">
                     <figcaption>echo:</figcaption>
                     <audio controls>
                         <source src={this.props.track.src_url} type="audio/mpeg"></source>
@@ -68,13 +68,14 @@ class TrackShow extends React.Component {
                 </figure>
                 <div><ul>{comments}</ul></div>
                 <div className="show-comment-container">
-                    <h2>comment:</h2>
-                    <br />
+                    
                     <form className="show-comment-form" onSubmit={this.handleSubmit}>
+                        <h2>comment:</h2>
                         <textarea className="show-textarea" placeholder="Add a Comment:" onChange={this.handleUpdate('body')} value={this.state.body}></textarea>
-                        <input type="submit" value="submit" />
+                         <div className="logo-for-button" ></div>
+                        <input className="sub-button" type="submit" value="submit" />
                     </form>
-                </div>
+               </div>
             </div>
         );
 

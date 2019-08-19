@@ -1,3 +1,5 @@
+
+
 .show-comment-container {
        display: flex;
        justify-content: center;
@@ -8,11 +10,26 @@
     .show-comment-form {
         .show-textarea {
             border-style: solid;
-        border-color: rgb(87,146,255);
-        // border-radius: 25px;
-        border-width: 1.5px;
+            border-color: rgb(87,146,255);
+            border-radius: 5px;
+            border-width: 1.5px;
 
         }
+        
+        .logo-for-button {
+
+        }
+        .sub-button {
+          
+        }
+            .sub-button:hover{
+
+                color: rgb(87,146,255);
+                text-align: center;
+                box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+
+            }
+        
     }
 }
 
