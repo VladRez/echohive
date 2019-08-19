@@ -12,7 +12,13 @@ class NavPlayer extends React.Component {
         <section className="player-controls-inner">
           <div className="player-controls-wrapper">
             <div className="control-elements">
-              <button className="play-button" />
+              {/* <button className="play-button" /> */}
+              <audio controls>
+                <source
+                  src="https://echo-hive-dev.s3.us-west-1.amazonaws.com/1566193333686"
+                  type="audio/mpeg"
+                />
+              </audio>
             </div>
           </div>
         </section>
@@ -21,7 +27,7 @@ class NavPlayer extends React.Component {
   }
 
   render() {
-    return this.props.loggedIn ? this.navPlayer() : ""
+    return this.props.loggedIn ? this.navPlayer() : "";
   }
 }
 

@@ -17,6 +17,11 @@
   display: block;
 }
 
+.player-controls-inner audio {
+    height: 24px;
+    width: 100%;
+}
+
 .player-controls-wrapper {
   width: 1240px;
   padding: 0;
