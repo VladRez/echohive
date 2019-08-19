@@ -8,9 +8,11 @@ router.post("/", (req, res) => {
         // passport.authenticate('jwt', { session: false }),
   const newComment = new Comment({
     user: req.body.user,
+    username: req.body.username, //added this
     body: req.body.body,
     track: req.body.track
   });
+        debugger;
 console.log(newComment); //for testing
   newComment
     .save()
@@ -18,6 +20,7 @@ console.log(newComment); //for testing
       return res.json(comment);
     })
     .catch(err => {
+        console.log(err);
       return res.status(422).json({ error: err });
     });
 });

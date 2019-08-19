@@ -4,6 +4,7 @@ import {
   fetchComments,
   createComment
 } from "../../actions/track_actions";
+// import {fetchUser} from "../../actions/user_actions";
 import TrackShow from "./track_show";
 
 const mapStateToProps = state => {
@@ -11,7 +12,8 @@ const mapStateToProps = state => {
     tracks: Object.values(state.tracks.all),
     track: state.tracks.track,
     comments: state.comments.comments,
-    currentUser: state.session.user.id
+    currentUser: state.session.user.id,
+    username: state.session.user.username
      };
 };
 
@@ -19,7 +21,8 @@ const mapDispatchToProps = dispatch => {
   return {
     fetchSingleTrack: id => dispatch(fetchSingleTrack(id)),
     fetchComments: id => dispatch(fetchComments(id)),
-    postComment: comment => dispatch(createComment(comment))
+    postComment: comment => dispatch(createComment(comment)),
+    // fetchUser: id => dispatch(fetchUser(id)) //to display username next to comments
   };
 };
 

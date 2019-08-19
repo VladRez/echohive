@@ -3,7 +3,7 @@ import {
   RECEIVE_NEW_COMMENT,
   RECEIVE_SINGLE_TRACK
 } from "../actions/track_actions";
-import merge from 'lodash/merge';
+// import merge from 'lodash/merge';
 
 const CommentsReducer = (
   state = { comments: [] }, action) => {
