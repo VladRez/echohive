@@ -11,7 +11,7 @@ class UserProfile extends React.Component {
         this.props.fetchUser(this.props.match.params.userId);
         this.props.fetchUserTracks(this.props.match.params.userId);
     }
-
+//pass down current user to trackbox
     render() {
         return (
             

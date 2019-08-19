@@ -7,6 +7,7 @@ const singleUpload = upload.single("track");
 
 router.post("/", (req, res) => {
   singleUpload(req, res, err => {
+    debugger
     if (err) {
       return res
         .status(422)

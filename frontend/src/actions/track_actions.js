@@ -93,12 +93,12 @@ export const postTrackFile = (data, trackname, user, history) => dispatch => {
     //   track.id = user;
       track.src_url = res.data.src_url;
       postTrack(track).then(mres => {
-        new Promise((resolve, reject) => {
-        dispatch(receiveSingleTrack(mres));
-        resolve()
-        }).then(() => {
-            history.push(`/tracks/${track.id}`)
-            });
+        // new Promise((resolve, reject) => {
+        dispatch(receiveSingleTrack(mres))
+        // resolve()
+      // .then(() => {
+            history.push(`/tracks/${mres.data._id}`)
+            // });
       });
     })
     .catch(err => console.log(err));
