@@ -4,7 +4,6 @@ import {
   createTrack,
   postTrack,
   getUserTracks,
-  getComment,
   getComments,
   postComment
 
@@ -15,7 +14,6 @@ export const RECEIVE_TRACKS = "RECEIVE_TRACKS";
 export const RECEIVE_SINGLE_TRACK = "RECEIVE_SINGLE_TRACK";
 
 export const RECEIVE_NEW_TRACK = "RECEIVE_NEW_TRACK";
-// export const RECEIVE_ALL_TRACK_COMMENTS = "RECEIVE_ALL_TRACK_COMMENTS";
 export const RECEIVE_USER_TRACKS = "RECEIVE_USER_TRACKS";
 
 export const RECEIVE_TRACK_COMMENTS = "RECEIVE_TRACK_COMMENTS";

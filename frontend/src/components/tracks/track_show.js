@@ -8,8 +8,9 @@ class TrackShow extends React.Component {
         super(props);
         this.state = { 
             user: this.props.currentUser, 
+            username: this.props.username, //added
             body:"", 
-            track: this.props.track
+            track: this.props.match.params.trackId
                                 };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleUpdate = this.handleUpdate.bind(this);
@@ -26,8 +27,9 @@ class TrackShow extends React.Component {
         
         this.state = { 
         user: this.props.currentUser, 
+        username: this.props.username, //added
         body:"", 
-        track: this.props.track
+        track: this.props.match.params.trackId
 };
         this.setState({body: ""});
     }
@@ -48,6 +50,7 @@ class TrackShow extends React.Component {
                 body={comment.body}
                 user={comment.user}
                 track_id={comment.track}
+                username={comment.username}//added
                 />
             )
         })

@@ -1,0 +1,14 @@
+.comment-box-container {
+    display: flex;
+    .quotes{
+        margin:15px;
+    }
+    .comment{
+        // margin-top: 10px;
+        background-color: rgba(242,242,242,.9);
+        border-color: rgb(87,146,255);
+        border-width:.5px;
+        line-height: -15px;
+
+    }
+}

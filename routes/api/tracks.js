@@ -40,7 +40,7 @@ router.get("/:id", (req, res) => {
     const newTrack = new Track({
       trackname: req.body.trackname,
       src_url: req.body.src_url,
-      user: req.body.user,
+      user: req.body.user
     //   comments: [{ 1: "haha" }] //req.comments.id // 'comments' returns array containing object
     }); // containing all comments; so only 1 id needed?
 
