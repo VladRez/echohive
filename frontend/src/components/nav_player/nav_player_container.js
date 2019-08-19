@@ -1,7 +1,9 @@
 import { connect } from "react-redux";
 import NavPlayer from "./nav_player";
 const mapStateToProps = (state, ownProps) => {
-  return {};
+  return {
+    loggedIn: state.session.isAuthenticated,
+  };
 };
 
 const mapDispatchToProps = dispatch => {

@@ -6,16 +6,22 @@ class NavPlayer extends React.Component {
     super(props);
   }
 
-  render() {
-    return <div className="player-controls">
+  navPlayer() {
+    return (
+      <div className="player-controls">
         <section className="player-controls-inner">
-            <div className="player-controls-wrapper">
-                <div className="control-elements">
-                    <button className="play-button"></button>
-                </div>
+          <div className="player-controls-wrapper">
+            <div className="control-elements">
+              <button className="play-button" />
             </div>
+          </div>
         </section>
-    </div>;
+      </div>
+    );
+  }
+
+  render() {
+    return this.props.loggedIn ? this.navPlayer() : ""
   }
 }
 
