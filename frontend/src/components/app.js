@@ -1,5 +1,5 @@
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
-import { Switch, Route } from "react-router-dom";
+import { Switch } from "react-router-dom";
 import React from "react";
 
 /* Project Components */

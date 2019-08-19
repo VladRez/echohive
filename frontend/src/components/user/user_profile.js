@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import Track from '../tracks/tracks';
 import TrackBox from '../tracks/track_box';
+
 class UserProfile extends React.Component {
     constructor(props) {
         super(props);
