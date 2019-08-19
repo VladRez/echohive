@@ -145,80 +145,81 @@
 /*Form styling*/
 
 .form-modal {
-    margin: 76px 0 30px;
-    /* position: absolute; */
-    top: 0;
-    padding: 25px;
-    background: #fff;
-    
-    box-sizing: border-box;
+  margin: 76px 0 30px;
+  /* position: absolute; */
+  top: 0;
+  padding: 25px;
+  background: #fff;
+
+  box-sizing: border-box;
 }
 
 .form-modal .form-modal-content {
-    position: relative;
-    height: 100%;
+  position: relative;
+  height: 100%;
 }
 
-
 .signin-form {
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    overflow: hidden;
-    height: 100%;
-    align-items: center;
-    display: flex;
-    flex-direction: row;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
 }
 
 .signin-form .signin-form-contents {
-    flex: 0 0 100%;
+  flex: 0 0 100%;
 }
 
 .form-text-input {
-    margin: 10px 0;
+  margin: 10px 0;
 
-    width: 100%;
-    position: relative;
-    z-index: 1;
+  width: 100%;
+  position: relative;
+  z-index: 1;
 
-    font-size: 18px;
-    line-height: 24px;
-    padding: 7px 8px;
-    border-radius: 5px;
+  font-size: 18px;
+  line-height: 24px;
+  padding: 7px 8px;
+  border-radius: 5px;
 
-    display: inline-block;
-    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
-    font-weight: 100;
-    font-size: 14px;
-    line-height: 20px;
-    padding: 2px 7px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    transition: border-color .1s;
-  }
+  display: inline-block;
+  font-family: "Interstate", "Lucida Grande", "Lucida Sans Unicode",
+    "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
+  font-weight: 100;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  transition: border-color 0.1s;
+}
 
-  .form-signin-button {
-    width: 100%;
-    background-color: #629cff;
-    border-color: #629cff;
-    color: #fff;
+.form-signin-button {
+  width: 100%;
+  background-color: #629cff;
+  border-color: #629cff;
+  color: #fff;
 
-    font-size: 16px;
-    line-height: 18px;
-    padding: 10px 15px;
-    height: 40px;
+  font-size: 16px;
+  line-height: 18px;
+  padding: 10px 15px;
+  height: 40px;
 
-    display: inline-block;
-    position: relative;
-    margin: 10px 0;
-    border: 1px solid #e5e5e5;
-    border-radius: 3px;
-    cursor: pointer;
-    white-space: nowrap;
-    font-family: "Interstate","Lucida Grande","Lucida Sans Unicode","Lucida Sans",Garuda,Verdana,Tahoma,sans-serif;
-    font-weight: 100;
-    text-align: center;
-    vertical-align: baseline;
-    box-sizing: border-box;
-  }
+  display: inline-block;
+  position: relative;
+  margin: 10px 0;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: "Interstate", "Lucida Grande", "Lucida Sans Unicode",
+    "Lucida Sans", Garuda, Verdana, Tahoma, sans-serif;
+  font-weight: 100;
+  text-align: center;
+  vertical-align: baseline;
+  box-sizing: border-box;
+}
