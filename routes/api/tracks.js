@@ -15,7 +15,6 @@ router.get("/", (req, res) => {
 });
 
 router.get("/user/:user_id", (req, res) => {
-  debugger;
   Track.find({ user: req.params.user_id })
     .then(tracks => res.json(tracks))
     .catch(err => res.status(404).json({ notracksfound: "hello" }));

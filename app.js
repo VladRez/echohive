@@ -7,13 +7,19 @@ const passport = require("passport");
 const users = require("./routes/api/users");
 const tracks = require("./routes/api/tracks");
 const trackRoutes = require("./routes/api/file-upload");
-const comments = require("./routes/api/comments")
+const comments = require("./routes/api/comments");
+const path = require('path');
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('frontend/build'));
+  app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+  })
+}
 
-// ^^^ NEW ROUTE^^^
-const x = 'x';
 app.use(passport.initialize());
 require("./config/passport")(passport);
+
 
 mongoose
   .connect(db, { useNewUrlParser: true })
@@ -29,7 +35,7 @@ app.use("/api/tracks", tracks);
 
 app.use("/api/newtrack/", trackRoutes);
 
-app.use("/api/comments/", comments)
+app.use("/api/comments/", comments);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Server is running on port ${port}`));

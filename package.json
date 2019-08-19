@@ -4,6 +4,7 @@
   "description": "Where artist echos the world. Platform to upload and share sounds.",
   "main": "app.js",
   "scripts": {
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend",
     "server:debug": "nodemon --inspect app.js",
     "start": "node app.js",
     "server": "nodemon app.js",

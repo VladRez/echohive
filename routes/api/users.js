@@ -9,14 +9,13 @@ const passport = require("passport");
 const validateRegisterInput = require("../../validation/register");
 const validateLoginInput = require("../../validation/login");
 
-router.get('/:id', (req, res) => {
-  User.findById(req.params.id).then(user=> res.json(user))  
-        .catch(err =>
-            res.status(404).json({ error: 'No User found with that ID' })
-        );
+router.get("/:id", (req, res) => {
+  User.findById(req.params.id)
+    .then(user => res.json(user))
+    .catch(err =>
+      res.status(404).json({ error: "No User found with that ID" })
+    );
 });
-
-
 
 router.get(
   "/current",
@@ -75,7 +74,6 @@ router.post("/register", (req, res) => {
 router.post("/login", (req, res) => {
   const { errors, isValid } = validateLoginInput(req.body);
 
-  
   if (!isValid) {
     return res.status(400).json(errors);
   }

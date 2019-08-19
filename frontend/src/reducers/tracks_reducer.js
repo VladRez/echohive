@@ -1,4 +1,5 @@
-import { RECEIVE_TRACKS, RECEIVE_SINGLE_TRACK, RECEIVE_NEW_TRACK, RECEIVE_USER_TRACKS } from '../actions/track_actions';
+import { RECEIVE_TRACKS, RECEIVE_SINGLE_TRACK,  } from '../actions/track_actions'; //RECEIVE_NEW_TRACK
+
 
 const TracksReducer = (state = { all: {}, user: [], new: undefined, track: {} }, action) => {
     Object.freeze(state);
@@ -9,14 +10,7 @@ const TracksReducer = (state = { all: {}, user: [], new: undefined, track: {} },
             return newState;
         case RECEIVE_SINGLE_TRACK:
             newState.track = action.track.data;
-            return newState;
-            // return action.track.data;
-        case RECEIVE_NEW_TRACK:
-            newState.new = action.track.data
-            return newState;
-        case RECEIVE_USER_TRACKS:
-            // debugger;
-            newState.user = action.tracks.data
+            if (action.track.data === null) return state;
             return newState;
         default:
             return state;

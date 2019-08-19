@@ -1,5 +1,7 @@
-config
+config/keys_dev.js
 node_modules
 frontend/node_modules
 DevEchoHive.pem
 .DS_Store
+package-lock.json
+frontend/package-lock.json
