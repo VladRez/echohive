@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { logout } from '../../actions/session_actions';
+import { logout, login } from '../../actions/session_actions';
 import { openModal } from '../../actions/modal_acitons';
 
 import Session from './session';
@@ -15,7 +15,12 @@ const mapDispatchToProps = (dispatch) => {
 
   return {
     logout: () => dispatch(logout()),
-    openModal: modal => dispatch(openModal(modal))
+    openModal: modal => dispatch(openModal(modal)),
+    demoLogin: ()=>dispatch(login({
+      username: "cmarginson9",
+      password: "3oYujowSBMht",
+      errors: {}
+    }))
   }
 }
 
