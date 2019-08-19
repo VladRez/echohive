@@ -1,11 +1,5 @@
-.hero-container {
-  padding-top: 0;
-  padding: 0 30px;
-  width: 1180px;
-  margin: 0 auto;
-}
 
-.hero-container .hero-inner {
+ .hero-inner {
   margin-left: -30px;
   margin-right: -30px;
 }

@@ -15,7 +15,9 @@ const App = () => (
   <div>
     <SessionModal />
     <NavBarContainer />
-    <Switch>
+    <div className="app-container app-content">
+     
+      <Switch>
       <AuthRoute exact path="/" component={SessionPage} />
       <ProtectedRoute exact path="/feed" component={TracksContainer} />
       <ProtectedRoute
@@ -35,6 +37,8 @@ const App = () => (
         component={UserProfileContainer}
       />
     </Switch>
+     
+    </div>
   </div>
 );
 

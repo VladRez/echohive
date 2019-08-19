@@ -22,3 +22,12 @@ input[type="password"] {
   box-sizing: border-box;
 }
 
+.app-container {
+  padding: 0 30px;
+  width: 1180px;
+  margin: 0 auto;
+}
+
+.app-content .app-container {
+  padding-top: 46px;
+}

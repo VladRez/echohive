@@ -1,11 +1,5 @@
-.profileContainer {
-  padding-top: 46px;
-  padding: 0 30px;
-  width: 1180px;
-  margin: 0 auto;
-}
 
-.profileContainer .profileHeader {
+ .profileHeader {
   position: relative;
   margin-left: -30px;
   margin-right: -30px;
@@ -15,13 +9,13 @@
   height: 260px;
 }
 
-.profileContainer .profileHeader .profileHeaderContents {
+ .profileHeader .profileHeaderContents {
   position: relative;
   z-index: 1;
   overflow: hidden;
 }
 
-.profileContainer .profileHeader .profileHeaderContents .profileUsername {
+ .profileHeader .profileHeaderContents .profileUsername {
   margin-top: 0;
 
   color: #fff;
