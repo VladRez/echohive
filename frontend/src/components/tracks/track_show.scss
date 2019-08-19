@@ -1,0 +1,18 @@
+.show-comment-container {
+       display: flex;
+       justify-content: center;
+       flex-direction: column;
+       margin-left: 200px;
+       
+// flex-flow: column wrap;
+    .show-comment-form {
+        .show-textarea {
+            border-style: solid;
+        border-color: rgb(87,146,255);
+        // border-radius: 25px;
+        border-width: 1.5px;
+
+        }
+    }
+}
+

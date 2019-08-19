@@ -1,14 +1,22 @@
 .comment-box-container {
     display: flex;
+    // align-items: horizontal;
+    flex-direction: horizontal;
     .quotes{
         margin:15px;
+    }
+    .username {
+        margin-top: 25px;
     }
     .comment{
         // margin-top: 10px;
         background-color: rgba(242,242,242,.9);
+        border-style: solid;
         border-color: rgb(87,146,255);
-        border-width:.5px;
+        // border-radius: 25px;
+        border-width: 1.5px;
         line-height: -15px;
+        padding: 5px;
 
     }
 }

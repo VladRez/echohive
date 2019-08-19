@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import TrackBox from './track_box';
 import CommentBox from '../comments/comment_box';
+import './track_show.scss';
 
 class TrackShow extends React.Component {
     constructor(props) {
@@ -68,7 +69,7 @@ class TrackShow extends React.Component {
                 <div><ul>{comments}</ul></div>
                 <div className="show-comment-container">
                     <h2>comment:</h2>
-            
+                    <br />
                     <form className="show-comment-form" onSubmit={this.handleSubmit}>
                         <textarea className="show-textarea" placeholder="Add a Comment:" onChange={this.handleUpdate('body')} value={this.state.body}></textarea>
                         <input type="submit" value="submit" />

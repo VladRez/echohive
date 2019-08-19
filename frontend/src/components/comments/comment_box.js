@@ -14,7 +14,7 @@ class CommentBox extends React.Component {
           <h3 className="comment">{this.props.body}</h3>
           <h1 className="quotes">"</h1>
           <br />
-          <div className="dash">— </div><div className="username">{this.props.username}</div>
+          <div className="username">—{this.props.username}</div>
         </div>
     );
   }
