@@ -6,71 +6,51 @@ class Footer extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { footer: "" };
+    // this.state = { footer: "" };
+      this.play = this.play.bind(this);
+      this.pause = this.pause.bind(this);
   }
-
-  //   handleClick() {
-  //     // e.preventDefault();
-  //     let player;
-  //     player = document.getElementById("player");
-  //     let footer_audio = document.getElementById("audioControl");
-  //     let trackbox_audio = document.getElementById(`${this.props.src_url}`);
-  //     // `${this.props.src_url}`;
-  //     let nav_player;
-  //     nav_player = document.getElementById("nav_player");
-
-  //     if (player.paused) {
-  //       // this.setState({ footer: this.props.src_url });
-  //       // debugger;
-  //       player.play();
-  //       // nav_player.play();
-  //       // debugger;
-  //       footer_audio.innerHTML = "pause!";
-  //       trackbox_audio.innerHTML = "pause!";
-  //     } else {
-  //       player.pause();
-  //       // nav_player.pause();
-  //       footer_audio.innerHTML = "play!";
-  //       trackbox_audio.innerHTML = "play!";
-  //     }
-
-  //   }
-
-//   componentDidUpdate() {
-//     //   this.setState({ footer: this.props.footer.src_url });
-//   }
-
-//   componentWillReceiveProps(nextProps) {
-//     this.setState({ footer: nextProps.footer });
-//   }
-
-    addEventHandler() {
+   
+    play() {
+        // debugger;
+      let footer_player;
+      footer_player = document.getElementById("footer_player");
+      let trackbox_text = document.getElementById(`${this.props.footer.track.src_url}`);
+        // debugger;
+    //   if (footer_player.playing) {
+        // debugger;
+          trackbox_text.innerHTML = "pause!";
+    //   } else {
+    //       trackbox_text.innerHTML = "play!";
+    //   }
         
+        // console.log('yoyoyo');
+    }
+
+    pause() {
+      let footer_player;
+      footer_player = document.getElementById("footer_player");
+      let trackbox_text = document.getElementById(`${this.props.footer.track.src_url}`);
+        
+      trackbox_text.innerHTML = "play!";
 
     }
 
+        // footer_player.addEventListener("playing", console.log('hello'));
 
   render() {
-    //   if (!this.props.footer) return null;
     //   debugger;
       return (
       <div>
           
-        <audio controls id="player" src={this.props.footer.track.src_url} />
-        <button id="audioControl" onClick={this.handleClick}>
+              <audio controls id="footer_player" src={this.props.footer.track.src_url} onPlay={this.play} onPause={this.pause}/>
+        {/* <button id="footer_text" onClick={this.handleClick}>
           play!
-        </button>
+        </button> */}
               
               {/* <audio controls> */}
                   {/* <source src={this.props.footer.track.src_url}></source> */}
             {/* </audio> */}
-
-        {/* <div>
-                            <button onClick={() => document.getElementById('nav_player').play()}>Play</button>
-                            <button onClick={() => document.getElementById('nav_player').pause()}>Pause</button>
-                            <button onClick={() => document.getElementById('nav_player').volume += 0.1}>Vol +</button>
-                            <button onClick={() => document.getElementById('nav_player').volume -= 0.1}>Vol -</button>
-                        </div> */}
       </div>
     );
   }

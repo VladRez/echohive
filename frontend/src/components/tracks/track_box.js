@@ -10,78 +10,41 @@ class TrackBox extends React.Component {
         this.handleClick = this.handleClick.bind(this)
     }
 
-    // componentDidUpdate() {
-    //     this.setState({ footer: this.props.src_url });
-    // }
-
     handleClick() {
-        // e.preventDefault();
         this.props.fetchSingleTrack(this.props.id).then(() => {
 
         // debugger;
-        // this.setState({ footer: this.props.src_url });
-        let player;
-        player = document.getElementById('player');
-        // debugger;
-        let footer_audio = document.getElementById("audioControl");
-        let trackbox_audio = document.getElementById(`${this.props.src_url}`);
-// `${this.props.src_url}`;
-        let nav_player;
-        nav_player = document.getElementById("nav_player");
+        let footer_player;
+        footer_player = document.getElementById('footer_player');
+        let trackbox_text = document.getElementById(`${this.props.src_url}`);
 
-        if (player.paused) {
-            // this.setState({ footer: this.props.src_url });
-            // debugger;
-            player.play();
-            // nav_player.play();
-            // debugger;
-            footer_audio.innerHTML = 'pause!';
-            trackbox_audio.innerHTML = 'pause!';
+        if (footer_player.paused) {
+            footer_player.play();
+            trackbox_text.innerHTML = 'pause!';
         } else {
-            player.pause();
-            // nav_player.pause();
-            footer_audio.innerHTML = "play!";
-            trackbox_audio.innerHTML = "play!";
+            footer_player.pause();
+            // trackbox_text.innerHTML = "play!";
         }
+            
         } )
-
-        // let ctrl;
-        // ctrl = document.getElementById('audioControl');
-
-        // let pause = ctrl.innerHTML === 'pause!';
-        // ctrl.innerHTML = pause ? 'play!' : 'pause!';
-
-        // // Update the Audio
-        // let method = pause ? 'pause' : 'play';
-        // player[method]();
 
     }
 
+    componentDidMount() {
+        let footer_player;
+        footer_player = document.getElementById(
+            "footer_player"
+        );
+        let trackbox_text = document.getElementById(
+            `${this.props.src_url}`
+        );
+        if (!footer_player.paused) {
+            trackbox_text.innerHTML = "pause!";
+
+        }
+    }
+    
     render() {
-
-        // <audio id="yourAudio" preload='none'>
-        //     <source src='the url to the audio' type='audio/wav' />
-        // </audio>
-        //     <a href="#" id="audioControl">play!</a>
-    
-        // let yourAudio;
-        // yourAudio = document.getElementById('player')
-    
-
-        // ctrl.onclick = function () {
-
-        //     // Update the Button
-        //     var pause = ctrl.innerHTML === 'pause!';
-        //     ctrl.innerHTML = pause ? 'play!' : 'pause!';
-
-        //     // Update the Audio
-        //     var method = pause ? 'pause' : 'play';
-        //     yourAudio[method]();
-
-        //     // Prevent Default Action
-        //     return false;
-        // };
-
 
         return (
             <div className="outer-trackbox">
@@ -102,7 +65,7 @@ class TrackBox extends React.Component {
                             <source src={this.props.src_url} type="audio/mpeg"></source>
                         </audio> */}
 
-                        <audio src={this.props.src_url}></audio>
+                        {/* <audio src={this.props.src_url}></audio> */}
                         <button id={this.props.src_url} onClick={this.handleClick}>play!</button>
 
                         
@@ -125,22 +88,6 @@ class TrackBox extends React.Component {
         );
     }
 }
-
-
-
-// ctrl.onclick = function () {
-
-//     // Update the Button
-//     var pause = ctrl.innerHTML === 'pause!';
-//     ctrl.innerHTML = pause ? 'play!' : 'pause!';
-
-//     // Update the Audio
-//     var method = pause ? 'pause' : 'play';
-//     yourAudio[method]();
-
-//     // Prevent Default Action
-//     return false;
-// };
 
 export default TrackBox;
 
