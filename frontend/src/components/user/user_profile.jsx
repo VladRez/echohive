@@ -27,6 +27,7 @@ class UserProfile extends React.Component {
                             src_url={track.src_url}
                             id={`${track._id}`}
                             user={track.user}
+                            fetchSingleTrack={this.props.fetchSingleTrack}
                         />
                     </div>
                 ))

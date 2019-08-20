@@ -43,7 +43,8 @@ class Footer extends React.Component {
       return (
       <div>
           
-              <audio controls id="footer_player" src={this.props.footer.track.src_url} onPlay={this.play} onPause={this.pause}/>
+          <audio controls id="footer_player" src={this.props.footer.track.src_url} onPlay={this.play} onPause={this.pause} />
+          {/* <progress id="seekbar" value="0" max="1" style="width:400px;"></progress> */}
         {/* <button id="footer_text" onClick={this.handleClick}>
           play!
         </button> */}

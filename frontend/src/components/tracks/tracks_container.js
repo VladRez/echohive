@@ -10,6 +10,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => {
+    // debugger;
     return {
         fetchTracks: () => dispatch(fetchTracks()),
         fetchSingleTrack: (id) => dispatch(fetchSingleTrack(id))

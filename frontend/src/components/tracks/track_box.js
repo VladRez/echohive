@@ -11,23 +11,29 @@ class TrackBox extends React.Component {
     }
 
     handleClick() {
+        // debugger;
         this.props.fetchSingleTrack(this.props.id).then(() => {
 
         // debugger;
-        let footer_player;
-        footer_player = document.getElementById('footer_player');
+            let footer_player;
+            footer_player = document.getElementById('footer_player');
+            
         let trackbox_text = document.getElementById(`${this.props.src_url}`);
 
         if (footer_player.paused) {
             footer_player.play();
+            Array.from(document.getElementsByClassName("play-button")).forEach(ele => {
+                ele.innerHTML = 'play';
+            })
             trackbox_text.innerHTML = 'pause!';
         } else {
             footer_player.pause();
-            // trackbox_text.innerHTML = "play!";
+            Array.from(document.getElementsByClassName("play-button")).forEach(ele => {
+                ele.innerHTML = 'play';
+            })
         }
             
         } )
-
     }
 
     componentDidMount() {
@@ -42,8 +48,26 @@ class TrackBox extends React.Component {
         if (!footer_player.paused && (footer_player.src === trackbox_text.id)) {
             trackbox_text.innerHTML = "pause!";
 
-        }
+        } //else {
+        //     trackbox_text.innerHTML = "play!";
+        // }
     }
+
+    // componentDidUpdate() {
+    //             let footer_player;
+    //     footer_player = document.getElementById(
+    //         "footer_player"
+    //     );
+    //     let trackbox_text = document.getElementById(
+    //         `${this.props.src_url}`
+    //     );
+    //     if (!footer_player.paused && (footer_player.src === trackbox_text.id)) {
+    //         trackbox_text.innerHTML = "pause!";
+
+    //     } else {
+    //         trackbox_text.innerHTML = "play!";
+    //     }
+    // }
     
     render() {
 
@@ -78,8 +102,8 @@ class TrackBox extends React.Component {
                         </audio> */}
 
                         {/* <audio src={this.props.src_url}></audio> */}
-                        <button id={this.props.src_url} onClick={this.handleClick}>play!</button>
-
+                        <button className="play-button" id={this.props.src_url} onClick={this.handleClick}>play!</button>
+                        <progress className={this.props.src_url} value="0" max="1"></progress>
                         
                         {/* <div className="comment-box">
                             
