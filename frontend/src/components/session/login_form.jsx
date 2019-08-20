@@ -47,9 +47,11 @@ class LoginForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul style={{listStyleType: 'none', paddingLeft: '20px'}}>
+      <ul style={{ listStyleType: "none", paddingLeft: "20px" }}>
         {Object.keys(this.state.errors).map((error, i) => (
-          <li style={{fontSize: '12px'}} key={`error-${i}`}>{this.state.errors[error]}</li>
+          <li style={{ fontSize: "12px" }} key={`error-${i}`}>
+            {this.state.errors[error]}
+          </li>
         ))}
       </ul>
     );
@@ -59,7 +61,7 @@ class LoginForm extends React.Component {
     return (
       <div className="form-modal">
         <form className="signin-form" onSubmit={this.handleSubmit}>
-          <div onClick={this.props.closeModal} className=""></div>
+          <div onClick={this.props.closeModal} className="" />
           <div>
             <br />
             <input
@@ -85,7 +87,6 @@ class LoginForm extends React.Component {
             />
             {this.renderErrors()}
           </div>
-          
         </form>
       </div>
     );

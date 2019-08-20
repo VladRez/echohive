@@ -16,10 +16,21 @@ class UserProfile extends React.Component {
   }
 
   render() {
-    // debugger;
-    // if (!this.props.user || !this.props.tracks) return null;
+    if (!this.props.user || !this.props.tracks) return null;
     let username = this.props.user ? this.props.user.username : "";
-    // debugger;
+    let userTracks = [];
+    if (this.props.tracks.length > 0) {
+       userTracks = this.props.tracks.map((track, i) => (
+                    <div key={i}>
+                        <TrackBox
+                            trackname={track.trackname}
+                            src_url={track.src_url}
+                            id={`${track._id}`}
+                            user={track.user}
+                        />
+                    </div>
+                ))
+    }
     return (
       <div className="profileContainer">
         <div className="profileHeader">
@@ -36,29 +47,8 @@ class UserProfile extends React.Component {
         </div>
         <div className="profileBodyContent">
           <div className="tracksAndUserInfo">
-            {/* <TracksContainer /> */}
-
             <h2>All User Tracks</h2>
-                     {this.props.tracks.map(track => (
-
-                        <div key={`${track._id}`}>
-                            {/* <TrackBox
-                                trackname={track.trackname}
-                                src_url={track.src_url}
-                                id={`${track._id}`}
-
-                            /> */}
-
-                            <figure>
-                                <figcaption>Listen some echoes:</figcaption>
-                                <audio controls>
-                                    <source src={track.src_url} type="audio/mpeg"></source>
-                                </audio>
-                            </figure>
-                        </div>
-                    ))}
-
-
+            <ul>{userTracks}</ul>
           </div>
         </div>
       </div>
@@ -67,87 +57,3 @@ class UserProfile extends React.Component {
 }
 
 export default withRouter(UserProfile);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React from 'react';
-// import { withRouter } from 'react-router-dom';
-// import Track from '../tracks/tracks';
-
-// import TrackBox from '../tracks/track_box';
-
-// class UserProfile extends React.Component {
-//     constructor(props) {
-//         super(props);
-
-//     }
-
-//     componentDidMount() {
-//         this.props.fetchUserTracks(this.props.match.params.userId);
-//     }
-
-
-//     render() {
-//         // debugger;
-//         // if (!this.props.track) return null;
-//         //     return (
-//         //         <div>No tracks</div>
-//         //     );
-//         // } 
-//         // debugger;
-//         // debugger;
-//         // if (this.state === null) return null;
-
-//         // if (!this.props.tracks) return null;
-//         // debugger;
-//         return (
-
-//             <div>
-
-//                 {/* <Track tracks={this.props.tracks} /> */}
-//                 <div>
-//                     <h2>All User Tracks</h2>
-//                     {this.props.tracks.map(track => (
-
-//                         <div key={`${track._id}`}>
-//                             <TrackBox
-//                                 trackname={track.trackname}
-//                                 src_url={track.src_url}
-//                                 id={`${track._id}`}
-
-//                             />
-
-//                             <figure>
-//                                 <figcaption>Listen some echoes:</figcaption>
-//                                 <audio controls>
-//                                     <source src={track.src_url} type="audio/mpeg"></source>
-//                                 </audio>
-//                             </figure>
-//                         </div>
-//                     ))}
-
-
-//                 </div>
-
-
-//             </div>
-//         );
-
-//     }
-// }
-
-// export default withRouter(UserProfile);

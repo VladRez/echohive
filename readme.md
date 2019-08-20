@@ -1,12 +1,12 @@
 # EchoHive 
 
-Where artist echos the world. Platform to upload and share sounds.
+EchoHive lets people discover and enjoy the greatest selection of sound samples from the most diverse audio engineers. 
 
 # Background and Overview
 
-A minimal viable product that tackles three challenges in application development, software engineering, and user experience.
+EchoHive is a minimal viable product that tackles three challenges in application development, software engineering, and user experience.
 
-Primarily built with the MERN stack, a combination of following four technologies: 
+Primarily built with the combination of following technologies: 
 
 + MongoDB
 + Express
@@ -15,15 +15,16 @@ Primarily built with the MERN stack, a combination of following four technologie
 
 # Functionality and MVP
 
-+ Song (CRUD)
-+ Playing songs with progress bar, with continuous play
-+ Comments on a song
-+ Profile pages
++ Audio Sample show page and playback
++ Playing songs with a progress bar and continuous play when navigating the site
++ Users can add comments on to a song
++ Users have their own profile pages to show other users
 
-**TBD** - Wave Forms
-**TBD** - Playlists
-**TBD** - Likes
+**TBD**
 
++ Visual Waves
++ Playlists
++ Likes
 
 # Technologies and Technical Challenges
 
@@ -33,11 +34,12 @@ Primarily built with the MERN stack, a combination of following four technologie
     + Register
     + Login
     + Logout
-+ Index
-    + Feed
++ Feed
+    + Track index
 + Show - Artist/User
     + Index - Artist/User Tracks
     + Show - Artist/User Track
++ Audio Player
 
 ### Redux Store
 
@@ -48,7 +50,6 @@ Primarily built with the MERN stack, a combination of following four technologie
                 0: {
                     id: 0,
                     username: 'string',
-                    tracks: [1,2, 3], // track id's
                     profile_avatar_url: `path/to/image`
                 }
         },
@@ -80,34 +81,46 @@ Primarily built with the MERN stack, a combination of following four technologie
 ```
 
 Backend: 
+
 + Mongodb
 + Nodejs
 + Express
++ Multer
 
 Frontend:
+
 + React
 + React Native with Redux
++ Axios 
 
-# Group Members and Work Breakdown
-
-+ Day 1
-    + User Register Auth - Vlad
-    + User Login Auth - Mac
-    + Feed - Leap
-+ Day 2
-   + AWS setup - Vlad
-   + User Profile - Mac
-   + Track Show Page - Leap
-+ Day 3
-    + Audio Upload - Vlad
-    + Audio Playback - Mac
-    + Audio UI - Leap
-+ Day 4
-    + styling - Vlad/Mac/Leap
-+ Day 5
-    + Produciton Readme - Vlad/Mac/Leap
+# Group Members and Work Plan Breakdown
 
 ## Team 
+
 + Leap Soto
 + Mac Scheer
 + Vlad Rez
+
+## Plan
+
++ Day 1
+    + Session Auth API Setup - Vlad
+    + AWS and Mongodb Setup - Mac
+    + Main User Feed API Setup - Leap
+
++ Day 2
+   + Session Signup/Login UI - Vlad
+   + Upload Track API and UI - Mac
+   + Track Show backend API and UI - Leap
+
++ Day 3
+    + User Profile- Vlad
+    + User Comments - Mac
+    + Track Audio Player Controller - Leap
+
++ Day 4
+    + Refactor and CSS - Vlad/Mac/Leap
+
++ Day 5
+    + Deploy to Heroku - Vlad/Mac/Leap
+    + Produciton Readme - Vlad/Mac/Leap

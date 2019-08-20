@@ -32,13 +32,10 @@ class Track extends React.Component {
             "https://echo-hive-seeds.s3-us-west-1.amazonaws.com/3402+Euclid+Ave+5.mp3",
             "https://echo-hive-seeds.s3-us-west-1.amazonaws.com/3402+Euclid+Ave+6.mp3"
         ];
-        // debugger;
-        // debugger;
 
         let renderedTracks;
 
         renderedTracks = this.props.tracks.map(track => {
-            // debugger;
             return(
             <div key={`${track._id}`}>
                 <TrackBox
@@ -64,6 +61,7 @@ class Track extends React.Component {
 
             return (
                 <div>
+
                     <div className="header">All tracks</div>
                     
                     {renderedTracks}

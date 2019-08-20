@@ -6,8 +6,10 @@ import errors from './errors_reducer';
 import ui from './ui_reducer';
 import footer from "./footer_reducer";
 
+import comments from './comments_reducer';
 
 const RootReducer = combineReducers({
+    comments,
     session,
     errors,
     entities,
