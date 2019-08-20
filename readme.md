@@ -1,12 +1,12 @@
 # EchoHive 
 
-EchoHive lets people discover and enjoy the greatest selection of sounds from the most diverse creators. 
+EchoHive lets people discover and enjoy the greatest selection of sound samples from the most diverse audio engineers. 
 
 # Background and Overview
 
-A minimal viable product that tackles three challenges in application development, software engineering, and user experience.
+EchoHive is a minimal viable product that tackles three challenges in application development, software engineering, and user experience.
 
-Primarily built with the MERN stack, a combination of following four technologies: 
+Primarily built with the combination of following technologies: 
 
 + MongoDB
 + Express
@@ -15,17 +15,16 @@ Primarily built with the MERN stack, a combination of following four technologie
 
 # Functionality and MVP
 
-+ Song (CRUD)
-+ Playing songs with progress bar, with continuous play
-+ Comments on a song
-+ Profile pages
++ Audio Sample show page and playback
++ Playing songs with a progress bar and continuous play when navigating the site
++ Users can add comments on to a song
++ Users have their own profile pages to show other users
 
-**TBD** - Wave Forms
+**TBD**
 
-**TBD** - Playlists
-
-**TBD** - Likes
-
++ Visual Waves
++ Playlists
++ Likes
 
 # Technologies and Technical Challenges
 
@@ -40,6 +39,7 @@ Primarily built with the MERN stack, a combination of following four technologie
 + Show - Artist/User
     + Index - Artist/User Tracks
     + Show - Artist/User Track
++ Audio Player
 
 ### Redux Store
 
@@ -85,19 +85,23 @@ Backend:
 + Mongodb
 + Nodejs
 + Express
++ Multer
 
 Frontend:
 
 + React
 + React Native with Redux
++ Axios 
 
-# Group Members and Work Breakdown
+# Group Members and Work Plan Breakdown
 
 ## Team 
 
 + Leap Soto
 + Mac Scheer
 + Vlad Rez
+
+## Plan
 
 + Day 1
     + Session Auth API Setup - Vlad
