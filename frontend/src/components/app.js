@@ -10,7 +10,7 @@ import UserProfileContainer from "./user/user_profile_container";
 import SessionPage from "./session/session_container";
 import NavBarContainer from "./nav/navbar_container";
 import SessionModal from "./modal/session_form_modal";
-
+import NavPlayer from "./nav_player/nav_player_container";
 import FooterContainer from "./nav/footer_container";
 
 

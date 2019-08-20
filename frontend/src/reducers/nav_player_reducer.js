@@ -2,7 +2,7 @@ import {
   RECEIVE_SINGLE_TRACK,
 } from "../actions/track_actions";
 
-const FooterReducer = (
+const NavPlayerReducer = (
   state = { track: {} },
   action
 ) => {
@@ -17,4 +17,4 @@ const FooterReducer = (
   }
 };
 
-export default FooterReducer;
+export default NavPlayerReducer;

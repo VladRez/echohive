@@ -31,6 +31,7 @@ class TrackBox extends React.Component {
     }
 
     componentDidMount() {
+        // debugger;
         let footer_player;
         footer_player = document.getElementById(
             "footer_player"
@@ -38,13 +39,24 @@ class TrackBox extends React.Component {
         let trackbox_text = document.getElementById(
             `${this.props.src_url}`
         );
-        if (!footer_player.paused) {
+        if (!footer_player.paused && (footer_player.src === trackbox_text.id)) {
             trackbox_text.innerHTML = "pause!";
 
         }
     }
     
     render() {
+
+        // let inner;
+        // let trackbox_text;
+        // let footer_player;
+
+        // footer_player = document.getElementById("footer_player");
+        // trackbox_text = document.getElementById(`${this.props.src_url}`);
+
+        // if (!footer_player.paused) {
+        //     trackbox_text.innerHTML = "pause!";
+        // }
 
         return (
             <div className="outer-trackbox">
@@ -71,13 +83,6 @@ class TrackBox extends React.Component {
                         
                         {/* <div className="comment-box">
                             
-                        </div> */}
-                        
-                        {/* <div>
-                            <button onClick={() => document.getElementById('player').play()}>Play</button>
-                            <button onClick={() => document.getElementById('player').pause()}>Pause</button>
-                            <button onClick={() => document.getElementById('player').volume += 0.1}>Vol +</button>
-                            <button onClick={() => document.getElementById('player').volume -= 0.1}>Vol -</button>
                         </div> */}
 
                     </figure>

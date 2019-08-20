@@ -4,7 +4,7 @@ import tracks from './tracks_reducer';
 import session from './session_reducer';
 import errors from './errors_reducer';
 import ui from './ui_reducer';
-import footer from "./footer_reducer";
+import nav_player from "./nav_player_reducer";
 
 import comments from './comments_reducer';
 
@@ -15,7 +15,7 @@ const RootReducer = combineReducers({
     entities,
     tracks,
   ui,
-    footer
+    nav_player
 });
 
 export default RootReducer;
