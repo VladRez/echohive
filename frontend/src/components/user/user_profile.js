@@ -6,12 +6,12 @@ class UserProfile extends React.Component {
     constructor(props) {
         super(props);
     }
-
+//THIS COMPONENT IS NOT RENDERING
     componentDidMount() {
         this.props.fetchUser(this.props.match.params.userId);
         this.props.fetchUserTracks(this.props.match.params.userId);
     }
-
+//pass down current user to trackbox
     render() {
         return (
             

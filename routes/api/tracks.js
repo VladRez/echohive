@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
     .catch(err => res.status(404).json({ notracksfound: "hello" }));
 });
 
-router.get("/user/:user_id", (req, res) => {
+router.get("/users/:user_id", (req, res) => {
   Track.find({ user: req.params.user_id })
     .then(tracks => res.json(tracks))
     .catch(err => res.status(404).json({ notracksfound: "hello" }));
@@ -41,8 +41,7 @@ router.get("/:id", (req, res) => {
       trackname: req.body.trackname,
       src_url: req.body.src_url,
       user: req.body.user
-    //   comments: [{ 1: "haha" }] //req.comments.id // 'comments' returns array containing object
-    }); // containing all comments; so only 1 id needed?
+    });
 
     newTrack.save().then(track => res.json(track));
   });

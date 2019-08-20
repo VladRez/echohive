@@ -17,7 +17,6 @@ class TrackBox extends React.Component {
 
         if (player.paused) {
             player.play();
-            // debugger;
             b.innerHTML = 'pause!';
         } else {
             player.pause();
@@ -62,13 +61,12 @@ class TrackBox extends React.Component {
         //     return false;
         // };
 
-
         return (
             <div className="outer-trackbox">
                 
                 <div className="inner-trackbox">
                     <div className="img_container"></div>
-                    <div className="artist"><Link to={`/user/${this.props.track.user}`}>Put artist name here</Link>
+                    <div className="artist"><Link to={`/user/${this.props.user}`}>Put artist name here</Link>
                         <div className="time-ago">Time ago uploaded</div>
                     </div>
 

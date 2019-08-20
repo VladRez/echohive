@@ -8,7 +8,7 @@ import { fetchUserTracks } from "../../actions/track_actions";
 const mapStateToProps = (state, ownProps) => {
   return {
       user: Object.values(state.entities.users)[0],
-      tracks: state.entities.tracks.user,
+      tracks: state.tracks.userTracks
     //   tracks: Object.values(state.tracks.all),
   };
 };
