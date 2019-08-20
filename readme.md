@@ -1,6 +1,6 @@
 # EchoHive 
 
-Where artist echos the world. Platform to upload and share sounds.
+EchoHive lets people discover and enjoy the greatest selection of sounds from the most diverse creators. 
 
 # Background and Overview
 
