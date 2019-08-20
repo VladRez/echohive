@@ -28,7 +28,7 @@ const Session = props => {
                 Demo
               </a>
             </div>
-            <div class="hero-minislide">
+            <div className="hero-minislide">
               <img
                 src="https://images.unsplash.com/5/unsplash-kitsune-4.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
                 alt="Slide 4"

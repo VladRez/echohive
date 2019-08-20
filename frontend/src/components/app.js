@@ -12,12 +12,13 @@ import NavBarContainer from "./nav/navbar_container";
 import SessionModal from "./modal/session_form_modal";
 import NavPlayer from "./nav_player/nav_player_container";
 const App = () => (
-  <div>
+  <div className="app-container">
     <SessionModal />
     <NavBarContainer />
-    <div className="app-container app-content">
+    
       <Switch>
         <AuthRoute exact path="/" component={SessionPage} />
+        <div className="app-content">
         <ProtectedRoute exact path="/feed" component={TracksContainer} />
         <ProtectedRoute
           exact
@@ -35,8 +36,9 @@ const App = () => (
           path="/user/:userId"
           component={UserProfileContainer}
         />
+        </div>
       </Switch>
-    </div>
+    
     <NavPlayer />
   </div>
 );

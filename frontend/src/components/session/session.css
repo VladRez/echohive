@@ -1,3 +1,10 @@
+.hero-container {
+  padding-right: 30px;
+  padding-left: 30px;
+  padding-bottom: 0px;
+  width: 1180px;
+  margin: 0 auto;
+}
 .hero-inner {
   margin-left: -30px;
   margin-right: -30px;
