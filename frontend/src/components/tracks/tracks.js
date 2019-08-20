@@ -42,10 +42,11 @@ class Track extends React.Component {
             return(
             <div key={`${track._id}`}>
                 <TrackBox
-                    trackname={track.trackname}
-                    src_url={track.src_url}
-                    id={`${track._id}`}
-                    track={track}
+                        trackname={track.trackname}
+                        src_url={track.src_url}
+                        id={`${track._id}`}
+                        track={track}
+                        fetchSingleTrack={this.props.fetchSingleTrack}
                 />
 
                 {/* <figure>

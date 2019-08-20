@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// import Footer from '../nav/footer';
 
 class TrackBox extends React.Component {
 
@@ -9,21 +10,40 @@ class TrackBox extends React.Component {
         this.handleClick = this.handleClick.bind(this)
     }
 
+    // componentDidUpdate() {
+    //     this.setState({ footer: this.props.src_url });
+    // }
+
     handleClick() {
         // e.preventDefault();
+        this.props.fetchSingleTrack(this.props.id).then(() => {
+
+        // debugger;
+        // this.setState({ footer: this.props.src_url });
         let player;
         player = document.getElementById('player');
-        let b = document.getElementById('audioControl');
+        // debugger;
+        let footer_audio = document.getElementById("audioControl");
+        let trackbox_audio = document.getElementById(`${this.props.src_url}`);
+// `${this.props.src_url}`;
+        let nav_player;
+        nav_player = document.getElementById("nav_player");
 
         if (player.paused) {
-            player.play();
+            // this.setState({ footer: this.props.src_url });
             // debugger;
-            b.innerHTML = 'pause!';
+            player.play();
+            // nav_player.play();
+            // debugger;
+            footer_audio.innerHTML = 'pause!';
+            trackbox_audio.innerHTML = 'pause!';
         } else {
             player.pause();
-            b.innerHTML = 'play!';
+            // nav_player.pause();
+            footer_audio.innerHTML = "play!";
+            trackbox_audio.innerHTML = "play!";
         }
-        
+        } )
 
         // let ctrl;
         // ctrl = document.getElementById('audioControl');
@@ -77,27 +97,29 @@ class TrackBox extends React.Component {
                     </div>
                     
                     <figure>
-                        <figcaption>Listen some echoes:</figcaption>
+                        {/* <figcaption>Listen some echoes:</figcaption>
                         <audio controls>
                             <source src={this.props.src_url} type="audio/mpeg"></source>
-                        </audio>
+                        </audio> */}
 
-                        <audio id="player" src={this.props.src_url}></audio>
-                        <button id="audioControl" onClick={this.handleClick}>play!</button>
+                        <audio src={this.props.src_url}></audio>
+                        <button id={this.props.src_url} onClick={this.handleClick}>play!</button>
 
                         
                         {/* <div className="comment-box">
                             
                         </div> */}
                         
-                        <div>
+                        {/* <div>
                             <button onClick={() => document.getElementById('player').play()}>Play</button>
                             <button onClick={() => document.getElementById('player').pause()}>Pause</button>
                             <button onClick={() => document.getElementById('player').volume += 0.1}>Vol +</button>
                             <button onClick={() => document.getElementById('player').volume -= 0.1}>Vol -</button>
-                        </div>
+                        </div> */}
 
                     </figure>
+
+                    
                 </div>
             </div>
         );

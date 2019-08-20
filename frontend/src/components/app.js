@@ -11,6 +11,9 @@ import SessionPage from "./session/session_container";
 import NavBarContainer from "./nav/navbar_container";
 import SessionModal from "./modal/session_form_modal";
 
+import FooterContainer from "./nav/footer_container";
+
+
 
 const App = () => (
   <div>
@@ -35,7 +38,9 @@ const App = () => (
         path="/user/:userId"
         component={UserProfileContainer}
       />
-    </Switch>
+        </Switch>
+        
+        <Route path="/" component={FooterContainer} />
   </div>
 );
 
