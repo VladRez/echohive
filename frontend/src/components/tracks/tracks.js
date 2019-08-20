@@ -36,7 +36,6 @@ class Track extends React.Component {
         let renderedTracks;
 
         renderedTracks = this.props.tracks.map(track => {
-            // debugger;
             return(
             <div key={`${track._id}`}>
                 <TrackBox

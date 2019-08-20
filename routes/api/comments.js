@@ -12,8 +12,6 @@ router.post("/", (req, res) => {
     body: req.body.body,
     track: req.body.track
   });
-        debugger;
-console.log(newComment); //for testing
   newComment
     .save()
     .then(comment => {

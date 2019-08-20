@@ -80,7 +80,9 @@ export const fetchSingleTrack = id => dispatch =>
 
 export const fetchUserTracks = id => dispatch => (
     getUserTracks(id)
-        .then(tracks => dispatch(receiveUserTracks(tracks)))
+        .then(tracks => { 
+          console.log(tracks);
+          return dispatch(receiveUserTracks(tracks))})
         .catch(err => console.log(err))
 );
 
