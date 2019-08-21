@@ -26,6 +26,7 @@ class UserProfile extends React.Component {
                           id={`${track._id}`}
                           track={track}
                           fetchSingleTrack={this.props.fetchSingleTrack}
+                          fetchNavTrack={this.props.fetchNavTrack}
                         />
                       </div>
                     );

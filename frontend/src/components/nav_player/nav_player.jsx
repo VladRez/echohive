@@ -61,6 +61,10 @@ class NavPlayer extends React.Component {
     }
   }
   // attr("value", this.currentTime / this.duration);
+
+  // componentDidUpdate() {
+  //   this.props.fetchNavTrack(this.props.nav_player.track.id)
+  // }
   
 
   navPlayer() {

@@ -12,7 +12,7 @@ class TrackBox extends React.Component {
 
     handleClick() {
         // debugger;
-        this.props.fetchSingleTrack(this.props.id).then(() => {
+        this.props.fetchNavTrack(this.props.id).then(() => {
 
         // debugger;
             let footer_player;

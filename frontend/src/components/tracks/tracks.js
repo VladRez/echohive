@@ -36,14 +36,15 @@ class Track extends React.Component {
         let renderedTracks;
 
         renderedTracks = this.props.tracks.map(track => {
-            return(
-            <div key={`${track._id}`}>
+            return (
+              <div key={`${track._id}`}>
                 <TrackBox
-                        trackname={track.trackname}
-                        src_url={track.src_url}
-                        id={`${track._id}`}
-                        track={track}
-                        fetchSingleTrack={this.props.fetchSingleTrack}
+                  trackname={track.trackname}
+                  src_url={track.src_url}
+                  id={`${track._id}`}
+                  track={track}
+                  fetchSingleTrack={this.props.fetchSingleTrack}
+                  fetchNavTrack={this.props.fetchNavTrack}
                 />
 
                 {/* <figure>
@@ -52,8 +53,8 @@ class Track extends React.Component {
                         <source src={track.src_url} type="audio/mpeg"></source>
                     </audio>
                 </figure> */}
-            </div>
-            )}
+              </div>
+            );}
     );
         
 

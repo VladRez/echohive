@@ -5,7 +5,8 @@ import {
   postTrack,
   getUserTracks,
   getComments,
-  postComment
+  postComment,
+  getNavTrack
 
 } from "../util/track_api_util";
 
@@ -18,6 +19,7 @@ export const RECEIVE_USER_TRACKS = "RECEIVE_USER_TRACKS";
 
 export const RECEIVE_TRACK_COMMENTS = "RECEIVE_TRACK_COMMENTS";
 export const RECEIVE_NEW_COMMENT = "RECEIVE_NEW_COMMENT";
+export const RECEIVE_NAV_TRACK = "RECEIVE_NAV_TRACK";
 
 
 export const receiveTracks = tracks => ({
@@ -27,6 +29,11 @@ export const receiveTracks = tracks => ({
 
 export const receiveSingleTrack = track => ({
   type: RECEIVE_SINGLE_TRACK,
+  track
+});
+
+export const receiveNavTrack = track => ({
+  type: RECEIVE_NAV_TRACK,
   track
 });
 
@@ -70,6 +77,13 @@ export const fetchSingleTrack = id => dispatch =>
     })
     .catch(err => console.log(err));
 
+export const fetchNavTrack = id => dispatch =>
+  getNavTrack(id)
+    .then(track => {
+      return dispatch(receiveNavTrack(track));
+    })
+    .catch(err => console.log(err));
+
 
 
 export const fetchTracks = () => dispatch => (
@@ -107,4 +121,3 @@ export const postTrackFile = (data, trackname, user, history) => dispatch => {
     })
     .catch(err => console.log(err));
 };
-

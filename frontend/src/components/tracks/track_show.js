@@ -21,6 +21,7 @@ class TrackShow extends React.Component {
         const trackId = this.props.match.params.trackId
         this.props.fetchSingleTrack(trackId);
         this.props.fetchComments(trackId);
+        // this.props.fetchNavTrack(trackId);
     }
     handleSubmit(e) {
         e.preventDefault();
@@ -76,6 +77,7 @@ class TrackShow extends React.Component {
               track={this.props.track}
                     fetchSingleTrack={this.props.fetchSingleTrack}
                     fetchComments={this.props.fetchComments}
+                    fetchNavTrack={this.props.fetchNavTrack}
             />
             <div>
               <ul>{comments}</ul>
