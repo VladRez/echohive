@@ -12,13 +12,10 @@ class NavPlayer extends React.Component {
   }
 
   play() {
-    // debugger;
     let footer_player;
     footer_player = document.getElementById("footer_player");
     let trackbox_text = document.getElementById(`${this.props.nav_player.track.src_url}`);
-    // debugger;
     //   if (footer_player.playing) {
-    // debugger;
     if (trackbox_text !== null) {
       trackbox_text.innerHTML = "pause!";
     }
@@ -40,13 +37,10 @@ class NavPlayer extends React.Component {
   }
 
   timeUpdate() {
-    // debugger;
     let progress_bar = document.getElementsByClassName(`${this.props.nav_player.track.src_url}`)[0];
-    // debugger;
     if (progress_bar !== undefined) {
       let footer_player;
       footer_player = document.getElementById("footer_player");
-      // debugger;
       // if ((footer_player.currentTime / footer_player.duration) !== undefined) {
       if (footer_player.duration) {
         progress_bar.value = (footer_player.currentTime / footer_player.duration);

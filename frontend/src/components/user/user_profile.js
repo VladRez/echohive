@@ -15,7 +15,6 @@ class UserProfile extends React.Component {
     render() {
 
         let rendered_tracks;
-        debugger;
                 renderedTracks = this.props.tracks.map(
                   track => {
                     return (

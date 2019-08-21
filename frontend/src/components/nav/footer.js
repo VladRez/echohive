@@ -12,13 +12,10 @@ class Footer extends React.Component {
   }
    
     play() {
-        // debugger;
       let footer_player;
       footer_player = document.getElementById("footer_player");
       let trackbox_text = document.getElementById(`${this.props.footer.track.src_url}`);
-        // debugger;
     //   if (footer_player.playing) {
-        // debugger;
           trackbox_text.innerHTML = "pause!";
     //   } else {
     //       trackbox_text.innerHTML = "play!";
@@ -39,7 +36,6 @@ class Footer extends React.Component {
         // footer_player.addEventListener("playing", console.log('hello'));
 
   render() {
-    //   debugger;
       return (
       <div>
           
