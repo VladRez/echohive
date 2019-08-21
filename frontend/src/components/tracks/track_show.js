@@ -57,26 +57,50 @@ class TrackShow extends React.Component {
         })
         }
         return (
-            <div>
-                <h2>{this.props.track.trackname}</h2>
+          <div>
+            <h2>{this.props.track.trackname}</h2>
 
-                <figure className="audio-player">
-                    <figcaption>echo:</figcaption>
-                    <audio controls>
-                        <source src={this.props.track.src_url} type="audio/mpeg"></source>
-                    </audio>
-                </figure>
-                <div><ul>{comments}</ul></div>
-                <div className="show-comment-container">
-                    
-                    <form className="show-comment-form" onSubmit={this.handleSubmit}>
-                        <h2>comment:</h2>
-                        <textarea className="show-textarea" placeholder="Add a Comment:" onChange={this.handleUpdate('body')} value={this.state.body}></textarea>
-                         <div className="logo-for-button" ></div>
-                        <input className="sub-button" type="submit" value="submit" />
-                    </form>
-               </div>
+            {/* <figure className="audio-player">
+              <figcaption>echo:</figcaption>
+              <audio controls>
+                <source
+                  src={this.props.track.src_url}
+                  type="audio/mpeg"
+                />
+              </audio>
+            </figure> */}
+            <TrackBox
+              trackname={this.props.track.trackname}
+              src_url={this.props.track.src_url}
+              id={`${this.props.track._id}`}
+              track={this.props.track}
+                    fetchSingleTrack={this.props.fetchSingleTrack}
+                    fetchComments={this.props.fetchComments}
+            />
+            <div>
+              <ul>{comments}</ul>
             </div>
+            <div className="show-comment-container">
+              <form
+                className="show-comment-form"
+                onSubmit={this.handleSubmit}
+              >
+                <h2>comment:</h2>
+                <textarea
+                  className="show-textarea"
+                  placeholder="Add a Comment:"
+                  onChange={this.handleUpdate("body")}
+                  value={this.state.body}
+                />
+                <div className="logo-for-button" />
+                <input
+                  className="sub-button"
+                  type="submit"
+                  value="submit"
+                />
+              </form>
+            </div>
+          </div>
         );
 
     }

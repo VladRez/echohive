@@ -22,6 +22,7 @@ const mapDispatchToProps = dispatch => {
     fetchSingleTrack: id => dispatch(fetchSingleTrack(id)),
     fetchComments: id => dispatch(fetchComments(id)),
     postComment: comment => dispatch(createComment(comment)),
+    // fetchSingleTrack: id => dispatch(fetchSingleTrack(id))
     // fetchUser: id => dispatch(fetchUser(id)) //to display username next to comments
   };
 };

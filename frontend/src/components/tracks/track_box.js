@@ -33,7 +33,11 @@ class TrackBox extends React.Component {
             })
         }
             
-        } )
+        })
+        if (this.props.fetchComments) {
+            this.props.fetchComments(this.props.id)
+        }
+        // this.props.fetchComments ? this.props.fetchComments(this.props.id) : null;
     }
 
     componentDidMount() {
