@@ -81,14 +81,14 @@ class TrackBox extends React.Component {
         // if (!footer_player.paused) {
         //     trackbox_text.innerHTML = "pause!";
         // }
-
+        // debugger;
         return (
             <div className="outer-trackbox">
                 
                 <div className="inner-trackbox">
                     <div className="img_container"></div>
                     <div className="artist"><Link to={`/user/${this.props.user}`}>Put artist name here</Link>
-                        <div className="time-ago">Time ago uploaded</div>
+                        <div className="time-ago">Uploaded</div>
                     </div>
 
                     <div className="trackname"><Link to={`/tracks/${this.props.id}`}>{this.props.trackname}</Link>
