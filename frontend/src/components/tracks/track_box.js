@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// import Footer from '../nav/footer';
 
 class TrackBox extends React.Component {
 
@@ -10,64 +11,88 @@ class TrackBox extends React.Component {
     }
 
     handleClick() {
-        // e.preventDefault();
-        let player;
-        player = document.getElementById('player');
-        let b = document.getElementById('audioControl');
+        // debugger;
+        this.props.fetchSingleTrack(this.props.id).then(() => {
 
-        if (player.paused) {
-            player.play();
-            b.innerHTML = 'pause!';
+        // debugger;
+            let footer_player;
+            footer_player = document.getElementById('footer_player');
+            
+        let trackbox_text = document.getElementById(`${this.props.src_url}`);
+
+        if (footer_player.paused) {
+            footer_player.play();
+            Array.from(document.getElementsByClassName("play-button")).forEach(ele => {
+                ele.innerHTML = 'play';
+            })
+            trackbox_text.innerHTML = 'pause!';
         } else {
-            player.pause();
-            b.innerHTML = 'play!';
+            footer_player.pause();
+            Array.from(document.getElementsByClassName("play-button")).forEach(ele => {
+                ele.innerHTML = 'play';
+            })
         }
-        
-
-        // let ctrl;
-        // ctrl = document.getElementById('audioControl');
-
-        // let pause = ctrl.innerHTML === 'pause!';
-        // ctrl.innerHTML = pause ? 'play!' : 'pause!';
-
-        // // Update the Audio
-        // let method = pause ? 'pause' : 'play';
-        // player[method]();
-
+            
+        })
+        if (this.props.fetchComments) {
+            this.props.fetchComments(this.props.id)
+        }
+        // this.props.fetchComments ? this.props.fetchComments(this.props.id) : null;
     }
 
+    componentDidMount() {
+        // debugger;
+        let footer_player;
+        footer_player = document.getElementById(
+            "footer_player"
+        );
+        let trackbox_text = document.getElementById(
+            `${this.props.src_url}`
+        );
+        if (!footer_player.paused && (footer_player.src === trackbox_text.id)) {
+            trackbox_text.innerHTML = "pause!";
+
+        } //else {
+        //     trackbox_text.innerHTML = "play!";
+        // }
+    }
+
+    // componentDidUpdate() {
+    //             let footer_player;
+    //     footer_player = document.getElementById(
+    //         "footer_player"
+    //     );
+    //     let trackbox_text = document.getElementById(
+    //         `${this.props.src_url}`
+    //     );
+    //     if (!footer_player.paused && (footer_player.src === trackbox_text.id)) {
+    //         trackbox_text.innerHTML = "pause!";
+
+    //     } else {
+    //         trackbox_text.innerHTML = "play!";
+    //     }
+    // }
+    
     render() {
 
-        // <audio id="yourAudio" preload='none'>
-        //     <source src='the url to the audio' type='audio/wav' />
-        // </audio>
-        //     <a href="#" id="audioControl">play!</a>
-    
-        // let yourAudio;
-        // yourAudio = document.getElementById('player')
-    
+        // let inner;
+        // let trackbox_text;
+        // let footer_player;
 
-        // ctrl.onclick = function () {
+        // footer_player = document.getElementById("footer_player");
+        // trackbox_text = document.getElementById(`${this.props.src_url}`);
 
-        //     // Update the Button
-        //     var pause = ctrl.innerHTML === 'pause!';
-        //     ctrl.innerHTML = pause ? 'play!' : 'pause!';
-
-        //     // Update the Audio
-        //     var method = pause ? 'pause' : 'play';
-        //     yourAudio[method]();
-
-        //     // Prevent Default Action
-        //     return false;
-        // };
-
+        // if (!footer_player.paused) {
+        //     trackbox_text.innerHTML = "pause!";
+        // }
+        // debugger;
         return (
             <div className="outer-trackbox">
                 
                 <div className="inner-trackbox">
                     <div className="img_container"></div>
                     <div className="artist"><Link to={`/user/${this.props.user}`}>Put artist name here</Link>
-                        <div className="time-ago">Time ago uploaded</div>
+                        <div className="time-ago">Uploaded</div>
                     </div>
 
                     <div className="trackname"><Link to={`/tracks/${this.props.id}`}>{this.props.trackname}</Link>
@@ -75,48 +100,27 @@ class TrackBox extends React.Component {
                     </div>
                     
                     <figure>
-                        <figcaption>Listen some echoes:</figcaption>
+                        {/* <figcaption>Listen some echoes:</figcaption>
                         <audio controls>
                             <source src={this.props.src_url} type="audio/mpeg"></source>
-                        </audio>
+                        </audio> */}
 
-                        <audio id="player" src={this.props.src_url}></audio>
-                        <button id="audioControl" onClick={this.handleClick}>play!</button>
-
+                        {/* <audio src={this.props.src_url}></audio> */}
+                        <button className="play-button" id={this.props.src_url} onClick={this.handleClick}>play!</button>
+                        <progress className={this.props.src_url} value="0" max="1"></progress>
                         
                         {/* <div className="comment-box">
                             
                         </div> */}
-                        
-                        <div>
-                            <button onClick={() => document.getElementById('player').play()}>Play</button>
-                            <button onClick={() => document.getElementById('player').pause()}>Pause</button>
-                            <button onClick={() => document.getElementById('player').volume += 0.1}>Vol +</button>
-                            <button onClick={() => document.getElementById('player').volume -= 0.1}>Vol -</button>
-                        </div>
 
                     </figure>
+
+                    
                 </div>
             </div>
         );
     }
 }
-
-
-
-// ctrl.onclick = function () {
-
-//     // Update the Button
-//     var pause = ctrl.innerHTML === 'pause!';
-//     ctrl.innerHTML = pause ? 'play!' : 'pause!';
-
-//     // Update the Audio
-//     var method = pause ? 'pause' : 'play';
-//     yourAudio[method]();
-
-//     // Prevent Default Action
-//     return false;
-// };
 
 export default TrackBox;
 

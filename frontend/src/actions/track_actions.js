@@ -63,13 +63,6 @@ export const createComment = data => dispatch => {
 };
 
 
-export const fetchTracks = () => dispatch =>
-  getTracks()
-    .then(tracks => dispatch(receiveTracks(tracks)))
-    .catch(err => {
-      console.log(err);
-    });
-
 export const fetchSingleTrack = id => dispatch =>
   getSingleTrack(id)
     .then(track => {
@@ -77,6 +70,15 @@ export const fetchSingleTrack = id => dispatch =>
     })
     .catch(err => console.log(err));
 
+
+
+export const fetchTracks = () => dispatch => (
+    getTracks()
+        .then(tracks => dispatch(receiveTracks(tracks)))
+        .catch((err) => { 
+            console.log(err);
+        })
+);
 
 export const fetchUserTracks = id => dispatch => (
     getUserTracks(id)

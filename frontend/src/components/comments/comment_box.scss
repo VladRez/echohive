@@ -1,4 +1,6 @@
 .comment-box-container {
+    // z-index: 1px;
+    margin-top: 15px;
     display: flex;
     // align-items: horizontal;
     flex-direction: horizontal;
@@ -10,6 +12,7 @@
     }
     .comment{
         // margin-top: 10px;
+        
         background-color: rgba(242,242,242,.9);
         border-style: solid;
         border-color: rgb(87,146,255);

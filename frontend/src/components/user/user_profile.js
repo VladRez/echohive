@@ -13,29 +13,53 @@ class UserProfile extends React.Component {
     }
 //pass down current user to trackbox
     render() {
+
+        let rendered_tracks;
+        debugger;
+                renderedTracks = this.props.tracks.map(
+                  track => {
+                    return (
+                      <div key={`${track._id}`}>
+                        <TrackBox
+                          trackname={track.trackname}
+                          src_url={track.src_url}
+                          id={`${track._id}`}
+                          track={track}
+                          fetchSingleTrack={this.props.fetchSingleTrack}
+                        />
+                      </div>
+                    );
+                  }
+                );
+
+
+
         return (
-            
+          <div>
             <div>
-                <div>
-                    <h2>All User Tracks</h2>
-                    {this.props.tracks.map(track => (
-                        <div key={`${track._id}`}>
-                            <TrackBox
-                                trackname={track.trackname}
-                                src_url={track.src_url}
-                                id={`${track._id}`}
-                            />
-                            <figure>
-                                <figcaption>Listen some echoes:</figcaption>
-                                <audio controls>
-                                    <source src={track.src_url} type="audio/mpeg"></source>
-                                </audio>
-                            </figure>
-                        </div>
-                    ))}
+              <h2>All User Tracks</h2>
+              {/* {this.props.tracks.map(track => (
+                <div key={`${track._id}`}>
+                  <TrackBox
+                    trackname={track.trackname}
+                    src_url={track.src_url}
+                    id={`${track._id}`}
+                    fetchSingleTrack={this.props.fetchSingleTrack}
+                  />
+                  <figure>
+                    <figcaption>Listen some echoes:</figcaption>
+                    <audio controls>
+                      <source src={track.src_url} type="audio/mpeg" />
+                    </audio>
+                  </figure>
                 </div>
+              ))} */}
+                    <div>
+                        {renderedTracks}
+                    </div>
             </div>
-       );
+          </div>
+        );
     }
 }
 

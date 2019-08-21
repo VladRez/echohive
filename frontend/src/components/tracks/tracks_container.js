@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
-import { fetchTracks } from '../../actions/track_actions';
+import { fetchTracks, fetchSingleTrack } from '../../actions/track_actions';
 import Tracks from './tracks';
+
 
 const mapStateToProps = (state) => {
     return {
@@ -9,8 +10,11 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => {
+    // debugger;
     return {
-        fetchTracks: () => dispatch(fetchTracks())
+        fetchTracks: () => dispatch(fetchTracks()),
+        fetchSingleTrack: (id) => dispatch(fetchSingleTrack(id))
+        // fetchComments: 
     };
 };
 
