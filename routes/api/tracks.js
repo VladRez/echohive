@@ -26,25 +26,30 @@ router.get("/:id", (req, res) => {
     .catch(err => res.status(404).json({ notrackfound: "No track found" }));
 });
 
+router.patch("/:id", (req, res) => {
+  track = Track.findById(req.params.id);
+  if (req.body.comment_id) {
+    track
+      .update({ $push: { comment_ids: req.body.comment_id } })
+      .then(updatedTrack => res.json(updatedTrack));
+  }
+});
 
-  router.patch("/:id", (req, res) => {
-    track = Track.findById(req.params.id);
-    if (req.body.comment_id) {
-      track
-        .update({ $push: { comment_ids: req.body.comment_id } })
-        .then(updatedTrack => res.json(updatedTrack));
-    }
+router.post("/", (req, res) => {
+  const newTrack = new Track({
+    trackname: req.body.trackname,
+    src_url: req.body.src_url,
+    user: req.body.user
   });
 
-  router.post("/", (req, res) => {
-    const newTrack = new Track({
-      trackname: req.body.trackname,
-      src_url: req.body.src_url,
-      user: req.body.user
-    });
+  newTrack.save().then(track => res.json(track));
+});
 
-    newTrack.save().then(track => res.json(track));
-  });
-
+// router.delete("/:track_id", (req, res) => {
+//   console.log("REQ.body: ", req);
+//   let track = Track.findByIdAndRemove({ track: req.body.track_id })
+//     .then(track => res.json({ deleted: true }))
+//     .catch(err => res.status(404).json({ deleted: false }));
+// });
 
 module.exports = router;

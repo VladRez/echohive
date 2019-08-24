@@ -5,8 +5,8 @@ export const getTracks = () => {
 };
 
 export const getUserTracks = id => {
-    return axios.get(`/api/tracks/users/${id}`);
-}
+  return axios.get(`/api/tracks/users/${id}`);
+};
 
 export const getSingleTrack = id => {
   return axios.get(`/api/tracks/${id}`);
@@ -20,11 +20,19 @@ export const postTrack = data => {
   return axios.post("/api/tracks/", data);
 };
 
-export const getComments = (trackId) => {
+export const getComments = trackId => {
   return axios.get(`/api/comments/${trackId}`);
 };
 
 export const postComment = data => {
   return axios.post("/api/comments/", data);
-
 };
+
+////
+// export const deleteTrack = trackId => {
+//   return axios.delete(`/api/tracks/${trackId}`);
+// };
+
+// export const updateTrack = track => {
+//   return axios.patch(`/api/tracks/${track.id}`, track);
+// };
