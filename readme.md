@@ -1,5 +1,6 @@
 # EchoHive 
-live site: http://echohive.herokuapp.com/#/
+http://echohive.herokuapp.com/#/
+
 EchoHive lets people discover and enjoy the greatest selection of sound samples from the most diverse audio engineers. 
 
 # Background and Overview
