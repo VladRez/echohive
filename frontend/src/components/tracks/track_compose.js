@@ -1,14 +1,15 @@
 import React from "react";
-import TrackBox from "./track_box";
 import "./track_compose.css";
+
+// React.unmountComponentAtNode(<TrackCompose />, TrackCompose)
 
 class TrackCompose extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-        trackname: "",
-        user: this.props.currentUser.id,
+      trackname: "",
+      user: this.props.currentUser.id,
       src_url: "",
       newTrack: ""
     };
@@ -16,9 +17,17 @@ class TrackCompose extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  // componentDidMount() {
+  //   this.setState({ newTrack: nextProps.newTrack.trackname });
+  // }
+
   componentWillReceiveProps(nextProps) {
     this.setState({ newTrack: nextProps.newTrack.trackname });
   }
+
+  // if (nextProps.getComponent !== this.props.getComponent) {
+  //     this.load(nextProps)
+  //   }
 
   handleFile(e) {
     const reader = new FileReader();
@@ -39,13 +48,9 @@ class TrackCompose extends React.Component {
     if (this.state.audioFile) {
       formData.append("track", this.state.audioFile);
     }
-    this.props.postTrack(
-      formData,
-      this.state.trackname,
-      this.state.user
-    );
+    this.props.postTrack(formData, this.state.trackname, this.state.user);
     //   this.props.currentUser.id
-    // )  
+    // )
   }
 
   updateTrackname() {
@@ -65,7 +70,7 @@ class TrackCompose extends React.Component {
                 className="title-text-area"
                 type="textarea"
                 value={this.state.trackname}
-                onChange={this.updateTrackname()} 
+                onChange={this.updateTrackname()}
                 placeholder="Title your echo..."
               />
               <label className="file">

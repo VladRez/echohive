@@ -17,46 +17,86 @@ class TrackShow extends React.Component {
     this.handleUpdate = this.handleUpdate.bind(this);
   }
 
-  componentDidMount() {
-    const trackId = this.props.match.params.trackId;
-    this.props.fetchSingleTrack(trackId);
-    this.props.fetchComments(trackId);
-  }
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.postComment(this.state);
+//   componentDidMount() {
+//     const trackId = this.props.match.params.trackId;
+//     this.props.fetchSingleTrack(trackId);
+//     this.props.fetchComments(trackId);
+//   }
+//   handleSubmit(e) {
+//     e.preventDefault();
+//     this.props.postComment(this.state);
 
-    this.state = {
-      user: this.props.currentUser,
-      username: this.props.username, //added
-      body: "",
-      track: this.props.match.params.trackId
-    };
-    this.setState({ body: "" });
-  }
+//     this.state = {
+//       user: this.props.currentUser,
+//       username: this.props.username, //added
+//       body: "",
+//       track: this.props.match.params.trackId
+//     };
+//     this.setState({ body: "" });
+//   }
 
-  handleUpdate(field) {
-    return e => {
-      this.setState({ [field]: e.target.value });
-    };
-  }
-  render() {
-    let comments = [];
-    if (!this.props.track || !this.props.tracks || !this.props.track.src_url)
-      return null;
-    if (this.props.comments) {
-      comments = this.props.comments.map((comment, i) => {
-        return (
-          <CommentBox
-            key={i}
-            body={comment.body}
-            user={comment.user}
-            track_id={comment.track}
-            username={comment.username} //added
-          />
-        );
-      });
+//   handleUpdate(field) {
+//     return e => {
+//       this.setState({ [field]: e.target.value });
+//     };
+//   }
+//   render() {
+//     let comments = [];
+//     if (!this.props.track || !this.props.tracks || !this.props.track.src_url)
+//       return null;
+//     if (this.props.comments) {
+//       comments = this.props.comments.map((comment, i) => {
+    componentDidMount() {
+        const trackId = this.props.match.params.trackId
+        this.props.fetchSingleTrack(trackId);
+        this.props.fetchComments(trackId);
+        // this.props.fetchNavTrack(trackId);
     }
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.postComment(this.state);
+        
+        this.state = { 
+        user: this.props.currentUser, 
+        username: this.props.username, //added
+        body:"", 
+        track: this.props.match.params.trackId
+};
+        this.setState({body: ""});
+    }
+    
+      handleUpdate(field) {
+        return e => {
+            this.setState({ [field]: e.target.value })
+        }
+    }
+    render() {
+        let comments = [];
+        if (!this.props.track || !this.props.tracks || !this.props.track.src_url) return null;
+        if (this.props.comments) {
+           comments = this.props.comments.map((comment, i) => {
+               return (
+                <CommentBox 
+                key={i}
+                body={comment.body}
+                user={comment.user}
+                track_id={comment.track}
+                username={comment.username}//added
+                />
+            )
+        })
+        }
+        // return (
+        //   <CommentBox
+        //     key={i}
+        //     body={comment.body}
+        //     user={comment.user}
+        //     track_id={comment.track}
+        //     username={comment.username} //added
+        //   />
+        // );
+    //   });
+    
     return (
       <div>
         <h2>{this.props.track.trackname}</h2>
@@ -70,14 +110,6 @@ class TrackShow extends React.Component {
                 />
               </audio>
             </figure> */}
-        <TrackBox
-          trackname={this.props.track.trackname}
-          src_url={this.props.track.src_url}
-          id={`${this.props.track._id}`}
-          track={this.props.track}
-          fetchSingleTrack={this.props.fetchSingleTrack}
-          fetchComments={this.props.fetchComments}
-        />
         <div>
           <ul>{comments}</ul>
         </div>
@@ -88,7 +120,15 @@ class TrackShow extends React.Component {
               className="show-textarea"
               placeholder="Add a Comment:"
               onChange={this.handleUpdate("body")}
-              value={this.state.body}
+              value={this.state.body}></textarea>
+            <TrackBox
+              trackname={this.props.track.trackname}
+              src_url={this.props.track.src_url}
+              id={`${this.props.track._id}`}
+              track={this.props.track}
+                    fetchSingleTrack={this.props.fetchSingleTrack}
+                    fetchComments={this.props.fetchComments}
+                    fetchNavTrack={this.props.fetchNavTrack}
             />
             <div className="logo-for-button" />
             <input className="sub-button" type="submit" value="submit" />

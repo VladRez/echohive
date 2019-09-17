@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import NavPlayer from "./nav_player";
-import { fetchSingleTrack } from "../../actions/track_actions";
+import { fetchSingleTrack, fetchNavTrack } from "../../actions/track_actions";
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -11,7 +11,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
     return {
-      fetchSingleTrack: id => dispatch(fetchSingleTrack(id))
+      fetchSingleTrack: id => dispatch(fetchSingleTrack(id)),
+      fetchNavTrack: id => dispatch(fetchNavTrack(id))
     };
 };
 

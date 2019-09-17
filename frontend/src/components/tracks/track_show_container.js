@@ -2,7 +2,8 @@ import { connect } from "react-redux";
 import {
   fetchSingleTrack,
   fetchComments,
-  createComment
+  createComment,
+  fetchNavTrack
 } from "../../actions/track_actions";
 // import {fetchUser} from "../../actions/user_actions";
 import TrackShow from "./track_show";
@@ -22,6 +23,7 @@ const mapDispatchToProps = dispatch => {
     fetchSingleTrack: id => dispatch(fetchSingleTrack(id)),
     fetchComments: id => dispatch(fetchComments(id)),
     postComment: comment => dispatch(createComment(comment)),
+    fetchNavTrack: id => dispatch(fetchNavTrack(id))
     // fetchSingleTrack: id => dispatch(fetchSingleTrack(id))
     // fetchUser: id => dispatch(fetchUser(id)) //to display username next to comments
   };
