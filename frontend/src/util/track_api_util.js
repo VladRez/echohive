@@ -12,6 +12,10 @@ export const getSingleTrack = id => {
   return axios.get(`/api/tracks/${id}`);
 };
 
+export const getNavTrack = id => {
+  return axios.get(`/api/tracks/${id}`);
+};
+
 export const createTrack = data => {
   return axios.post("/api/newtrack/", data);
 };

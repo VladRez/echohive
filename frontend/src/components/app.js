@@ -19,29 +19,34 @@ const App = () => (
   <div className="app-container">
     <SessionModal />
     <NavBarContainer />
-    
+
+    <AuthRoute exact path="/" component={SessionPage} />
+    <div className="app-content">
       <Switch>
-        <AuthRoute exact path="/" component={SessionPage} />
-        <div className="app-content">
         <ProtectedRoute exact path="/feed" component={TracksContainer} />
+
+        <ProtectedRoute
+          exact
+          path="/track/:trackId"
+          component={TrackShowContainer}
+        />
+
         <ProtectedRoute
           exact
           path="/tracks/upload"
           component={TrackComposeContainer}
         />
+
         <ProtectedRoute
           exact
-          path="/tracks/:trackId"
-          component={TrackShowContainer}
+          path="/user/:userId"
+          component={UserProfileContainer}
         />
 
-      <ProtectedRoute
-        exact
-        path="/user/:userId"
-        component={UserProfileContainer}
-      />
-      </div>
-        </Switch>
+      </Switch>
+
+    </div>
+
     <NavPlayer />
   </div>
 );

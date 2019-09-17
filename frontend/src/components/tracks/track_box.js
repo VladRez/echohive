@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import TrackComposeContainer from './track_compose_container';
+
 // import Footer from '../nav/footer';
 
 class TrackBox extends React.Component {
@@ -9,35 +11,41 @@ class TrackBox extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick() {
-    this.props.fetchSingleTrack(this.props.id).then(() => {
-      let footer_player;
-      footer_player = document.getElementById("footer_player");
+    handleClick() {
+        // debugger;
+        this.props.fetchNavTrack(this.props.id).then(() => {
 
-      let trackbox_text = document.getElementById(`${this.props.src_url}`);
+        // debugger;
+            let footer_player;
+            footer_player = document.getElementById('footer_player');
+            
+        let trackbox_text = document.getElementById(`${this.props.src_url}`);
 
-      if (footer_player.paused) {
-        footer_player.play();
-        Array.from(document.getElementsByClassName("play-button")).forEach(
-          ele => {
-            ele.innerHTML = "play";
-          }
-        );
-        trackbox_text.innerHTML = "pause!";
-      } else {
-        footer_player.pause();
-        Array.from(document.getElementsByClassName("play-button")).forEach(
-          ele => {
-            ele.innerHTML = "play";
-          }
-        );
-      }
-    });
-    if (this.props.fetchComments) {
+        if (footer_player.paused) {
+            footer_player.play();
+            Array.from(document.getElementsByClassName("play-button")).forEach(ele => {
+                ele.innerHTML = 'play';
+            })
+            trackbox_text.innerHTML = 'pause!';
+        } else {
+            footer_player.pause();
+            Array.from(document.getElementsByClassName("play-button")).forEach(ele => {
+                ele.innerHTML = 'play';
+            })
+        }
+            
+        })
+        if (this.props.fetchComments) {
+            this.props.fetchComments(this.props.id)
+        }
+        // this.props.fetchComments ? this.props.fetchComments(this.props.id) : null;
+            if (this.props.fetchComments) {
       this.props.fetchComments(this.props.id);
     }
+    }
+    
     // this.props.fetchComments ? this.props.fetchComments(this.props.id) : null;
-  }
+
 
   componentDidMount() {
     let footer_player;
@@ -91,7 +99,7 @@ class TrackBox extends React.Component {
           </div>
 
           <div className="trackname">
-            <Link to={`/tracks/${this.props.id}`}>{this.props.trackname}</Link>
+            <Link to={`/track/${this.props.id}`}>{this.props.trackname}</Link>
             <button className="genre"># Genre</button>
           </div>
 
@@ -120,6 +128,8 @@ class TrackBox extends React.Component {
     );
   }
 }
+
+  // ReactDOM.unmountComponentAtNode(TrackComposeContainer);
 
 export default TrackBox;
 

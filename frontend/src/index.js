@@ -9,6 +9,8 @@ import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 import './index.css';
+import TrackComposeContainer from "./components/tracks/track_compose_container";
+// import TrackBox from "./components/tracks/track_box";
 // import * as serviceWorker from './serviceWorker';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -35,8 +37,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   window.store = store;
   const root = document.getElementById('root');
+  const Traaa = document.getElementById('outerbox');
 
   ReactDOM.render(<Root store={store} />, root);
+  // ReactDOM.unmountComponentAtNode(Traaa);
 
 });
 
