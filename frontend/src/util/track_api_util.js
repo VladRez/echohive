@@ -13,6 +13,7 @@ export const getSingleTrack = id => {
 };
 
 export const createTrack = data => {
+  console.log("createTrack", data)
   return axios.post("/api/newtrack/", data);
 };
 

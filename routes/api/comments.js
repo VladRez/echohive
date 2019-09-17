@@ -33,10 +33,11 @@ router.get("/:id", (req, res) => {
     });
 });
 
-router.get("/", (req, res) => {
-  Comment.find().then(comments => {
-    res.json(comments);
-  });
-});
+//when is this used?
+// router.get("/", (req, res) => {
+//   Comment.find().then(comments => {
+//     res.json(comments);
+//   });
+// });
 
 module.exports = router;

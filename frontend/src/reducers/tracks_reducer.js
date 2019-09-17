@@ -9,12 +9,16 @@ const TracksReducer = (state = { all: {}, userTracks: [], track: {} }, action) =
             newState.all = action.tracks.data;
             return newState;
         case RECEIVE_USER_TRACKS:
+            //newState.entities.userTracks
             newState.userTracks = action.tracks.data;
             return newState;
         case RECEIVE_SINGLE_TRACK:
             newState.track = action.track.data;
             if (action.track.data === null) return state;
             return newState;
+        // case REMOVE_SINGLE_TRACK:
+        //     newState.track = {};
+
         default:
             return state;
     }
