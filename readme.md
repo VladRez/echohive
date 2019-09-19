@@ -1,53 +1,223 @@
-# EchoHive 
-http://echohive.herokuapp.com/#/
+<h1 align="center">EchoHive</h1>
+<div align="center">Discover and enjoy the greatest selection of sound samples from the most diverse audio engineers.</div>
 
-EchoHive lets people discover and enjoy the greatest selection of sound samples from the most diverse audio engineers. 
+<div align="center">
+  <!-- Stability -->
+<img src="https://img.shields.io/badge/stability-experimental-orange.svg?style=flat-square"
+      alt="API stability" />
+  <!-- NPM version -->
+  <img src="https://img.shields.io/badge/node-%3E%3D%206.0.0-brightgreen"
+      alt="NPM version" />
+  <!-- Build Status -->
+ <img src="https://img.shields.io/badge/build-passing-brightgreen"
+      alt="Build Status" />
+</div>
 
-# Background and Overview
+[Live Site][1]
 
-EchoHive is a minimal viable product that tackles three challenges in application development, software engineering, and user experience.
+## Table of Contents
 
-Primarily built with the combination of following technologies: 
+---
 
-+ MongoDB
-+ Express
-+ React
-+ Node
+- [Features](#features)
+- [Background](#background)
 
-# Functionality and MVP
+## Features
 
-+ Audio Sample show page and playback
-+ Playing songs with a progress bar and continuous play when navigating the site
-+ Users can add comments on to a song
-+ Users have their own profile pages to show other users
+- Login / Registration Authentication
+- AWS Storage
+- React Redux Store
+- Audio Sample Playback
+- Playing songs with a progress bar and continuous play when navigating the site
+- Users can add comments on to a song
+- Users have their own profile pages to show other users
 
-**TBD**
+### Authentication
 
-+ Visual Waves
-+ Playlists
-+ Likes
 
-# Technologies and Technical Challenges
+![session](docs/echo_hero.png)
 
-### Site Map
+Implements Authentication with BCrypt & JavaScript Web Token
 
-+ Auth
-    + Register
-    + Login
-    + Logout
-+ Feed
-    + Track index
-+ Show - Artist/User
-    + Index - Artist/User Tracks
-    + Show - Artist/User Track
-+ Audio Player
+```js
+// config
 
-### Redux Store
+const JwtStrategy = require("passport-jwt").Strategy;
+const ExtractJwt = require("passport-jwt").ExtractJwt;
+const mongoose = require("mongoose");
+const User = mongoose.model("users");
+const keys = require("./keys");
+
+const options = {};
+options.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+options.secretOrKey = keys.secretOrKey;
+
+module.exports = passport => {
+  passport.use(
+    new JwtStrategy(options, (jwt_payload, done) => {
+      done();
+    })
+  );
+};
+```
+
+### AWS
+
+Setting up aws and multer configuration for aws file storage.
+
+```js
+const aws = require("aws-sdk");
+const multer = require("multer");
+const multerS3 = require("multer-s3");
+const ACCESS_KEY = require("../config/keys").AWS_ACCESS_KEY;
+const SECRET_ACCESS_KEY = require("../config/keys").AWS_SECRET_ACCESS_KEY;
+
+aws.config.update({
+  secretAccessKey: SECRET_ACCESS_KEY,
+  accessKeyId: ACCESS_KEY,
+  region: "us-east-2"
+});
+var s3 = new aws.S3();
+
+const fileFilter = (req, file, cb) => {
+  if (
+    file.mimetype === "audio/mp3" ||
+    file.mimetype === "audio/wav" ||
+    file.mimetype === "audio/flac"
+  ) {
+    cb(null, true);
+  } else {
+    cb(
+      new Error(
+        "Invalid Mime Type, only MP3, WAV and FLAC allowed" + file.mimetype
+      ),
+      false
+    );
+  }
+};
+
+var upload = multer({
+  fileFilter,
+  storage: multerS3({
+    s3,
+    bucket: "echo-hive-dev",
+    acl: "public-read",
+    metadata: function(req, file, cb) {
+      cb(null, { fieldName: "TESTING_META_DATA" });
+    },
+    key: function(req, file, cb) {
+      cb(null, Date.now().toString());
+    }
+  })
+});
+```
+
+---
+
+## Background
+
+### Technologies and Technical Challenges
+
+EchoHive is a minimal viable product that tackles three challenges in application development, software engineering, and user experience. 
+
+Primarily built with MERN (MongoDB, Express, React, Node)
+
+### MongoDB Models
+
+Users
+
+```js
+
+const UserSchema = new Schema({
+  username: {
+    type: String,
+    required: true
+  },
+  email: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  }
+});
+
+```
+Tracks 
+
+```js
+
+const TrackSchema = new Schema({
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'users'
+    },
+    trackname: {
+        type: String,
+        required: true
+    },
+    comment_ids: [{
+        type: Schema.Types.ObjectId,
+        ref: 'comments'
+    }],
+    src_url: {
+        type: String,
+        required: true
+    },
+    date: {
+        type: Date,
+        default: Date.now
+    }
+});
+```
+
+Comments
+
+```js
+const CommentSchema = new Schema({
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: "users"
+  },
+  username: {  //added this, still testing
+    type: String,
+    required: true
+  },
+  body: {
+    type: String,
+    required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
+  },
+  track: {
+    type: Schema.Types.ObjectId,
+    ref: "tracks"
+  }
+});
+```
+### Express Routes
+
+API Routes
+
++ `/api/users/` - Register / Login users
++ `/api/tracks/` - Tracks CRUD
++ `/api/comments/` - User Comments CRUD
+
+### React Store
+
+Frontend React-Redux store layout.
 
 ```js
 {
     entities: {
-        users: { 
+        users: {
                 0: {
                     id: 0,
                     username: 'string',
@@ -81,47 +251,5 @@ Primarily built with the combination of following technologies:
 }
 ```
 
-Backend: 
 
-+ Mongodb
-+ Nodejs
-+ Express
-+ Multer
-
-Frontend:
-
-+ React
-+ React Native with Redux
-+ Axios 
-
-# Group Members and Work Plan Breakdown
-
-## Team 
-
-+ Leap Soto
-+ Mac Scheer
-+ Vlad Rez
-
-## Plan
-
-+ Day 1
-    + Session Auth API Setup - Vlad
-    + AWS and Mongodb Setup - Mac
-    + Main User Feed API Setup - Leap
-
-+ Day 2
-   + Session Signup/Login UI - Vlad
-   + Upload Track API and UI - Mac
-   + Track Show backend API and UI - Leap
-
-+ Day 3
-    + User Profile- Vlad
-    + User Comments - Mac
-    + Track Audio Player Controller - Leap
-
-+ Day 4
-    + Refactor and CSS - Vlad/Mac/Leap
-
-+ Day 5
-    + Deploy to Heroku - Vlad/Mac/Leap
-    + Produciton Readme - Vlad/Mac/Leap
+[1]: http://echohive.herokuapp.com/#/
