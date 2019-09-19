@@ -21,6 +21,8 @@
 
 - [Features](#features)
 - [Background](#background)
+- [API](#express)
+- [Setup](#setup)
 
 ## Features
 
@@ -202,7 +204,7 @@ const CommentSchema = new Schema({
   }
 });
 ```
-### Express Routes
+### Express
 
 API Routes
 
@@ -251,5 +253,24 @@ Frontend React-Redux store layout.
 }
 ```
 
+# Setup
+
+Create a new `dev_keys.js` in `config/`
+
+```js
+module.exports = {
+    mongoURI: "<MONGODB_URL>",
+  secretOrKey: "<KEY>",
+  AWS_ACCESS_KEY: "<AWS_KEY>",
+  AWS_SECRET_ACCESS_KEY: "<AWS_SECRET_KEY>"
+  }
+```
+
+Running local dev
+
+```sh
+$ npm install && npm install --prefix frontend
+$ npm run dev 
+```
 
 [1]: http://echohive.herokuapp.com/#/
