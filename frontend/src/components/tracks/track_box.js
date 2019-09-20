@@ -1,11 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 class TrackBox extends React.Component {
   constructor(props) {
     super(props);
 
     this.handleClick = this.handleClick.bind(this);
+    this.handleShow = this.handleShow.bind(this);
   }
 
   handleClick() {
@@ -39,6 +40,9 @@ class TrackBox extends React.Component {
       this.props.fetchComments(this.props.id);
     }
   }
+  handleShow() {
+    this.props.history.push(`/track/${this.props.id}`);
+  }
 
   componentDidMount() {
     let footer_player;
@@ -57,15 +61,19 @@ class TrackBox extends React.Component {
     return (
       <div className="outer-trackbox">
         <div className="inner-trackbox">
-          <div className="img_container" />
+          <div className="img_container" onClick={this.handleShow}/>
           <div className="artist">
             <Link to={`/user/${userLink}`}>Profile</Link>
           </div>
-
-          <div className="trackname">
-            <Link to={`/track/${this.props.id}`}>{this.props.trackname}</Link>
+          <div className="ticker-wrap" onClick={this.handleShow}>
+            <div className="ticker">
+              <div className="trackname">
+                <Link to={`/track/${this.props.id}`}>
+                  {this.props.trackname} {this.props.trackname}
+                </Link>
+              </div>
+            </div>
           </div>
-
           <figure>
             <button
               className="play-button"
@@ -79,8 +87,7 @@ class TrackBox extends React.Component {
               className={this.props.src_url}
               value="0"
               max="1"
-            >
-            </progress>
+            ></progress>
           </figure>
         </div>
       </div>
@@ -88,4 +95,4 @@ class TrackBox extends React.Component {
   }
 }
 
-export default TrackBox;
+export default withRouter(TrackBox);
