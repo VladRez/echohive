@@ -18,6 +18,10 @@ const TrackSchema = new Schema({
         type: String,
         required: true
     },
+    img_src_url: {
+        type: String,
+        required: true
+    },
     date: {
         type: Date,
         default: Date.now

@@ -61,7 +61,7 @@ class TrackBox extends React.Component {
     return (
       <div className="outer-trackbox">
         <div className="inner-trackbox">
-          <div className="img_container" onClick={this.handleShow}/>
+          <div className="img_container" onClick={this.handleShow} />
           <div className="artist">
             <Link to={`/user/${userLink}`}>Profile</Link>
           </div>
@@ -90,6 +90,7 @@ class TrackBox extends React.Component {
             ></progress>
           </figure>
         </div>
+        <img src={this.props.img_src_url} height="200" width="200"></img>
       </div>
     );
   }

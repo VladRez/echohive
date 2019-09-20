@@ -36,20 +36,15 @@ router.patch("/:id", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  const newTrack = new Track({
-    trackname: req.body.trackname,
-    src_url: req.body.src_url,
-    user: req.body.user
+    const newTrack = new Track({
+      trackname: req.body.trackname,
+      src_url: req.body.src_url,
+      img_src_url: req.body.img_src_url,
+      user: req.body.user
+    });
+
+    newTrack.save().then(track => res.json(track));
   });
 
-  newTrack.save().then(track => res.json(track));
-});
-
-// router.delete("/:track_id", (req, res) => {
-//   console.log("REQ.body: ", req);
-//   let track = Track.findByIdAndRemove({ track: req.body.track_id })
-//     .then(track => res.json({ deleted: true }))
-//     .catch(err => res.status(404).json({ deleted: false }));
-// });
 
 module.exports = router;

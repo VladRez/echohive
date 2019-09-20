@@ -17,7 +17,6 @@ export const getNavTrack = id => {
 };
 
 export const createTrack = data => {
-  console.log("createTrack", data)
   return axios.post("/api/newtrack/", data);
 };
 
@@ -32,12 +31,3 @@ export const getComments = trackId => {
 export const postComment = data => {
   return axios.post("/api/comments/", data);
 };
-
-////
-// export const deleteTrack = trackId => {
-//   return axios.delete(`/api/tracks/${trackId}`);
-// };
-
-// export const updateTrack = track => {
-//   return axios.patch(`/api/tracks/${track.id}`, track);
-// };

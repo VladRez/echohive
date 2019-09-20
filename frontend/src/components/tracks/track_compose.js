@@ -1,8 +1,6 @@
 import React from "react";
 import "./track_compose.css";
 
-// React.unmountComponentAtNode(<TrackCompose />, TrackCompose)
-
 class TrackCompose extends React.Component {
   constructor(props) {
     super(props);
@@ -11,36 +9,59 @@ class TrackCompose extends React.Component {
       trackname: "",
       user: this.props.currentUser.id,
       src_url: "",
-      newTrack: ""
+      img_src_url: "",
+      newTrack: "",
+      audioFile: "",
+      imageFile: ""
     };
     this.handleFile = this.handleFile.bind(this);
+    this.handleImageFile = this.handleImageFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
-  // componentDidMount() {
-  //   this.setState({ newTrack: nextProps.newTrack.trackname });
-  // }
 
   componentWillReceiveProps(nextProps) {
     this.setState({ newTrack: nextProps.newTrack.trackname });
   }
-
-  // if (nextProps.getComponent !== this.props.getComponent) {
-  //     this.load(nextProps)
-  //   }
 
   handleFile(e) {
     const reader = new FileReader();
     let file = e.currentTarget.files[0];
     reader.onloadend = () =>
       this.setState({ src_url: reader.result, audioFile: file });
-
     if (file) {
       reader.readAsDataURL(file);
     } else {
       this.setState({ src_url: "", audioFile: null });
     }
   }
+
+  handleImageFile(e) {
+    const reader1 = new FileReader();
+    let file = e.currentTarget.files[0];
+    reader1.onloadend = res => {
+      let jabberwocky = reader1.result.slice(23);
+      let contentType = jabberwocky.split(";")[0].slice(5);
+      let byteChars = atob(jabberwocky);
+      let byteNums = new Array(byteChars.length);
+
+      for (let i = 0; i < byteChars.length; i++) {
+        byteNums[i] = byteChars.charCodeAt(i);
+      }
+
+      let byteArray = new Uint8Array(byteNums);
+      let blob = new Blob([byteArray], { type: contentType });
+
+      debugger;
+      this.setState({ img_src_url: blob, imageFile: file });
+    };
+
+    if (file) {
+      reader1.readAsDataURL(file);
+    } else {
+      this.setState({ img_src_url: "", imageFile: null });
+    }
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     const formData = new FormData();
@@ -48,9 +69,11 @@ class TrackCompose extends React.Component {
     if (this.state.audioFile) {
       formData.append("track", this.state.audioFile);
     }
+    if (this.state.imageFile) {
+      formData.append("image", this.state.imageFile);
+    }
+    debugger;
     this.props.postTrack(formData, this.state.trackname, this.state.user);
-    //   this.props.currentUser.id
-    // )
   }
 
   updateTrackname() {
@@ -79,6 +102,13 @@ class TrackCompose extends React.Component {
                   id="file-selector"
                   type="file"
                   onChange={this.handleFile}
+                />
+                <br></br>
+                <input
+                  className="inputfile"
+                  id="file-selector-img"
+                  type="file"
+                  onChange={this.handleImageFile}
                 />
               </label>
               <br />

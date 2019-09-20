@@ -2,12 +2,12 @@ import {
   getTracks,
   getSingleTrack,
   createTrack,
+  createTrackImage,
   postTrack,
   getUserTracks,
   getComments,
   postComment,
   getNavTrack
-  //deleteTrack
 } from "../util/track_api_util";
 
 export const RECEIVE_TRACKS = "RECEIVE_TRACKS";
@@ -19,18 +19,7 @@ export const RECEIVE_USER_TRACKS = "RECEIVE_USER_TRACKS";
 export const RECEIVE_TRACK_COMMENTS = "RECEIVE_TRACK_COMMENTS";
 export const RECEIVE_NEW_COMMENT = "RECEIVE_NEW_COMMENT";
 
-//
-
-// export const REMOVE_TRACK = "REMOVE_TRACK";
-
-// export const removeTrack = trackId => ({
-//   type: REMOVE_TRACK,
-//   trackId
-// });
-
 export const RECEIVE_NAV_TRACK = "RECEIVE_NAV_TRACK";
-
-//
 
 export const receiveTracks = tracks => ({
   type: RECEIVE_TRACKS,
@@ -105,18 +94,18 @@ export const fetchUserTracks = id => dispatch =>
     .catch(err => console.log(err));
 
 export const postTrackFile = (data, trackname, user, history) => dispatch => {
-  return createTrack(data)
-    .then(res => {
-      let track = {};
-      track.trackname = trackname;
-      track.user = user;
-      track.src_url = res.data.src_url;
-      postTrack(track).then(mres => {
-        dispatch(receiveSingleTrack(mres));
-        history.push(`/tracks/${mres.data._id}`);
+  debugger;
+  return createTrack(data).then(res => {
+    let track = {};
+    track.trackname = trackname;
+    track.user = user;
+    track.src_url = res.data.src_url;
+    track.img_src_url = res.data.img_src_url;
+    postTrack(track)
+      .then(mres => {
         dispatch(receiveSingleTrack(mres));
         history.push(`/track/${mres.data._id}`);
-      });
-    })
-    .catch(err => console.log(err));
+      })
+      .catch(err => console.log(err));
+  });
 };

@@ -17,6 +17,7 @@ class Track extends React.Component {
           <TrackBox
             trackname={track.trackname}
             src_url={track.src_url}
+            img_src_url={track.img_src_url}
             id={`${track._id}`}
             track={track}
             fetchSingleTrack={this.props.fetchSingleTrack}
@@ -29,7 +30,6 @@ class Track extends React.Component {
     return (
       <div>
         <div className="header">All tracks</div>
-
         {renderedTracks}
       </div>
     );
