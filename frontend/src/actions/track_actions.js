@@ -2,6 +2,7 @@ import {
   getTracks,
   getSingleTrack,
   createTrack,
+  createTrackImage,
   postTrack,
   getUserTracks,
   getComments,
@@ -103,21 +104,30 @@ export const fetchUserTracks = id => dispatch => (
 );
 
 export const postTrackFile = (data, trackname, user, history) => dispatch => {
+  debugger;
   return createTrack(data)
     .then(res => {
       let track = {};
       track.trackname = trackname;
       track.user = user;
-    //   track.id = user;
+      //   track.id = user;
       track.src_url = res.data.src_url;
-      postTrack(track).then(mres => {
-        // new Promise((resolve, reject) => {
-        dispatch(receiveSingleTrack(mres))
-        // resolve()
-      // .then(() => {
+      track.img_src_url = res.data.img_src_url
+      console.log("shaaaaaa", res)
+      // return createTrackImage(data)
+      //   .then(xres => {
+      //     track.img_src_url = xres.data.img_src_url;
+
+          postTrack(track).then(mres => {
+            // new Promise((resolve, reject) => {
+            dispatch(receiveSingleTrack(mres))
+            // resolve()
+            // .then(() => {
             history.push(`/track/${mres.data._id}`)
             // });
-      });
+          })
+
+        // })
+        .catch(err => console.log(err));
     })
-    .catch(err => console.log(err));
-};
+  };

@@ -36,10 +36,12 @@ router.get("/:id", (req, res) => {
     }
   });
 
-  router.post("/", (req, res) => {
+router.post("/", (req, res) => {
+    console.log("memememe", req.body)
     const newTrack = new Track({
       trackname: req.body.trackname,
       src_url: req.body.src_url,
+      img_src_url: req.body.img_src_url,
       user: req.body.user
     });
 

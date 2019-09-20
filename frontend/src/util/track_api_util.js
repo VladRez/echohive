@@ -24,6 +24,10 @@ export const postTrack = data => {
   return axios.post("/api/tracks/", data);
 };
 
+export const createTrackImage = data => {
+  return axios.post("/api/newtrack/upload-image/", data);
+};
+
 export const getComments = (trackId) => {
   return axios.get(`/api/comments/${trackId}`);
 };

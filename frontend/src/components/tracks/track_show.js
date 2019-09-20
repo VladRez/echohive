@@ -124,6 +124,7 @@ class TrackShow extends React.Component {
             <TrackBox
               trackname={this.props.track.trackname}
               src_url={this.props.track.src_url}
+              img_src_url = {this.props.track.img_src_url}
               id={`${this.props.track._id}`}
               track={this.props.track}
                     fetchSingleTrack={this.props.fetchSingleTrack}

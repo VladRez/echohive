@@ -38,13 +38,13 @@ class TrackBox extends React.Component {
         if (this.props.fetchComments) {
             this.props.fetchComments(this.props.id)
         }
-        // this.props.fetchComments ? this.props.fetchComments(this.props.id) : null;
+
             if (this.props.fetchComments) {
       this.props.fetchComments(this.props.id);
     }
     }
     
-    // this.props.fetchComments ? this.props.fetchComments(this.props.id) : null;
+
 
 
   componentDidMount() {
@@ -54,37 +54,12 @@ class TrackBox extends React.Component {
     if (!footer_player.paused && footer_player.src === trackbox_text.id) {
       trackbox_text.innerHTML = "pause!";
     } //else {
-    //     trackbox_text.innerHTML = "play!";
-    // }
+
   }
 
-  // componentDidUpdate() {
-  //             let footer_player;
-  //     footer_player = document.getElementById(
-  //         "footer_player"
-  //     );
-  //     let trackbox_text = document.getElementById(
-  //         `${this.props.src_url}`
-  //     );
-  //     if (!footer_player.paused && (footer_player.src === trackbox_text.id)) {
-  //         trackbox_text.innerHTML = "pause!";
-
-  //     } else {
-  //         trackbox_text.innerHTML = "play!";
-  //     }
-  // }
 
   render() {
-    // let inner;
-    // let trackbox_text;
-    // let footer_player;
 
-    // footer_player = document.getElementById("footer_player");
-    // trackbox_text = document.getElementById(`${this.props.src_url}`);
-
-    // if (!footer_player.paused) {
-    //     trackbox_text.innerHTML = "pause!";
-    // }
     let userLink = null;
     if (this.props.track) {
       userLink = this.props.track.user;
@@ -92,6 +67,7 @@ class TrackBox extends React.Component {
     return (
       <div className="outer-trackbox">
         <div className="inner-trackbox">
+          {/* <image src={this.props.img_src_url}>BOOM</image> */}
           <div className="img_container" />
           <div className="artist">
             <Link to={`/user/${userLink}`}>Profile</Link>
@@ -104,12 +80,7 @@ class TrackBox extends React.Component {
           </div>
 
           <figure>
-            {/* <figcaption>Listen some echoes:</figcaption>
-                        <audio controls>
-                            <source src={this.props.src_url} type="audio/mpeg"></source>
-                        </audio> */}
 
-            {/* <audio src={this.props.src_url}></audio> */}
             <button
               className="play-button"
               id={this.props.src_url}
@@ -124,15 +95,11 @@ class TrackBox extends React.Component {
                         </div> */}
           </figure>
         </div>
+        <img src={this.props.img_src_url} height="200" width="200"></img>
       </div>
     );
   }
 }
 
-  // ReactDOM.unmountComponentAtNode(TrackComposeContainer);
 
 export default TrackBox;
-
-{
-  /* <Link to={`/newquestion`}>Ask Question</Link> */
-}

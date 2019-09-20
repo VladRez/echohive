@@ -33,7 +33,7 @@ app.get("/", (req, res) => res.send("Hello World!!"));
 app.use("/api/users", users);
 app.use("/api/tracks", tracks);
 
-app.use("/api/newtrack/", trackRoutes);
+app.use("/api/newtrack", trackRoutes);
 
 app.use("/api/comments/", comments);
 
