@@ -20,13 +20,13 @@ const Session = props => {
               >
                 Signup
               </button>
-              <a
+              <button
                 href="#"
                 onClick={() => props.demoLogin()}
                 className="hero-demo"
               >
                 Demo
-              </a>
+              </button>
             </div>
             <div className="hero-minislide">
               <img

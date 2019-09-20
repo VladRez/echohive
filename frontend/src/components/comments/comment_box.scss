@@ -1,25 +1,32 @@
 .comment-box-container {
-    // z-index: 1px;
-    margin-top: 15px;
-    display: flex;
-    // align-items: horizontal;
-    flex-direction: horizontal;
-    .quotes{
-        margin:15px;
-    }
-    .username {
-        margin-top: 25px;
-    }
-    .comment{
-        // margin-top: 10px;
-        
-        background-color: rgba(242,242,242,.9);
-        border-style: solid;
-        border-color: rgb(87,146,255);
-        border-radius: 5px;
-        border-width: 1.5px;
-        line-height: -15px;
-        padding: 5px;
-
-    }
+  // z-index: 1px;
+  margin-top: 15px;
+  display: flex;
+  // align-items: horizontal;
+  flex-direction: horizontal;
+  .quotes {
+    margin: 15px;
+  }
+  .username {
+    margin-top: 25px;
+  }
+  .comment {
+    // margin-top: 10px;
+    margin: 18px;
+    background-color: rgba(242, 242, 242, 0.9);
+    border-style: solid;
+    border-color: rgb(87, 146, 255);
+    border-radius: 5px;
+    border-width: 3px;
+    line-height: -15px;
+    padding: 5px;
+    height: 60px;
+    width: 50%;
+    box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.24),
+      0 12px 40px 0 rgba(0, 0, 0, 0.19);
+  }
+  .comment:hover {
+    box-shadow: 0 15px 24px 0 rgba(0, 0, 0, 0.24),
+      0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  }
 }

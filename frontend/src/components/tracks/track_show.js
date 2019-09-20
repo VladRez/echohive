@@ -9,7 +9,7 @@ class TrackShow extends React.Component {
     super(props);
     this.state = {
       user: this.props.currentUser,
-      username: this.props.username, //added
+      username: this.props.username,
       body: "",
       track: this.props.match.params.trackId
     };
@@ -17,122 +17,79 @@ class TrackShow extends React.Component {
     this.handleUpdate = this.handleUpdate.bind(this);
   }
 
-//   componentDidMount() {
-//     const trackId = this.props.match.params.trackId;
-//     this.props.fetchSingleTrack(trackId);
-//     this.props.fetchComments(trackId);
-//   }
-//   handleSubmit(e) {
-//     e.preventDefault();
-//     this.props.postComment(this.state);
+  componentDidMount() {
+    const trackId = this.props.match.params.trackId;
+    this.props.fetchSingleTrack(trackId);
+    this.props.fetchComments(trackId);
+  }
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.postComment(this.state);
 
-//     this.state = {
-//       user: this.props.currentUser,
-//       username: this.props.username, //added
-//       body: "",
-//       track: this.props.match.params.trackId
-//     };
-//     this.setState({ body: "" });
-//   }
+    this.setState = {
+      user: this.props.currentUser,
+      username: this.props.username,
+      body: "",
+      track: this.props.match.params.trackId
+    };
+  }
 
-//   handleUpdate(field) {
-//     return e => {
-//       this.setState({ [field]: e.target.value });
-//     };
-//   }
-//   render() {
-//     let comments = [];
-//     if (!this.props.track || !this.props.tracks || !this.props.track.src_url)
-//       return null;
-//     if (this.props.comments) {
-//       comments = this.props.comments.map((comment, i) => {
-    componentDidMount() {
-        const trackId = this.props.match.params.trackId
-        this.props.fetchSingleTrack(trackId);
-        this.props.fetchComments(trackId);
-        // this.props.fetchNavTrack(trackId);
+  handleUpdate(field) {
+    return e => {
+      this.setState({ [field]: e.target.value });
+    };
+  }
+  render() {
+    let comments = [];
+    if (!this.props.track || !this.props.tracks || !this.props.track.src_url)
+      return null;
+    if (this.props.comments) {
+      comments = this.props.comments.map((comment, i) => {
+        return (
+          <CommentBox
+            key={i}
+            body={comment.body}
+            user={comment.user}
+            track_id={comment.track}
+            username={comment.username}
+          />
+        );
+      });
     }
-    handleSubmit(e) {
-        e.preventDefault();
-        this.props.postComment(this.state);
-        
-        this.state = { 
-        user: this.props.currentUser, 
-        username: this.props.username, //added
-        body:"", 
-        track: this.props.match.params.trackId
-};
-        this.setState({body: ""});
-    }
-    
-      handleUpdate(field) {
-        return e => {
-            this.setState({ [field]: e.target.value })
-        }
-    }
-    render() {
-        let comments = [];
-        if (!this.props.track || !this.props.tracks || !this.props.track.src_url) return null;
-        if (this.props.comments) {
-           comments = this.props.comments.map((comment, i) => {
-               return (
-                <CommentBox 
-                key={i}
-                body={comment.body}
-                user={comment.user}
-                track_id={comment.track}
-                username={comment.username}//added
-                />
-            )
-        })
-        }
-        // return (
-        //   <CommentBox
-        //     key={i}
-        //     body={comment.body}
-        //     user={comment.user}
-        //     track_id={comment.track}
-        //     username={comment.username} //added
-        //   />
-        // );
-    //   });
-    
+
     return (
-      <div>
-        <h2>{this.props.track.trackname}</h2>
+      <div className="outer-trackshow">
+        <div className="track-title">{this.props.track.trackname}</div>
 
-        {/* <figure className="audio-player">
-              <figcaption>echo:</figcaption>
-              <audio controls>
-                <source
-                  src={this.props.track.src_url}
-                  type="audio/mpeg"
-                />
-              </audio>
-            </figure> */}
-        <div>
-          <ul>{comments}</ul>
-        </div>
-        <div className="show-comment-container">
-          <form className="show-comment-form" onSubmit={this.handleSubmit}>
-            <h2>comment:</h2>
-            <textarea
-              className="show-textarea"
-              placeholder="Add a Comment:"
-              onChange={this.handleUpdate("body")}
-              value={this.state.body}></textarea>
+        <div className="trackshow-container">
+          <div>
             <TrackBox
               trackname={this.props.track.trackname}
               src_url={this.props.track.src_url}
               id={`${this.props.track._id}`}
               track={this.props.track}
-                    fetchSingleTrack={this.props.fetchSingleTrack}
-                    fetchComments={this.props.fetchComments}
-                    fetchNavTrack={this.props.fetchNavTrack}
+              fetchSingleTrack={this.props.fetchSingleTrack}
+              fetchComments={this.props.fetchComments}
+              fetchNavTrack={this.props.fetchNavTrack}
             />
             <div className="logo-for-button" />
-            <input className="sub-button" type="submit" value="submit" />
-          </form>
+            <div className="outer-comment">
+              <div className="show-comment-container">
+                <ul>{comments}</ul>
+              </div>
+              <form className="show-comment-form" onSubmit={this.handleSubmit}>
+                <h2>comment:</h2>
+                <textarea
+                  // style={{fontSize: 18px}}
+                  className="show-textarea"
+                  placeholder="Add a Comment:"
+                  onChange={this.handleUpdate("body")}
+                  value={this.state.body}
+                ></textarea>
+              </form>
+              <input className="sub-button" type="submit" value="submit" />
+            </div>
+          </div>
         </div>
       </div>
     );

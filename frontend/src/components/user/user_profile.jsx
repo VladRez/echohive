@@ -1,7 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import "./user_profile.css";
-import TracksContainer from "../tracks/tracks_container";
 import TrackBox from "../tracks/track_box";
 
 class UserProfile extends React.Component {
@@ -20,18 +19,18 @@ class UserProfile extends React.Component {
     let username = this.props.user ? this.props.user.username : "";
     let userTracks = [];
     if (this.props.tracks.length > 0) {
-       userTracks = this.props.tracks.map((track, i) => (
-                    <div key={i}>
-                        <TrackBox
-                            trackname={track.trackname}
-                            src_url={track.src_url}
-                            id={`${track._id}`}
-                            user={track.user}
-                            fetchSingleTrack={this.props.fetchSingleTrack}
-                            fetchNavTrack={this.props.fetchNavTrack}
-                        />
-                    </div>
-                ))
+      userTracks = this.props.tracks.map((track, i) => (
+        <div key={i}>
+          <TrackBox
+            trackname={track.trackname}
+            src_url={track.src_url}
+            id={`${track._id}`}
+            user={track.user}
+            fetchSingleTrack={this.props.fetchSingleTrack}
+            fetchNavTrack={this.props.fetchNavTrack}
+          />
+        </div>
+      ));
     }
     return (
       <div className="profileContainer">
