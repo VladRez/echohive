@@ -133,21 +133,20 @@ div.outer-trackbox {
     height: 18px;
     border-radius: 9px;
   }
-  progress::-webkit-progress-value {
-  }
 
   .img_container {
     border-radius: 20px;
     box-shadow: 5px 5px 8px #000000;
-
     background: linear-gradient(rgb(87, 146, 255), #a3a4b3);
-
     float: left;
-    // border: 1px solid black;
     width: 150px;
     height: 160px;
-    // padding-right: 300px;
     margin-right: 70px;
+    .img-content {
+      object-fit: contain;
+      width: 150px;
+      height: 160px;
+    }
   }
   .artist > a {
     text-decoration: none;
