@@ -26,12 +26,12 @@ class TrackShow extends React.Component {
     e.preventDefault();
     this.props.postComment(this.state);
 
-    this.setState = {
+    this.setState({
       user: this.props.currentUser,
       username: this.props.username,
       body: "",
       track: this.props.match.params.trackId
-    };
+    });
   }
 
   handleUpdate(field) {
@@ -66,7 +66,7 @@ class TrackShow extends React.Component {
             <TrackBox
               trackname={this.props.track.trackname}
               src_url={this.props.track.src_url}
-              img_src_url = {this.props.track.img_src_url}
+              img_src_url={this.props.track.img_src_url}
               id={`${this.props.track._id}`}
               track={this.props.track}
               fetchSingleTrack={this.props.fetchSingleTrack}
@@ -87,8 +87,8 @@ class TrackShow extends React.Component {
                   onChange={this.handleUpdate("body")}
                   value={this.state.body}
                 ></textarea>
+                <input className="sub-button" type="submit" value="submit" />
               </form>
-              <input className="sub-button" type="submit" value="submit" />
             </div>
           </div>
         </div>
