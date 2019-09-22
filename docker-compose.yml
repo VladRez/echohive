@@ -1,0 +1,15 @@
+version: "3"
+services:
+ web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: vladrezdev/echohive-mern
+    volumes:
+      - ".:/usr/src/app"
+      - "/usr/src/app/node_modules"
+    ports:
+      - "2222:5000"
+    environment:
+      - NODE_ENV=production
+      - MONGO_URI=mongodb+srv://vlad:D90t6C7SQReL43uX@cluster0-za1n7.mongodb.net/test?retryWrites=true&w=majority
