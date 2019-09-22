@@ -16,7 +16,7 @@
   overflow: hidden;
   border-top: 4px solid #629cff;
   background-color: #666;
-  height: 450px;
+  height: 825px;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -262,3 +262,76 @@
 .hero-minislide img:nth-child(1) {
   animation-delay: 15s;
 }
+
+
+
+.hero-wave-wrapper {
+  width: 1240px;
+  height: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 200px;
+  overflow: hidden;
+  position: fixed;
+  top: 1200px;
+}
+
+.wrapper-reverse {
+  /* margin-top: -50%; */
+  bottom: 0%;
+}
+
+.hero-wave {
+  width: 100%;
+  height: 145%;
+  position: absolute;
+  top: -120%;
+  border-radius: 44%;
+  background: #f2f2f2;
+  animation: hero-wave 15s infinite linear;
+}
+
+.hero-wave.-a {
+  animation: hero-wave 7000ms infinite linear;
+  opacity: .1;
+  background: #0af;
+}
+
+.hero-wave.-b {
+  animation: hero-wave 3000ms infinite linear;
+  opacity: .1;
+  background: black;
+}
+
+.hero-wave.-c {
+
+  animation: hero-wave 7500ms infinite linear;
+  opacity: .1;
+  background-color: #619bff;
+}
+
+
+.rev {
+  top: 75%;
+  animation: hero-wave-reverse 15s infinite linear;
+}
+
+
+@keyframes hero-wave {
+  from {
+    transform: rotate(0deg);
+  }
+  from {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hero-wave-reverse {
+  from {
+    transform: rotate(0deg);
+  }
+  from {
+    transform: rotate(-360deg);
+  }
+}
+
