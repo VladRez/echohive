@@ -35,6 +35,13 @@ router.patch("/:id", (req, res) => {
   }
 });
 
+//deleteTrack//
+// router.delete("/:id", (req, res) => {
+//   if (req.body.track_id) {
+//     Track.findByIdAndRemove(req.params.id);
+//   }
+// });
+
 router.post("/", (req, res) => {
     const newTrack = new Track({
       trackname: req.body.trackname,

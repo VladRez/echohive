@@ -8,6 +8,8 @@ import {
   getComments,
   postComment,
   getNavTrack
+  // deleteTrack,
+  // deleteComment
 } from "../util/track_api_util";
 
 export const RECEIVE_TRACKS = "RECEIVE_TRACKS";
@@ -94,7 +96,6 @@ export const fetchUserTracks = id => dispatch =>
     .catch(err => console.log(err));
 
 export const postTrackFile = (data, trackname, user, history) => dispatch => {
-  debugger;
   return createTrack(data).then(res => {
     let track = {};
     track.trackname = trackname;

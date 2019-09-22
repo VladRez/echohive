@@ -4,7 +4,6 @@ import { Link, withRouter } from "react-router-dom";
 class TrackBox extends React.Component {
   constructor(props) {
     super(props);
-
     this.handleClick = this.handleClick.bind(this);
     this.handleShow = this.handleShow.bind(this);
   }
@@ -69,11 +68,7 @@ class TrackBox extends React.Component {
           </div>
           <div className="ticker-wrap" onClick={this.handleShow}>
             <div className="ticker">
-              <div className="trackname">
-                <Link to={`/track/${this.props.id}`}>
-                  {this.props.trackname} {this.props.trackname}
-                </Link>
-              </div>
+              <div className="trackname">{this.props.trackname}</div>
             </div>
           </div>
           <figure>

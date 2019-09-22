@@ -22,7 +22,6 @@ router.post("/", (req, res) => {
           errors: [{ title: "File Upload Error", detail: err.message }]
         });
     }
-    console.log("frosty da snowman", req.files)
     return res.json({ src_url: req.files.track[0].location, img_src_url: req.files.image[0].location });
   });
 });

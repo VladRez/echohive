@@ -5,7 +5,7 @@ div.header {
 
 div.outer-trackbox {
   // float: right;
-  width: 90%;
+  width: 70%;
   margin: 60px;
   //   border: 1px solid black;
   border-radius: 25px;
@@ -26,7 +26,7 @@ div.outer-trackbox {
     * {
       box-sizing: border-box;
     }
-    $duration: 6s;
+    $duration: 10s;
 
     @-webkit-keyframes ticker {
       0% {
@@ -68,12 +68,13 @@ div.outer-trackbox {
       // display: flexbox;
       box-sizing: content-box;
       .trackname {
-        width: 100%;
-        padding-left: 100%;
+        width: 1000px;
+        padding-left: 550px;
+
         font-family: Arial;
         font-size: 32px;
         font-weight: bold;
-        color: blue;
+        // color: blue;
         height: 4rem;
         line-height: 4rem;
         // padding-right: 80%;
