@@ -45,6 +45,8 @@ class TrackBox extends React.Component {
   }
 
   componentDidMount() {
+    // this.props.fetchComments(this.props.id);
+
     let footer_player;
     footer_player = document.getElementById("footer_player");
     let trackbox_text = document.getElementById(`${this.props.src_url}`);
@@ -58,6 +60,26 @@ class TrackBox extends React.Component {
     if (this.props.track) {
       userLink = this.props.track.user;
     }
+
+    // let commentMarkers;
+
+    // this.props.fetchComments();
+
+    // commentMarkers = this.props.comments
+    let stuff = [];
+
+    if (this.props.comments) {
+      this.props.comments.forEach(comment => {
+        if (comment.timestamp !== 0 && comment.timestamp !== "" && comment.timestamp !== null && comment.timestamp !== undefined) {
+          stuff.push(<div className="comment-marker" style={{ height: 25, width: 3, marginLeft: comment.timestamp * 550 }}></div>)
+        }
+      })
+    };
+
+// "height: 30px;, width: 30px; border: 1px solid black"
+      
+    debugger;
+      
     return (
       <div className="outer-trackbox">
         <div className="inner-trackbox">
@@ -85,11 +107,15 @@ class TrackBox extends React.Component {
             >
               play!
             </button>
-            <progress
-              className={this.props.src_url}
-              value="0"
-              max="1"
-            ></progress>
+            <div className="progress-container">
+              
+              {stuff}
+              <progress
+                className={this.props.src_url}
+                value="0"
+                max="1"
+              ></progress>
+            </div>
           </figure>
         </div>
       </div>

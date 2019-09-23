@@ -12,8 +12,30 @@ div.outer-trackbox {
   background-color: rgb(237, 235, 235);
   // margin-left: 150px;
   figure {
-    progress {
+    display: flex;
+    div {
+      // float: right;
+      // display: block;
+      // position: absolute;
+      // border: 1px solid black;
       width: 70%;
+      // height: 10px;
+      progress {
+        margin-top: 20px;
+        width: 100%;
+      }
+        // -webkit-appearance: none;
+        // appearance: none;
+
+        // .progress-container {
+
+        .comment-marker {
+          border: 1px solid rgb(255, 69, 69);
+          position: absolute;
+          background-color: rgb(255, 70, 70);
+        }
+      // } 
+      
     }
   }
 

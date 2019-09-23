@@ -34,6 +34,7 @@ class NavPlayer extends React.Component {
     let progress_bar = document.getElementsByClassName(
       `${this.props.nav_player.track.src_url}`
     )[0];
+    // console.log(progress_bar.labels);
     if (progress_bar !== undefined) {
       let footer_player;
       footer_player = document.getElementById("footer_player");

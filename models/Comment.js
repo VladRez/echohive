@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+// require("mongoose-double")(mongoose);
 
 const CommentSchema = new Schema({
   user: {
@@ -21,6 +22,9 @@ const CommentSchema = new Schema({
   track: {
     type: Schema.Types.ObjectId,
     ref: "tracks"
+  },
+  timestamp: {
+    type: Number
   }
 });
 

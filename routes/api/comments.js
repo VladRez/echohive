@@ -7,7 +7,8 @@ router.post("/", (req, res) => {
     user: req.body.user,
     username: req.body.username, 
     body: req.body.body,
-    track: req.body.track
+    track: req.body.track,
+    timestamp: req.body.timestamp
   });
   newComment
     .save()
