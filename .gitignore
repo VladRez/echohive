@@ -6,3 +6,5 @@ DevEchoHive.pem
 package-lock.json
 frontend/package-lock.json
 extra stuff
+Dockerfile
+docker-compose.yml

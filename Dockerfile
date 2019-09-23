@@ -1,11 +1,14 @@
-FROM node:8.4
+FROM node:11-alpine
 
-COPY . /app
+WORKDIR /usr/src/app
 
-WORKDIR /app
+ARG NODE_ENV=production
 
-RUN npm install --silent && npm install ./frontend/ && npm install ./frontend/ --unsafe-perm node-sass
+ENV PATH /usr/src/app/node_modules/.bin:$PATH
+COPY . /usr/src/app/
 
-EXPOSE 3000/tcp
+RUN npm install --prefix frontend --unsafe-perm node-sass
+RUN npm install --silent
+RUN npm run heroku-postbuild
 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "start"]

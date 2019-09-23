@@ -4,6 +4,16 @@ const Session = props => {
   const sessionLinks = () => (
     <div className="hero-container">
       <div className="hero-inner">
+      {/* <div className="hero-wave-wrapper wrapper-reverse">
+          <div className="hero-wave -a rev"></div>
+          <div className="hero-wave -b rev"></div>
+          <div className="hero-wave -c rev"></div>
+        </div>
+        <div className="hero-wave-wrapper">
+          <div className="hero-wave -a"></div>
+          <div className="hero-wave -b"></div>
+          <div className="hero-wave -c"></div>
+        </div> */}
         <div className="hero-front">
           <div className="hero-front-container">
             <span className="hero-project-logo" />
@@ -28,6 +38,7 @@ const Session = props => {
                 Demo
               </button>
             </div>
+
             <div className="hero-minislide">
               <img
                 src="https://images.unsplash.com/5/unsplash-kitsune-4.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
@@ -58,3 +69,4 @@ const Session = props => {
 };
 
 export default Session;
+
