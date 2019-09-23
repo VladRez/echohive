@@ -87,6 +87,7 @@ class TrackShow extends React.Component {
                   onChange={this.handleUpdate("body")}
                   value={this.state.body}
                 ></textarea>
+                <br />
                 <input className="sub-button" type="submit" value="submit" />
               </form>
             </div>
