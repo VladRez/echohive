@@ -14,7 +14,8 @@ const mapStateToProps = state => {
     track: state.tracks.track,
     comments: state.comments.comments,
     currentUser: state.session.user.id,
-    username: state.session.user.username
+    username: state.session.user.username,
+    nav_player: state.nav_player
      };
 };
 

@@ -11,27 +11,73 @@ class TrackShow extends React.Component {
       user: this.props.currentUser,
       username: this.props.username,
       body: "",
-      track: this.props.match.params.trackId
+      track: this.props.match.params.trackId,
+      timestamp: 0
+
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
   }
 
-  componentDidMount() {
+   async componentDidMount() {
     const trackId = this.props.match.params.trackId;
-    this.props.fetchSingleTrack(trackId);
+    await this.props.fetchSingleTrack(trackId); // REFACTOR REDUCER to keep comments
     this.props.fetchComments(trackId);
-  }
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.postComment(this.state);
 
-    this.setState({
-      user: this.props.currentUser,
-      username: this.props.username,
-      body: "",
-      track: this.props.match.params.trackId
-    });
+    // await Promise.all([
+    //   this.props.fetchSingleTrack(trackId),
+    //   this.props.fetchComments(trackId)
+    // ]);
+  }
+
+  handleSubmit(e) {
+    // debugger;
+    e.preventDefault();
+
+      let progress_bar = document.getElementsByClassName(
+          `${this.props.nav_player.track.src_url}`
+      )[0];
+    
+        if (progress_bar !== undefined) {
+          let footer_player;
+          footer_player = document.getElementById("footer_player");
+          if (footer_player.duration) {
+            // debugger;
+            this.setState({
+              timestamp: footer_player.currentTime / footer_player.duration
+            }, () => {
+                debugger;
+                this.props.postComment(this.state);
+
+                    this.setState({
+                      user: this.props.currentUser,
+                      username: this.props.username,
+                      body: "",
+                      track: this.props.match.params.trackId
+                    });
+            });
+             
+          }
+        } else {
+          this.props.postComment(this.state);
+
+              this.setState({
+                user: this.props.currentUser,
+                username: this.props.username,
+                body: "",
+                track: this.props.match.params.trackId
+              });
+        }
+    
+    
+    // this.props.postComment(this.state);
+
+    // this.setState({
+    //   user: this.props.currentUser,
+    //   username: this.props.username,
+    //   body: "",
+    //   track: this.props.match.params.trackId
+    // });
   }
 
   handleUpdate(field) {
@@ -56,8 +102,26 @@ class TrackShow extends React.Component {
         );
       });
     }
-
+    debugger;
+        // let progress_bar;
+        
+        // progress_bar = document.getElementsByClassName(
+        //   `${this.props.nav_player.track.src_url}`
+        // )[0];
+        // // console.log(progress_bar.labels);
+        // if (progress_bar !== undefined) {
+        //   let footer_player;
+        //   footer_player = document.getElementById("footer_player");
+        //   if (footer_player.duration) {
+        //     progress_bar.value =
+        //       footer_player.currentTime / footer_player.duration;
+        //   }
+        // }
+    // if (progress_bar) {
+    //   console.log("woohoo", progress_bar.value);
+    // }
     return (
+      
       <div className="outer-trackshow">
         <div className="track-title">{this.props.track.trackname}</div>
 
@@ -69,6 +133,7 @@ class TrackShow extends React.Component {
               img_src_url={this.props.track.img_src_url}
               id={`${this.props.track._id}`}
               track={this.props.track}
+              comments={this.props.comments}
               fetchSingleTrack={this.props.fetchSingleTrack}
               fetchComments={this.props.fetchComments}
               fetchNavTrack={this.props.fetchNavTrack}

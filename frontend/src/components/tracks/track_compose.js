@@ -39,9 +39,13 @@ class TrackCompose extends React.Component {
     const reader1 = new FileReader();
     let file = e.currentTarget.files[0];
     reader1.onloadend = res => {
-      let sliceIdx = 19 + reader1.result.split("/")[1].split(";")[0].length;
+      // let sliceIdx = 19 + reader1.result.split("/")[1].split(";")[0].length;
+      // let jabberwocky = reader1.result.slice(sliceIdx);
+      // let contentType = jabberwocky.split(";")[0].slice(5);
+
+      let sliceIdx = 19 + (reader1.result.split("/")[1].split(";")[0].length)
       let jabberwocky = reader1.result.slice(sliceIdx);
-      let contentType = jabberwocky.split(";")[0].slice(5);
+      let contentType = reader1.result.split(";")[0].slice(5);
       let byteChars = atob(jabberwocky);
       let byteNums = new Array(byteChars.length);
 
@@ -51,6 +55,7 @@ class TrackCompose extends React.Component {
 
       let byteArray = new Uint8Array(byteNums);
       let blob = new Blob([byteArray], { type: contentType });
+
       this.setState({ img_src_url: blob, imageFile: file });
     };
 
