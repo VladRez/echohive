@@ -11,8 +11,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        postTrack: (data, trackname, user) => 
-            dispatch(postTrackFile(data, trackname, user, ownProps.history))
+        postTrack: (data, trackname, user, username) => 
+            dispatch(postTrackFile(data, trackname, user, username, ownProps.history))
             };
     
 };

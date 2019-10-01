@@ -90,7 +90,7 @@ class TrackBox extends React.Component {
             <img className="img-content" src={this.props.img_src_url}></img>
           </div>
           <div className="artist">
-            <Link to={`/user/${userLink}`}>Profile</Link>
+            <Link to={`/user/${userLink}`}>{this.props.username}</Link>
           </div>
           <div className="ticker-wrap" onClick={this.handleShow}>
             <div className="ticker">

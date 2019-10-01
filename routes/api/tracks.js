@@ -47,7 +47,8 @@ router.post("/", (req, res) => {
       trackname: req.body.trackname,
       src_url: req.body.src_url,
       img_src_url: req.body.img_src_url,
-      user: req.body.user
+      user: req.body.user,
+      username: req.body.username
     });
 
     newTrack.save().then(track => res.json(track));

@@ -8,6 +8,7 @@ class TrackCompose extends React.Component {
     this.state = {
       trackname: "",
       user: this.props.currentUser.id,
+      username: this.props.currentUser.username,
       src_url: "",
       img_src_url: "",
       newTrack: "",
@@ -70,13 +71,15 @@ class TrackCompose extends React.Component {
     e.preventDefault();
     const formData = new FormData();
     formData.append("trackname", this.state.trackname);
+    // formData.append("username", this.state.username);
     if (this.state.audioFile) {
       formData.append("track", this.state.audioFile);
     }
     if (this.state.imageFile) {
       formData.append("image", this.state.imageFile);
     }
-    this.props.postTrack(formData, this.state.trackname, this.state.user);
+    debugger;
+    this.props.postTrack(formData, this.state.trackname, this.state.user, this.state.username);
   }
 
   updateTrackname() {

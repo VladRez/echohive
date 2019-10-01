@@ -20,6 +20,7 @@ class Track extends React.Component {
             img_src_url={track.img_src_url}
             id={`${track._id}`}
             track={track}
+            username={track.username}
             fetchSingleTrack={this.props.fetchSingleTrack}
             fetchNavTrack={this.props.fetchNavTrack}
           />

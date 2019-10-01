@@ -10,6 +10,10 @@ const TrackSchema = new Schema({
         type: String,
         required: true
     },
+    username: {
+        type: String,
+        required: true
+    },
     comment_ids: [{
         type: Schema.Types.ObjectId,
         ref: 'comments'
