@@ -19,10 +19,15 @@ class TrackShow extends React.Component {
     this.handleUpdate = this.handleUpdate.bind(this);
   }
 
-  componentDidMount() {
+   async componentDidMount() {
     const trackId = this.props.match.params.trackId;
-    this.props.fetchSingleTrack(trackId);
+    await this.props.fetchSingleTrack(trackId); // REFACTOR REDUCER to keep comments
     this.props.fetchComments(trackId);
+
+    // await Promise.all([
+    //   this.props.fetchSingleTrack(trackId),
+    //   this.props.fetchComments(trackId)
+    // ]);
   }
 
   handleSubmit(e) {

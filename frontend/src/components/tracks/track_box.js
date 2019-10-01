@@ -66,15 +66,19 @@ class TrackBox extends React.Component {
     // this.props.fetchComments();
 
     // commentMarkers = this.props.comments
-    let stuff = [];
+    let markers = [];
 
     if (this.props.comments) {
       this.props.comments.forEach(comment => {
         if (comment.timestamp !== 0 && comment.timestamp !== "" && comment.timestamp !== null && comment.timestamp !== undefined) {
-          stuff.push(<div className="comment-marker" style={{ height: 25, width: 3, marginLeft: comment.timestamp * 550 }}></div>)
+          markers.push(<div key={`${comment.id}`} className="comment-marker" style={{ height: 25, width: 3, marginLeft: comment.timestamp * 550 }}></div>)
         }
       })
     };
+    // key={`${track._id}`}
+
+    // iterate through comments; set object key to comment.timestamp, value to count of comments; use value to
+    // generate rgb color shade to assign to div background-color 
 
 // "height: 30px;, width: 30px; border: 1px solid black"
       
@@ -109,7 +113,7 @@ class TrackBox extends React.Component {
             </button>
             <div className="progress-container">
               
-              {stuff}
+              {markers}
               <progress
                 className={this.props.src_url}
                 value="0"

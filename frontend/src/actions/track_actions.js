@@ -55,7 +55,8 @@ export const fetchComments = trackId => dispatch => {
   return getComments(trackId).then(comments => {
     let trackComments = comments.data;
     return dispatch(receiveTrackComments(trackComments));
-  });
+  })
+    .catch(err => console.log(err));
 };
 
 export const createComment = data => dispatch => {
