@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import "./user_profile.css";
+import "./user_profile.scss";
 import TrackBox from "../tracks/track_box";
 
 class UserProfile extends React.Component {
@@ -24,10 +25,12 @@ class UserProfile extends React.Component {
           <TrackBox
             trackname={track.trackname}
             src_url={track.src_url}
+            img_src_url={track.img_src_url}
             id={`${track._id}`}
             user={track.user}
             fetchSingleTrack={this.props.fetchSingleTrack}
             fetchNavTrack={this.props.fetchNavTrack}
+            username={track.username}
           />
         </div>
       ));

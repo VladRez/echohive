@@ -96,13 +96,14 @@ export const fetchUserTracks = id => dispatch =>
     })
     .catch(err => console.log(err));
 
-export const postTrackFile = (data, trackname, user, history) => dispatch => {
+export const postTrackFile = (data, trackname, user, username, history) => dispatch => {
   return createTrack(data).then(res => {
     let track = {};
     track.trackname = trackname;
     track.user = user;
     track.src_url = res.data.src_url;
     track.img_src_url = res.data.img_src_url;
+    track.username = username;
     postTrack(track)
       .then(mres => {
         dispatch(receiveSingleTrack(mres));

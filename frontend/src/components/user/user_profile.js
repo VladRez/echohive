@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import TrackBox from "../tracks/track_box";
+import "./user_profile.scss";
 
 class UserProfile extends React.Component {
   componentDidMount() {
@@ -9,12 +10,16 @@ class UserProfile extends React.Component {
   }
 
   render() {
+
+    if (!this.props.username) return null;
     let rendered_tracks;
+
     renderedTracks = this.props.tracks.map(track => {
       return (
         <div key={`${track._id}`}>
           <TrackBox
             trackname={track.trackname}
+            username={track.username}
             src_url={track.src_url}
             id={`${track._id}`}
             track={track}
