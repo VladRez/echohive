@@ -88,41 +88,97 @@ class TrackCompose extends React.Component {
 
   render() {
     return (
-      <div className="outerbox">
-        <div className="form-container">
-          <form onSubmit={this.handleSubmit}>
-            <div className="upload-elements">
-              <input
-                className="title-text-area"
-                type="textarea"
-                value={this.state.trackname}
-                onChange={this.updateTrackname()}
-                placeholder="Title your echo..."
-              />
-              <label className="file">
-                <input
-                  className="inputfile"
-                  id="file-selector"
-                  type="file"
-                  onChange={this.handleFile}
-                />
-                <br></br>
-                <input
-                  className="inputfile"
-                  id="file-selector-img"
-                  type="file"
-                  onChange={this.handleImageFile}
-                />
-              </label>
-              <br />
-
-              <input className="submit-button" type="submit" value="Submit" />
+      <div className="main-upload">
+        <div className="inner-main">
+          <div className="upload-background"></div>
+          <div className="upload-chooser-container">
+            <div className="upload-main-container sc-border-light g-shadow-light">
+              <div className="upload-main-quotaMeter">
+                <div className="quotaMeter sc-font">
+                  <div className="quotaMeter-uploadlimit">
+                    <div className="quotaMeter-limit">
+                      "Upload limit: "
+                      <span className="quotaMeter_limitMinutes">
+                        <strong>0min</strong>" of 180min"
+                      </span>
+                    </div>
+                    <div classsName="quotaMeter-percentage">0%</div>
+                  </div>
+                  <div className="quotaMeter-background sc-background-dark">
+                    <div className="quotaMeter-minutesUsed"></div>
+                  </div>
+                  <div>
+                    <a href="" className="quotaMeter-link">
+                      Upgrade Now
+                    </a>
+                    " to get unlimited uploads."
+                  </div>
+                </div>
+              </div>
+              <div className="uploadMain-content">
+                <form onSubmit={this.handleSubmit}>
+                  <h1 className="uploadMain-title sc-type-light">
+                    click here to upload your tracks & cover art
+                  </h1>
+                  <div className="uploadMain-chooser">
+                    <div className="chooseFiles">
+                      {/* <div className="upload-elements"> */}
+                      <label className="file">
+                        <input
+                          className="title-text-area "
+                          type="textarea"
+                          value={this.state.trackname}
+                          onChange={this.updateTrackname()}
+                          placeholder="Title your echo..."
+                        />
+                        Select an Audio File
+                        <input
+                          className="inputfile "
+                          id="file-selector"
+                          type="file"
+                          onChange={this.handleFile}
+                        />
+                        {/* <br /> */}
+                        Select Cover Art
+                        <input
+                          className="inputfile "
+                          id="file-selector-img"
+                          type="file"
+                          onChange={this.handleImageFile}
+                        />
+                      </label>
+                      {/* <input className="submit-button" type="submit" value="Submit" /> */}
+                      <button
+                        type="button"
+                        className="choose-files-button sc-button sc-button-cta sc-button-large"
+                        value="Submit"
+                      >
+                        Upload Files
+                      </button>
+                      {/* </div> */}
+                    </div>
+                    <div className="uploadMain-additional"></div>
+                  </div>
+                  <aside className="upLoadMain-hqNote">
+                    " Provide FLAC, WAV, ALAC or AIFF for best audio quality "
+                    <a href="">Learn more about high quality audio (HQ).</a>
+                  </aside>
+                  <div className="uploadMain-proContainer sc-border-light-top"></div>
+                </form>
+              </div>
             </div>
-          </form>
+          </div>
+          <div className="uploadMain-foot sc-clearfix">
+            <p className="uploadMain-notice">
+              " By uploading, you confirm that your sounds comply with our "
+              <a href="">Terms of Use</a>" and you don't infringe on anyone
+                    else's rights. "
+            </p>
+          </div>
         </div>
-        <br />
       </div>
     );
+
   }
 }
 
