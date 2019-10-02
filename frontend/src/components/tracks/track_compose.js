@@ -43,7 +43,7 @@ class TrackCompose extends React.Component {
       // let jabberwocky = reader1.result.slice(sliceIdx);
       // let contentType = jabberwocky.split(";")[0].slice(5);
 
-      let sliceIdx = 19 + (reader1.result.split("/")[1].split(";")[0].length)
+      let sliceIdx = 19 + reader1.result.split("/")[1].split(";")[0].length;
       let jabberwocky = reader1.result.slice(sliceIdx);
       let contentType = reader1.result.split(";")[0].slice(5);
       let byteChars = atob(jabberwocky);
@@ -118,40 +118,44 @@ class TrackCompose extends React.Component {
               <div className="uploadMain-content">
                 <form onSubmit={this.handleSubmit}>
                   <h1 className="uploadMain-title sc-type-light">
-                    click here to upload your tracks & cover art
+                    upload your tracks & cover art
                   </h1>
                   <div className="uploadMain-chooser">
                     <div className="chooseFiles">
                       {/* <div className="upload-elements"> */}
-                      <label className="file">
+
+                      <input
+                        className="title-text-area "
+                        type="textarea"
+                        value={this.state.trackname}
+                        onChange={this.updateTrackname()}
+                        placeholder="Title your echo..."
+                      />
+
+                      <div className="outer-input-div">
+                        Audio File{"     "}
                         <input
-                          className="title-text-area "
-                          type="textarea"
-                          value={this.state.trackname}
-                          onChange={this.updateTrackname()}
-                          placeholder="Title your echo..."
-                        />
-                        Select an Audio File
-                        <input
-                          className="inputfile "
+                          className="inputfile aud"
                           id="file-selector"
                           type="file"
                           onChange={this.handleFile}
                         />
-                        {/* <br /> */}
-                        Select Cover Art
+                      </div>
+                      {/* <br /> */}
+                      <div className="outer-input-div">
+                        Cover Art{"     "}
                         <input
-                          className="inputfile "
+                          className="inputfile img"
                           id="file-selector-img"
                           type="file"
                           onChange={this.handleImageFile}
                         />
-                      </label>
+                      </div>
                       {/* <input className="submit-button" type="submit" value="Submit" /> */}
                       <button
-                        type="button"
+                        type="Submit"
                         className="choose-files-button sc-button sc-button-cta sc-button-large"
-                        value="Submit"
+                        // value="Submit"
                       >
                         Upload Files
                       </button>
@@ -172,13 +176,12 @@ class TrackCompose extends React.Component {
             <p className="uploadMain-notice">
               " By uploading, you confirm that your sounds comply with our "
               <a href="">Terms of Use</a>" and you don't infringe on anyone
-                    else's rights. "
+              else's rights. "
             </p>
           </div>
         </div>
       </div>
     );
-
   }
 }
 
