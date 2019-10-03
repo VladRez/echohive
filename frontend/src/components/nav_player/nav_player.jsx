@@ -11,22 +11,34 @@ class NavPlayer extends React.Component {
   }
 
   play() {
-    let trackbox_text = document.getElementById(
-      `${this.props.nav_player.track.src_url}`
-    );
-
+    // debugger;
+    let trackbox_text = document.getElementById(`${this.props.nav_player.track.src_url}`);
+    // debugger;
+    let image_sourced = document.getElementById(`${this.props.nav_player.track.src_url}A`);
+    // let image_sourced = document.querySelectorAll(`img.${this.props.nav_player.track.src_url}A`);
+    // image_sourced.src = require("../../../src/playbuttonpng.png");
     if (trackbox_text !== null) {
-      trackbox_text.innerHTML = "pause!";
+      image_sourced.src = require("../../../src/pausebuttonpng.png");
     }
+
+    // if (image_sourced !== null) {
+      // image_sourced.src = require("../../../src/playbuttonpng.png");
+    // }
   }
 
   pause() {
-    let trackbox_text = document.getElementById(
-      `${this.props.nav_player.track.src_url}`
-    );
+    let trackbox_text = document.getElementById(`${this.props.nav_player.track.src_url}`);
 
+    let image_sourced = document.getElementById(`${this.props.nav_player.track.src_url}A`);
+    // image_sourced.src = require("../../../src/playbuttonpng.png");
+    debugger;
     if (trackbox_text !== null) {
-      trackbox_text.innerHTML = "play!";
+      // trackbox_text.innerHTML = "fish!";
+      image_sourced.src = require("../../../src/playbuttonpng.png");
+    }
+
+    if (image_sourced !== null) {
+      image_sourced.src = require("../../../src/playbuttonpng.png");
     }
   }
 

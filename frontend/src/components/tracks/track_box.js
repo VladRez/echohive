@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
+import "../../../src/playbuttonpng.png";
 
 class TrackBox extends React.Component {
   constructor(props) {
@@ -14,20 +15,23 @@ class TrackBox extends React.Component {
       footer_player = document.getElementById("footer_player");
 
       let trackbox_text = document.getElementById(`${this.props.src_url}`);
+      // let image_sourced = document.getElementById(`${this.props.src_url}A`);
 
+      // debugger;
       if (footer_player.paused) {
         footer_player.play();
         Array.from(document.getElementsByClassName("play-button")).forEach(
           ele => {
-            ele.innerHTML = "play";
+            // ele.innerHTML = "play";
           }
         );
-        trackbox_text.innerHTML = "pause!";
+        // trackbox_text.innerHTML = "pause!";
+        // image_sourced.src = require("../../../src/playbuttonpng.png");
       } else {
         footer_player.pause();
         Array.from(document.getElementsByClassName("play-button")).forEach(
           ele => {
-            ele.innerHTML = "play";
+            // ele.innerHTML = "play";
           }
         );
       }
@@ -49,8 +53,12 @@ class TrackBox extends React.Component {
     let footer_player;
     footer_player = document.getElementById("footer_player");
     let trackbox_text = document.getElementById(`${this.props.src_url}`);
+    let image_sourced = document.getElementById(`${this.props.src_url}A`);
+    // let image_sourced = document.getElementsByClassName("button_image");
+
     if (!footer_player.paused && footer_player.src === trackbox_text.id) {
-      trackbox_text.innerHTML = "pause!";
+      // trackbox_text.innerHTML = "pause!";
+      image_sourced.src = require("../../../src/pausebuttonpng.png");
     }
   }
 
@@ -81,7 +89,7 @@ class TrackBox extends React.Component {
 
 // "height: 30px;, width: 30px; border: 1px solid black"
       
-    debugger;
+    // debugger;
       
     return (
       <div className="outer-trackbox">
@@ -102,12 +110,12 @@ class TrackBox extends React.Component {
               className="play-button"
               id={this.props.src_url}
               onClick={this.handleClick}
-              style={{ height: "10%" }}
+              // style={{ height: "10%" }}
             >
-              play!
+              <img id={`${this.props.src_url}A`} src={require("../../../src/playbuttonpng.png")}></img>
+              
             </button>
             <div className="progress-container">
-              
               {markers}
               <progress
                 className={this.props.src_url}
