@@ -5,7 +5,8 @@ import { fetchUser } from "../../actions/user_actions";
 import {
   fetchUserTracks,
   fetchSingleTrack,
-  fetchNavTrack
+  fetchNavTrack,
+  deleteUserTrack
 } from "../../actions/track_actions";
 
 const mapStateToProps = (state, ownProps) => {
@@ -21,7 +22,8 @@ const mapDispatchToProps = dispatch => {
     fetchUser: id => dispatch(fetchUser(id)),
     fetchUserTracks: id => dispatch(fetchUserTracks(id)),
     fetchSingleTrack: id => dispatch(fetchSingleTrack(id)),
-    fetchNavTrack: id => dispatch(fetchNavTrack(id))
+    fetchNavTrack: id => dispatch(fetchNavTrack(id)),
+    deleteTrack: id => dispatch(deleteUserTrack(id))
   };
 };
 

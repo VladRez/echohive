@@ -32,9 +32,9 @@ export const postComment = data => {
   return axios.post("/api/comments/", data);
 };
 
-// export const deleteTrack = id => {
-//   return axios.delete(`/api/tracks/${trackId}`);
-// };
+export const deleteTrack = id => {
+  return axios.delete(`/api/tracks/${trackId}`);
+};
 
 // export const deleteComment = commentId => {
 //   return axios.delete(`/api/comments/${commentId}`);

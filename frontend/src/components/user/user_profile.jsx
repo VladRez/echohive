@@ -11,8 +11,10 @@ class UserProfile extends React.Component {
 
   componentDidMount() {
     let id = this.props.match.params.userId;
+    let trackId = this.props.match.params.track._id;
     this.props.fetchUser(id);
     this.props.fetchUserTracks(id);
+    this.props.deleteTrack(trackId);
   }
 
   render() {
@@ -31,6 +33,7 @@ class UserProfile extends React.Component {
             fetchSingleTrack={this.props.fetchSingleTrack}
             fetchNavTrack={this.props.fetchNavTrack}
             username={track.username}
+            deleteTrack={this.props.deleteTrack}
           />
         </div>
       ));

@@ -7,8 +7,8 @@ import {
   getUserTracks,
   getComments,
   postComment,
-  getNavTrack
-  // deleteTrack,
+  getNavTrack,
+  deleteTrack
   // deleteComment
 } from "../util/track_api_util";
 
@@ -22,6 +22,7 @@ export const RECEIVE_TRACK_COMMENTS = "RECEIVE_TRACK_COMMENTS";
 export const RECEIVE_NEW_COMMENT = "RECEIVE_NEW_COMMENT";
 
 export const RECEIVE_NAV_TRACK = "RECEIVE_NAV_TRACK";
+export const DELETE_TRACK = "DELETE_TRACK";
 
 export const receiveTracks = tracks => ({
   type: RECEIVE_TRACKS,
@@ -53,11 +54,17 @@ export const receiveUserTracks = tracks => ({
   tracks
 });
 
+export const deleteUserTrack = id => ({
+  type: DELETE_TRACK,
+  id
+});
+
 export const fetchComments = trackId => dispatch => {
-  return getComments(trackId).then(comments => {
-    let trackComments = comments.data;
-    return dispatch(receiveTrackComments(trackComments));
-  })
+  return getComments(trackId)
+    .then(comments => {
+      let trackComments = comments.data;
+      return dispatch(receiveTrackComments(trackComments));
+    })
     .catch(err => console.log(err));
 };
 
@@ -66,6 +73,8 @@ export const createComment = data => dispatch => {
     dispatch(receiveNewComment(comment))
   );
 };
+export const deleteUserTrack = id => dispatch =>
+  deleteUserTrack(id).catch(err => console.log(err));
 
 export const fetchSingleTrack = id => dispatch =>
   getSingleTrack(id)
@@ -96,7 +105,13 @@ export const fetchUserTracks = id => dispatch =>
     })
     .catch(err => console.log(err));
 
-export const postTrackFile = (data, trackname, user, username, history) => dispatch => {
+export const postTrackFile = (
+  data,
+  trackname,
+  user,
+  username,
+  history
+) => dispatch => {
   return createTrack(data).then(res => {
     let track = {};
     track.trackname = trackname;

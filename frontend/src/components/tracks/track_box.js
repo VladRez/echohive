@@ -7,6 +7,7 @@ class TrackBox extends React.Component {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.handleShow = this.handleShow.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   handleClick() {
@@ -46,6 +47,9 @@ class TrackBox extends React.Component {
   handleShow() {
     this.props.history.push(`/track/${this.props.id}`);
   }
+  handleDelete() {
+    this.props.deleteTrack(this.props.id);
+  }
 
   componentDidMount() {
     // this.props.fetchComments(this.props.id);
@@ -77,20 +81,33 @@ class TrackBox extends React.Component {
 
     if (this.props.comments) {
       this.props.comments.forEach(comment => {
-        if (comment.timestamp !== 0 && comment.timestamp !== "" && comment.timestamp !== null && comment.timestamp !== undefined) {
-          markers.push(<div key={`${comment.id}`} className="comment-marker" style={{ height: 25, width: 3, marginLeft: comment.timestamp * 550 }}></div>)
+        if (
+          comment.timestamp !== 0 &&
+          comment.timestamp !== "" &&
+          comment.timestamp !== null &&
+          comment.timestamp !== undefined
+        ) {
+          markers.push(
+            <div
+              key={`${comment.id}`}
+              className="comment-marker"
+              style={{
+                height: 25,
+                width: 3,
+                marginLeft: comment.timestamp * 550
+              }}
+            ></div>
+          );
         }
-      })
-    };
+      });
+    }
     // key={`${track._id}`}
 
     // iterate through comments; set object key to comment.timestamp, value to count of comments; use value to
-    // generate rgb color shade to assign to div background-color 
+    // generate rgb color shade to assign to div background-color
 
-// "height: 30px;, width: 30px; border: 1px solid black"
-      
+    // "height: 30px;, width: 30px; border: 1px solid black"
 
-      
     return (
       <div className="outer-trackbox">
         <div className="inner-trackbox">
@@ -112,8 +129,10 @@ class TrackBox extends React.Component {
               onClick={this.handleClick}
               // style={{ height: "10%" }}
             >
-              <img id={`${this.props.src_url}A`} src={require("../../../src/playbuttonpng.png")}></img>
-              
+              <img
+                id={`${this.props.src_url}A`}
+                src={require("../../../src/playbuttonpng.png")}
+              ></img>
             </button>
             <div className="progress-container">
               {markers}
@@ -124,6 +143,12 @@ class TrackBox extends React.Component {
               ></progress>
             </div>
           </figure>
+          <button
+            className="delete"
+            id={this.props.src_url}
+            onClick={this.handleDelete}
+            // style={{ height: "10%" }}
+          ></button>
         </div>
       </div>
     );
