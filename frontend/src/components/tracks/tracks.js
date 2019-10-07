@@ -29,7 +29,7 @@ class Track extends React.Component {
     });
 
     return (
-      <div>
+      <div className="body-background">
         <div className="header">All tracks</div>
         {renderedTracks}
       </div>

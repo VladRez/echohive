@@ -153,6 +153,19 @@ height: 100%;
   box-sizing: border-box;
 }
 
+.tagline{
+  position: absolute;
+  width: 100%;
+  height: 20px;
+  top: 50%;
+  margin-top: -10px;
+  text-align: center;
+}
+
+.tagline p{
+  font-size: large;
+}
+
 /*Form styling*/
 
 .form-modal {

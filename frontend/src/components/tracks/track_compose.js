@@ -44,7 +44,7 @@ class TrackCompose extends React.Component {
       // let jabberwocky = reader1.result.slice(sliceIdx);
       // let contentType = jabberwocky.split(";")[0].slice(5);
 
-      let sliceIdx = 19 + (reader1.result.split("/")[1].split(";")[0].length)
+      let sliceIdx = 19 + reader1.result.split("/")[1].split(";")[0].length;
       let jabberwocky = reader1.result.slice(sliceIdx);
       let contentType = reader1.result.split(";")[0].slice(5);
       let byteChars = atob(jabberwocky);
@@ -79,7 +79,12 @@ class TrackCompose extends React.Component {
       formData.append("image", this.state.imageFile);
     }
     debugger;
-    this.props.postTrack(formData, this.state.trackname, this.state.user, this.state.username);
+    this.props.postTrack(
+      formData,
+      this.state.trackname,
+      this.state.user,
+      this.state.username
+    );
   }
 
   updateTrackname() {
@@ -91,39 +96,69 @@ class TrackCompose extends React.Component {
 
   render() {
     return (
-      <div className="outerbox">
-        <div className="form-container">
-          <form onSubmit={this.handleSubmit}>
-            <div className="upload-elements">
-              <input
-                className="title-text-area"
-                type="textarea"
-                value={this.state.trackname}
-                onChange={this.updateTrackname()}
-                placeholder="Title your echo..."
-              />
-              <label className="file">
-                <input
-                  className="inputfile"
-                  id="file-selector"
-                  type="file"
-                  onChange={this.handleFile}
-                />
-                <br></br>
-                <input
-                  className="inputfile"
-                  id="file-selector-img"
-                  type="file"
-                  onChange={this.handleImageFile}
-                />
-              </label>
-              <br />
+      <div className="main-upload">
+        <div className="inner-main">
+          <div className="upload-background"></div>
+          <div className="upload-chooser-container">
+            <div className="upload-main-container sc-border-light g-shadow-light">
+              <div className="uploadMain-content">
+                <form onSubmit={this.handleSubmit}>
+                  <h1 className="uploadMain-title sc-type-light">
+                    upload your tracks & cover art
+                  </h1>
+                  <div className="uploadMain-chooser">
+                    <div className="chooseFiles">
+                      {/* <div className="upload-elements"> */}
 
-              <input className="submit-button" type="submit" value="Submit" />
+                      <input
+                        className="title-text-area "
+                        type="textarea"
+                        value={this.state.trackname}
+                        onChange={this.updateTrackname()}
+                        placeholder="Title your echo..."
+                      />
+
+                      <div className="outer-input-div">
+                        Audio File{"     "}
+                        <input
+                          className="inputfile aud"
+                          id="file-selector"
+                          type="file"
+                          onChange={this.handleFile}
+                        />
+                      </div>
+                      {/* <br /> */}
+                      <div className="outer-input-div">
+                        Cover Art{"     "}
+                        <input
+                          className="inputfile img"
+                          id="file-selector-img"
+                          type="file"
+                          onChange={this.handleImageFile}
+                        />
+                      </div>
+                      {/* <input className="submit-button" type="submit" value="Submit" /> */}
+                      <button
+                        type="Submit"
+                        className="choose-files-button sc-button sc-button-cta sc-button-large"
+                        // value="Submit"
+                      >
+                        Upload Files
+                      </button>
+                      {/* </div> */}
+                    </div>
+                    <div className="uploadMain-additional"></div>
+                  </div>
+                  <aside className="upLoadMain-hqNote">
+                    " Provide FLAC, WAV, ALAC or AIFF for best audio quality "
+                  </aside>
+                  <div className="uploadMain-proContainer sc-border-light-top"></div>
+                </form>
+              </div>
             </div>
-          </form>
+          </div>
+          <div className="uploadMain-foot sc-clearfix"></div>
         </div>
-        <br />
       </div>
     );
   }

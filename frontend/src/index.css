@@ -1,6 +1,6 @@
 body {
   overflow-y: scroll;
-  background: #f2f2f2 url(https://dummyimage.com/1240x100/fff/fff.png) repeat-y
+  background: #a02626 url(https://dummyimage.com/1240x100/fff/fff.png) repeat-y
     50% 0;
   margin: 0;
 
@@ -33,4 +33,5 @@ input[type="password"] {
   padding-bottom: 0px;
   width: 1180px;
   margin: 0 auto;
+  /* background-color: red; */
 }
