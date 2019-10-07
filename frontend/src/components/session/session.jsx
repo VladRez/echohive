@@ -4,6 +4,7 @@ const Session = props => {
   const sessionLinks = () => (
     <div className="hero-container">
       <div className="hero-inner">
+       
       {/* <div className="hero-wave-wrapper wrapper-reverse">
           <div className="hero-wave -a rev"></div>
           <div className="hero-wave -b rev"></div>
@@ -40,6 +41,7 @@ const Session = props => {
             </div>
 
             <div className="hero-minislide">
+            
               <img
                 src="https://images.unsplash.com/5/unsplash-kitsune-4.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
                 alt="Slide 4"
@@ -58,6 +60,9 @@ const Session = props => {
                 src="https://images.unsplash.com/photo-1500627345056-c0094b32aaf3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"
                 alt="Slide 1"
               />
+              <div className="tagline">
+          <p>Discover and enjoy the greatest selection of sound samples from the most diverse audio engineers.</p>
+        </div>
             </div>
           </div>
         </div>
