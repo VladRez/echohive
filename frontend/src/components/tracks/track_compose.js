@@ -79,7 +79,12 @@ class TrackCompose extends React.Component {
       formData.append("image", this.state.imageFile);
     }
     debugger;
-    this.props.postTrack(formData, this.state.trackname, this.state.user, this.state.username);
+    this.props.postTrack(
+      formData,
+      this.state.trackname,
+      this.state.user,
+      this.state.username
+    );
   }
 
   updateTrackname() {
@@ -96,28 +101,6 @@ class TrackCompose extends React.Component {
           <div className="upload-background"></div>
           <div className="upload-chooser-container">
             <div className="upload-main-container sc-border-light g-shadow-light">
-              <div className="upload-main-quotaMeter">
-                <div className="quotaMeter sc-font">
-                  <div className="quotaMeter-uploadlimit">
-                    <div className="quotaMeter-limit">
-                      "Upload limit: "
-                      <span className="quotaMeter_limitMinutes">
-                        <strong>0min</strong>" of 180min"
-                      </span>
-                    </div>
-                    <div classsName="quotaMeter-percentage">0%</div>
-                  </div>
-                  <div className="quotaMeter-background sc-background-dark">
-                    <div className="quotaMeter-minutesUsed"></div>
-                  </div>
-                  <div>
-                    <a href="" className="quotaMeter-link">
-                      Upgrade Now
-                    </a>
-                    " to get unlimited uploads."
-                  </div>
-                </div>
-              </div>
               <div className="uploadMain-content">
                 <form onSubmit={this.handleSubmit}>
                   <h1 className="uploadMain-title sc-type-light">
@@ -168,20 +151,13 @@ class TrackCompose extends React.Component {
                   </div>
                   <aside className="upLoadMain-hqNote">
                     " Provide FLAC, WAV, ALAC or AIFF for best audio quality "
-                    <a href="">Learn more about high quality audio (HQ).</a>
                   </aside>
                   <div className="uploadMain-proContainer sc-border-light-top"></div>
                 </form>
               </div>
             </div>
           </div>
-          <div className="uploadMain-foot sc-clearfix">
-            <p className="uploadMain-notice">
-              " By uploading, you confirm that your sounds comply with our "
-              <a href="">Terms of Use</a>" and you don't infringe on anyone
-              else's rights. "
-            </p>
-          </div>
+          <div className="uploadMain-foot sc-clearfix"></div>
         </div>
       </div>
     );
