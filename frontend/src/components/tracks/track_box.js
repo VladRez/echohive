@@ -89,7 +89,7 @@ class TrackBox extends React.Component {
 
 // "height: 30px;, width: 30px; border: 1px solid black"
       
-    // debugger;
+
       
     return (
       <div className="outer-trackbox">
