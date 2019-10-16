@@ -45,40 +45,26 @@ class NavPlayer extends React.Component {
   }
 
   pause() {
-    let trackbox_text = document.getElementById(
-      `${this.props.nav_player.track.src_url}`
-    );
-
-    let image_sourced = document.getElementById(
-      `${this.props.nav_player.track.src_url}A`
-    );
-    // image_sourced.src = require("../../../src/playbuttonpng.png");
     let btn_path = document.getElementById(
       `current_action_path-${this.props.nav_player.track.src_url}`
     );
     btn_path.setAttribute("d", this.play_path);
 
-    // if (trackbox_text !== null) {
-    //   // trackbox_text.innerHTML = "fish!";
-    //   // image_sourced.src = require("../../../src/playbuttonpng.png");
-
-    // }
-
-    // if (image_sourced !== null) {
-    //   // image_sourced.src = require("../../../src/playbuttonpng.png");
-    // }
+   
   }
 
   timeUpdate(track) {
-    let progress_bar = document.getElementsByClassName(
-      `${this.props.nav_player.track.src_url}`
-    )[0];
-    // console.log(progress_bar.labels);
-    if (progress_bar !== undefined) {
+    let progress_bar = document.getElementById(`track_item_progress_bar-${this.props.nav_player.track.src_url}`);
+    
+    if (progress_bar !== null) {
       let footer_player;
       footer_player = document.getElementById("footer_player");
       if (footer_player.duration) {
-        progress_bar.value = footer_player.currentTime / footer_player.duration;
+        let progress = Math.ceil((footer_player.currentTime / footer_player.duration) * 100);
+        
+        if (progress_bar.style !== null && progress !== null) {
+          progress_bar.style.width = `${progress}%`
+        }
       }
     }
   }

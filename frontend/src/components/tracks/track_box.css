@@ -82,7 +82,22 @@
 }
 
 .track_item_canvas {
+    margin-top: 25px;
     height: 60px;
     position: relative;
 }
 
+/* will be replaced with eq bars*/
+
+#track_item_progress {
+  width: 100%;
+  background-color: rgba(221, 221, 221, 0.37);
+  /* height: 30px; */
+}
+
+.track_item_progress_bar {
+    height: 50px;
+    background: linear-gradient(to right, lightblue , darkblue);
+      width: 0%;
+     
+}

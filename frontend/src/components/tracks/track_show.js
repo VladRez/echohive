@@ -85,7 +85,6 @@ class TrackShow extends React.Component {
         );
       });
     }
-    debugger
     return (
       <div className="outer-trackshow">
         <div className="track-title">{this.props.track.trackname}</div>
