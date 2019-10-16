@@ -1,0 +1,63 @@
+.track_item {
+    clear: both;
+    margin-bottom: 36px;
+    position: relative;
+}
+
+.track_item_body {
+    display: flex;
+    flex: 1;
+    position: relative;
+    height: 100%;
+}
+
+.track_item_coverart {
+    position: relative;
+    margin-right: 15px;
+}
+
+
+.track_item_coverart .coverart {
+    background: transparent 50%/contain no-repeat;
+    display: block;
+    width: 160px;
+    height: 160px;
+    z-index: 2;
+}
+
+.track_item_content {
+    flex: 1;
+    overflow-x: hidden;
+}
+
+.track_item_header {
+    position: relative;
+    margin: 0 0 6px;
+    padding-top: 7px;
+    min-height: 43px;
+    z-index: 2;
+}
+
+.track_item_header.title_container {
+    display: flex;
+    align-items: flex-start;
+}
+
+.track_item_play_btn {
+    height: 36px;
+    width: 38px;
+
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+
+}
+
+.track_item_play_btn svg{
+    height: 36px;
+    width: 38px;
+}
+

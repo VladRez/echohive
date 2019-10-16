@@ -89,9 +89,10 @@
 .quotaMeter-minutesUsed {
   height: 100%;
   border-radius: 5px;
-  max-width: 100 %;
+  max-width: 100%;
   background-color: #666666;
 }
+
 a {
   color: "#38d";
   text-decoration: none;

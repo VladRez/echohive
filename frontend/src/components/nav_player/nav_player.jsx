@@ -8,38 +8,65 @@ class NavPlayer extends React.Component {
     this.play = this.play.bind(this);
     this.pause = this.pause.bind(this);
     this.timeUpdate = this.timeUpdate.bind(this);
+
+    this.pause_path = "M11,10 L17,10 17,26 11,26 M20,10 L26,10 26,26 20,26";
+    this.play_path =
+      "M11,10 L18,13.74 18,22.28 11,26 M18,13.74 L26,18 26,18 18,22.28";
+    this.current_action_path = this.play_path;
   }
 
-  play() {
+  play(track) {
+    let currentActionPathStr = "current_action_path-";
+    let currentTrackRef = this.props.nav_player.track.src_url;
+    let currentTargetTrackId = `${currentActionPathStr}${currentTrackRef}`;
+
+    let feedTracks = document.getElementsByTagName("path");
+
+    for (let targetTrackPath of feedTracks) {
+      
+    
+      if (targetTrackPath.id === currentTargetTrackId) {
+        targetTrackPath.setAttribute("d", this.pause_path);
+      } else {
+        targetTrackPath.setAttribute("d", this.play_path);
+      }
+    }
     // debugger;
-    let trackbox_text = document.getElementById(`${this.props.nav_player.track.src_url}`);
-    // debugger;
-    let image_sourced = document.getElementById(`${this.props.nav_player.track.src_url}A`);
+    // let image_sourced = document.getElementById(`${this.props.nav_player.track.src_url}A`);
     // let image_sourced = document.querySelectorAll(`img.${this.props.nav_player.track.src_url}A`);
     // image_sourced.src = require("../../../src/playbuttonpng.png");
-    if (trackbox_text !== null) {
-      image_sourced.src = require("../../../src/pausebuttonpng.png");
-    }
+    // if (trackbox_text !== null) {
+    //   // image_sourced.src = require("../../../src/pausebuttonpng.png");
+    // }
 
     // if (image_sourced !== null) {
-      // image_sourced.src = require("../../../src/playbuttonpng.png");
+    // image_sourced.src = require("../../../src/playbuttonpng.png");
     // }
   }
 
   pause() {
-    let trackbox_text = document.getElementById(`${this.props.nav_player.track.src_url}`);
+    let trackbox_text = document.getElementById(
+      `${this.props.nav_player.track.src_url}`
+    );
 
-    let image_sourced = document.getElementById(`${this.props.nav_player.track.src_url}A`);
+    let image_sourced = document.getElementById(
+      `${this.props.nav_player.track.src_url}A`
+    );
     // image_sourced.src = require("../../../src/playbuttonpng.png");
-    debugger;
-    if (trackbox_text !== null) {
-      // trackbox_text.innerHTML = "fish!";
-      image_sourced.src = require("../../../src/playbuttonpng.png");
-    }
+    let btn_path = document.getElementById(
+      `current_action_path-${this.props.nav_player.track.src_url}`
+    );
+    btn_path.setAttribute("d", this.play_path);
 
-    if (image_sourced !== null) {
-      image_sourced.src = require("../../../src/playbuttonpng.png");
-    }
+    // if (trackbox_text !== null) {
+    //   // trackbox_text.innerHTML = "fish!";
+    //   // image_sourced.src = require("../../../src/playbuttonpng.png");
+
+    // }
+
+    // if (image_sourced !== null) {
+    //   // image_sourced.src = require("../../../src/playbuttonpng.png");
+    // }
   }
 
   timeUpdate() {
