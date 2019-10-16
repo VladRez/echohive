@@ -61,3 +61,28 @@
     width: 38px;
 }
 
+.track_item_author {
+    color: #999;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 100;
+    
+}
+
+.track_item_name {
+    font-size: 15px;
+    line-height: 1.2;
+    color: #333;
+
+    max-width: 100%;
+    font-weight: 100;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.track_item_canvas {
+    height: 60px;
+    position: relative;
+}
+

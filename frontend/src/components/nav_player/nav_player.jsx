@@ -69,7 +69,7 @@ class NavPlayer extends React.Component {
     // }
   }
 
-  timeUpdate() {
+  timeUpdate(track) {
     let progress_bar = document.getElementsByClassName(
       `${this.props.nav_player.track.src_url}`
     )[0];

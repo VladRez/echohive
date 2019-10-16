@@ -86,6 +86,7 @@ class TrackBox extends React.Component {
   }
 
   render() {
+    debugger
     let userLink = null;
     if (this.props.track) {
       userLink = this.props.track.user;
@@ -126,7 +127,8 @@ class TrackBox extends React.Component {
     // generate rgb color shade to assign to div background-color
 
     // "height: 30px;, width: 30px; border: 1px solid black"
-
+    let username = this.props.track ?  <div className="track_item_author"><Link style={{ textDecoration: 'none!important' }} to={`/user/${this.props.track.user}`}><span>{this.props.track.username}</span></Link></div> : ''
+    debugger
     return (
       <div className="track_item">
         <div className="track_item_body">
@@ -151,6 +153,13 @@ class TrackBox extends React.Component {
              </svg>
               
             </button>
+            <div className="track_item_usernameTitle">
+             {username}
+              <div className="track_item_name">
+              <Link  to={`/track/${this.props.id}`}><span style={{ textDecoration: 'none!important' }}>{this.props.trackname}</span></Link>
+              </div>
+            </div>
+
             </div>
             </div>
           </div>
