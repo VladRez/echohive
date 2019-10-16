@@ -102,11 +102,10 @@ class TrackShow extends React.Component {
               fetchComments={this.props.fetchComments}
               fetchNavTrack={this.props.fetchNavTrack}
             />
+
             <div className="logo-for-button" />
             <div className="outer-comment">
               <div className="show-comment-container">
-                <ul>{comments}</ul>
-              </div>
               <form className="show-comment-form" onSubmit={this.handleSubmit}>
                 <h2>comment:</h2>
                 <textarea
@@ -119,6 +118,9 @@ class TrackShow extends React.Component {
                 <br />
                 <input className="sub-button" type="submit" value="submit" />
               </form>
+                <ul>{comments}</ul>
+              </div>
+            
             </div>
           </div>
         </div>

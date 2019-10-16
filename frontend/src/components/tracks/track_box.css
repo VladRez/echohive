@@ -91,7 +91,7 @@
 
 #track_item_progress {
   width: 100%;
-  background-color: rgba(221, 221, 221, 0.37);
+  background: linear-gradient(to right, lightgrey , darkgrey);
   /* height: 30px; */
 }
 
@@ -100,4 +100,10 @@
     background: linear-gradient(to right, lightblue , darkblue);
       width: 0%;
      
+}
+
+.noCoverArt {
+    
+    width: 100%;
+    background: radial-gradient(lightblue, darkblue)
 }

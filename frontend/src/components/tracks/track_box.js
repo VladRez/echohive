@@ -31,14 +31,12 @@ class TrackBox extends React.Component {
     footer_player = document.getElementById("footer_player");
 
     this.props.fetchNavTrack(this.props.id).then(() => {
-      // debugger
 
       if (footer_player.paused && footer_player.src === this.props.src_url) {
-        // this.flip(false)
 
         footer_player.play();
       } else {
-        // this.flip(true)
+       
         footer_player.pause();
       }
     });
@@ -68,11 +66,6 @@ class TrackBox extends React.Component {
       userLink = this.props.track.user;
     }
 
-    // let commentMarkers;
-
-    // this.props.fetchComments();
-
-    // commentMarkers = this.props.comments
     let markers = [];
 
     if (this.props.comments) {
@@ -111,13 +104,14 @@ class TrackBox extends React.Component {
       ""
     );
 
+
     return (
       <div className="track_item">
         <div className="track_item_body">
           <div className="track_item_coverart">
             <Link to={`/track/${this.props.id}`}>
               <div style={{ height: "100%", width: "100%" }}>
-                <img className="coverart" src={this.props.img_src_url}></img>
+              <img className="coverart" src={this.props.img_src_url} onerror="this.style.display='none'"></img>
               </div>
             </Link>
           </div>
@@ -146,17 +140,16 @@ class TrackBox extends React.Component {
                       </span>
                     </Link>
                   </div>
-
-                  
+                    
                 </div>
                 <div class="track_item_canvas">
-                    <div id="track_item_progress">
-                      <div
-                        className="track_item_progress_bar"
-                        id={`track_item_progress_bar-${this.props.src_url}`}
-                      ></div>
-                    </div>
+                  <div id="track_item_progress">
+                    <div
+                      className="track_item_progress_bar"
+                      id={`track_item_progress_bar-${this.props.src_url}`}
+                    ></div>
                   </div>
+                </div>
               </div>
             </div>
           </div>

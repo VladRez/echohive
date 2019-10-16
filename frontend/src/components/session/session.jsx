@@ -61,7 +61,7 @@ const Session = props => {
                 alt="Slide 1"
               />
               <div className="tagline">
-          <p>Discover and enjoy the greatest selection of sound samples from the most diverse audio engineers.</p>
+          <p>Discover and enjoy the greatest selection of sound samples from the most diverse audio engineers</p>
         </div>
             </div>
           </div>
